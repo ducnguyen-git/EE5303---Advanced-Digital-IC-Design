@@ -1,6 +1,5 @@
 \documentclass[12pt,a4paper]{article}
 
-% Packages
 \usepackage{geometry}
 \usepackage{fontspec}
 \usepackage[vietnamese]{babel}
@@ -17,34 +16,17 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{pdflscape}
-\usepackage{listings}
 \usepackage[textfont=it,labelfont=normalfont]{caption}
 \usepackage{chngcntr}
 
-% Define colors
 \definecolor{bkblue}{RGB}{0,102,153}
-
-% Removed XeTeX font settings
-
-\lstset{
-    basicstyle=\ttfamily\small,
-    breaklines=true,
-    frame=single,
-    tabsize=2,
-    language=Verilog,
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{green!60!black}
-}
 
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-% Footnote settings - reset per page
 \usepackage{perpage}
 \MakePerPage{footnote}
 
-% Main geometry for portrait pages
 \geometry{
  a4paper,
  left=2.5cm,
@@ -53,16 +35,13 @@
  bottom=2cm,
 }
 
-% Set font size to 13pt for main content
 \renewcommand{\normalsize}{\fontsize{13pt}{15.6pt}\selectfont}
 \normalsize
 
-% Paragraph formatting per regulations
 \setlength{\parindent}{1cm}
 \setlength{\parskip}{6pt}
 \linespread{1.3}
 
-% Section formatting
 \titleformat{\section}
   {\centering\normalfont\fontsize{14}{17}\bfseries\MakeUppercase}
   {CHƯƠNG \thesection.\ }{0em}{}
@@ -76,7 +55,6 @@
   {\normalfont\fontsize{13}{16}\itshape}
   {\thesubsubsection.}{0.5em}{}
 
-% Page numbering
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\thepage}
@@ -86,129 +64,71 @@
 
 \begin{titlepage}
     \newgeometry{left=1.5cm, right=1.5cm, top=1cm, bottom=1cm}
-    
-    % Khung viền xanh kép
+
     \begin{tikzpicture}[remember picture, overlay]
-        \draw[bkblue, line width=2pt] 
-            ([shift={(0.8cm,-0.8cm)}]current page.north west) 
-            rectangle 
+        \draw[bkblue, line width=2pt]
+            ([shift={(0.8cm,-0.8cm)}]current page.north west)
+            rectangle
             ([shift={(-0.8cm,0.8cm)}]current page.south east);
-        \draw[bkblue, line width=0.5pt] 
-            ([shift={(1cm,-1cm)}]current page.north west) 
-            rectangle 
+        \draw[bkblue, line width=0.5pt]
+            ([shift={(1cm,-1cm)}]current page.north west)
+            rectangle
             ([shift={(-1cm,1cm)}]current page.south east);
     \end{tikzpicture}
-    
-    \centering
-    
-    \vspace*{0.5cm}
-    
-    {\fontsize{14}{17}\selectfont \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA}}
-    
-    \vspace{0.2cm}
-    
-    {\fontsize{14}{17}\selectfont \textbf{ĐẠI HỌC QUỐC GIA -- THÀNH PHỐ HỒ CHÍ MINH}}
-    
-    \vspace{0.3cm}
-    
-    {\color{bkblue} \textbf{------}}
-    
-    \vspace{0.8cm}
-    
-    % \includegraphics[height=2.5cm]{images/logo_bk.png} % Nếu có
-    
-    \vspace{1cm}
-    
-    {\fontsize{14}{17}\selectfont \textbf{BÁO CÁO MÔN HỌC (MM: EE5217)}}
-    
-    \vspace{0.3cm}
-    
-    {\fontsize{14}{17}\selectfont \color{bkblue} \textbf{ĐỀ TÀI:}}
-    
-    \vspace{0.2cm}
-    
-    {\fontsize{14}{17}\selectfont \textbf{DESIGN FOR TEST BY MEANS OF SCAN}}
 
-    \vspace{1.2cm}
-    
-    {\fontsize{13}{16}\selectfont \textbf{LỚP} ...... \hspace{1cm} \textbf{NHÓM} 7 \hspace{1cm} \textbf{HK 252}}
-    
+    \centering
+    \vspace*{0.5cm}
+
+    {\fontsize{14}{17}\selectfont \textbf{TRƯỜNG ĐẠI HỌC BÁCH KHOA}}
+    \vspace{0.2cm}
+
+    {\fontsize{14}{17}\selectfont \textbf{ĐẠI HỌC QUỐC GIA -- THÀNH PHỐ HỒ CHÍ MINH}}
     \vspace{0.3cm}
-    
-    {\fontsize{13}{16}\selectfont \textbf{Giảng viên hướng dẫn:} .........................................}
-    
+
+    {\color{bkblue} \textbf{------}}
     \vspace{0.8cm}
-    
-    \begin{center}
-    \renewcommand{\arraystretch}{1.2}
-    \fontsize{11}{13}\selectfont
-    \begin{tabular}{|c|l|c|}
-        \hline
-        \textbf{Stt} & \textbf{Học viên thực hiện} & \textbf{ID} \\
-        \hline
-        1 & Nguyễn Thái Thanh Bình & 2570175 \\
-        \hline
-        2 & Vũ Tiến Giang & 2570188 \\
-        \hline
-        3 & Phạm Huy Thanh & 2570317 \\
-        \hline
-        4 & Nguyễn Minh Đức & 2570662 \\
-        \hline
-    \end{tabular}
-    \end{center}
-    
-    \vfill
-    
-    {\fontsize{13}{16}\selectfont \textit{Thành phố Hồ Chí Minh -- \the\year}}
-    
+
+    {\fontsize{14}{17}\selectfont \textbf{EE5303 Advanced Digital IC Design}}
+    \vspace{0.35cm}
+
+    {\fontsize{13}{16}\selectfont Semester 2/2025--2026}
+    \vspace{1cm}
+
+    {\fontsize{16}{20}\selectfont \textbf{I2C MASTER CONTROLLER}}
+    \vspace{1.2cm}
+
+    {\fontsize{13}{16}\selectfont \textbf{Students:}}
     \vspace{0.5cm}
-    
+
+    \renewcommand{\arraystretch}{1.35}
+    \fontsize{12}{14}\selectfont
+    \begin{tabular}{r l}
+        Nguyễn Thái Thanh Bình & --- 2570175 \\
+        Vũ Tiến Giang & --- 2570188 \\
+        Phạm Huy Thanh & --- 2570317 \\
+        Trần Phan Quang Tân & --- 2570657 \\
+        Nguyễn Minh Đức & --- 2570662 \\
+    \end{tabular}
+
+    \vfill
+
+    {\fontsize{13}{16}\selectfont \textit{Thành phố Hồ Chí Minh -- \the\year}}
+
+    \vspace{0.5cm}
+
     \restoregeometry
 \end{titlepage}
 
-% ============ TÓM TẮT TỪ VỰNG ============
-\newpage
-\section*{DANH MỤC CÁC TỪ VIẾT TẮT}
-\addcontentsline{toc}{section}{DANH MỤC CÁC TỪ VIẾT TẮT}
-
-\begin{tabular}{l l}
-    \textbf{ATPG} & Automatic Test Pattern Generation (Tự động sinh mẫu kiểm thử) \\
-    \textbf{DFF} & D-Flip-Flop \\
-    \textbf{DFT} & Design for Test (Thiết kế Khả kiểm) \\
-    \textbf{MUX} & Multiplexer (Bộ dồn kênh) \\
-    \textbf{RTL} & Register Transfer Level (Mức độ khối thanh ghi) \\
-    \textbf{SFF} & Scan Flip-Flop (Flip-flop quét) \\
-\end{tabular}
-
-% ============ MỤC LỤC ============
 \newpage
 \tableofcontents
 
-% ============ NỘI DUNG ============
 \newpage
-\input{chapters/01_gioithieu.tex}
+\input{chapters/i2c_report_body.tex}
 
 \newpage
-\input{chapters/02_making_circuits_testable.tex}
-\newpage
-\input{chapters/03_testability_insertion.tex}
-\newpage
-\input{chapters/04_full_scan_dft.tex}
-\newpage
-\input{chapters/05_multiple_scan.tex}
-\newpage
-\input{chapters/06_rtl_scan_design.tex}
-\newpage
-\input{chapters/07_summary.tex}
+\section*{REFERENCES}
+\addcontentsline{toc}{section}{REFERENCES}
 
-% ============ TÀI LIỆU THAM KHẢO ============
-\newpage
-\section*{TÀI LIỆU THAM KHẢO}
-\addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
-\begin{enumerate}
-    \item \textbf{Michael L. Bushnell, Vishwani D. Agrawal}, \textit{Essentials of Electronic Testing for Digital, Memory and Mixed-Signal VLSI Circuits}, Springer, 2000. \textbf{Chương 7: Design for Testability}.
-    \item \textbf{Laung-Terng Wang, Cheng-Wen Wu, Xiaoqing Wen}, \textit{VLSI Test Principles and Architectures: Design for Testability}, Morgan Kaufmann, 2006.
-    \item \textbf{Synopsys, Inc.}, \textit{DFT Compiler User Guide}, Synopsys Documentation.
-\end{enumerate}
+\noindent Lattice Semiconductor (2015). I2C Master Controller, Reference Design RD1139.
 
 \end{document}

@@ -4,61 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo cáo trình chiếu môn học EE5217</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Urbanist:wght@400;700;800&family=Azeret+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/slides.css?v=35">
-    <link rel="stylesheet" href="css/presentation-tools.css?v=35">
+    <title>EE5303 — I2C Master Controller</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --accent: #006699;
+        }
 
-    <!-- Auto-render MathJax cho các công thức LaTeX ($...$) -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            startup: {
-                typeset: false // We trigger typeset manually after dynamic load
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 40rem;
+            margin: 2rem auto;
+            padding: 0 1.25rem;
+        }
+
+        h1 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin: 0.75rem 0;
+        }
+
+        code {
+            font-size: 0.95em;
+        }
+
+        a {
+            color: var(--accent);
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Loading Indicator -->
-    <div id="loading"
-        style="position: fixed; inset: 0; background: #000; color: white; display: flex; align-items: center; justify-content: center; z-index: 9999;">
-        <div style="text-align: center;">
-            <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; margin-bottom: 20px;"></i>
-            <h2>Đang tải bài thuyết trình...</h2>
-            <p id="loading-text" style="color: #888;">Nếu chầm, hãy đảm bảo bạn đang chạy file này bằng
-                <b>start_presentation.bat</b>
-            </p>
-        </div>
-    </div>
-
-    <!-- Slides will be injected here -->
-    <main id="slides_wrapper"></main>
-
-    <!-- Controls -->
-    <div id="controls">
-        <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="btn" onclick="togglePresentation()"><i class="fa-solid fa-play"></i></button>
-        <button class="btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
-
-    <!-- Counter -->
-    <div id="counter">1 / --</div>
-
-    <script src="js/presentation.js?v=35"></script>
-    <script src="js/presentation-tools.js?v=35"></script>
+    <h1>EE5303 Advanced Digital IC Design</h1>
+    <p><strong>I2C Master Controller</strong> — báo cáo môn học (nội dung theo tài liệu RD1139 / đề tài nhóm).</p>
+    <p>Nguồn LaTeX: <code>main.tex</code> và <code>chapters/i2c_report_body.tex</code>. PDF được tạo bằng XeLaTeX hoặc qua GitHub Actions (artifact <strong>ee5303-i2c-baocao-pdf</strong> và mục Releases).</p>
+    <p>Tham chiếu: Lattice Semiconductor (2015), <em>I2C Master Controller, Reference Design RD1139</em>.</p>
 </body>
 
 </html>
