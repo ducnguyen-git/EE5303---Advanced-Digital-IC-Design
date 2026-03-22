@@ -8,6 +8,9 @@ Báo cáo môn **Advanced Digital IC Design (EE5303)**: thiết kế **I2C Maste
 |------|--------|
 | `main.tex` | Preamble, trang bìa, mục lục, REFERENCES |
 | `chapters/i2c_report_body.tex` | Toàn bộ chương nội dung báo cáo |
+| `figures/i2c_from_docx/fig01.png` … `fig08.png` | Hình trích từ `I2C-Master-Controller-Report.docx` (đồng thứ tự Figure 1–8) |
+
+Để trích lại hình sau khi sửa file Word: `python scripts/extract_i2c_figures_from_docx.py` (cần đặt `.docx` ở thư mục gốc repo).
 
 ## Biên dịch (local)
 
