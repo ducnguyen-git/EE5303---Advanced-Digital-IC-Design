@@ -1,0 +1,198 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.3.
+        Mục tiêu của Scan Design (1/3)</h1>
+
+    <p style="font-size: 1.4rem; margin-bottom: 25px; text-align: justify;">Mục tiêu cốt lõi của phương pháp Scan Design
+        trong thiết
+        kế vi mạch hướng kiểm thử (DFT) là đảm bảo vi mạch có thể được kiểm tra <b>chính xác, phát hiện lỗi nhanh chóng
+            với chi
+            phí hợp lý</b>. Cụ thể bao gồm 3 mục tiêu chính:</p>
+
+    <div style="display: flex; gap: 40px; margin-top: 20px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #FAFCFF; padding: 30px; border-radius: 16px; border-top: 5px solid #005ce6; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <ul
+                style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6; text-align: justify;">
+                <li style="margin-bottom: 25px;">
+                    <b style="color: #005ce6; font-size: 1.6rem;"><i class="fa-solid fa-medal"></i> Guarantee the LSI
+                        product quality</b><br><br>
+                    Đảm bảo chất lượng tuyệt đối của chip LSI (Large-Scale Integration) sau sản xuất bằng cách sàng lọc
+                    và loại bỏ hoàn toàn các vi mạch mang khiếm khuyết vật lý trước khi đến tay khách hàng.
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes verify-pulse {
+                    0% {
+                        transform: scale(0.9);
+                        opacity: 0.7;
+                    }
+
+                    50% {
+                        transform: scale(1.1);
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: scale(0.9);
+                        opacity: 0.7;
+                    }
+                }
+
+                .anim-verify {
+                    animation: verify-pulse 2s infinite ease-in-out;
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #bfdbfe; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative;">
+
+                <h3 style="color: #1d4ed8; margin-bottom: 20px; font-size: 1.4rem;">High Quality Assurance</h3>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative; height: 120px;">
+                    <i class="fa-solid fa-microchip"
+                        style="font-size: 5rem; color: #64748b; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); z-index: 2;"></i>
+                    <i class="fa-solid fa-circle-check anim-verify"
+                        style="font-size: 3rem; color: #10b981; position: absolute; bottom: 0px; right: 25%; z-index: 3; background: white; border-radius: 50%;"></i>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Đảm bảo
+                chip đạt chất lượng hoàn hảo trước khi xuất xưởng.</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.3.
+        Mục tiêu của Scan Design (2/3)</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 40px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #fff1f2; padding: 30px; border-radius: 16px; border-top: 5px solid #ff4d4f; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <ul
+                style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6; text-align: justify;">
+                <li style="margin-bottom: 25px; text-align: justify;">
+                    <b style="color: #ff4d4f; font-size: 1.6rem;"><i class="fa-solid fa-gears"></i> Improve manufacture
+                        process</b><br><br>
+                    Cải thiện và tinh chỉnh quy trình sản xuất (yield improvement) thông qua việc phân tích điểm nghẽn,
+                    lỗi lặp lại từ dữ liệu chạy test của mẫu lỗi được SCAN xuất ra (shifted out).
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes gear-spin {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .anim-gear {
+                    animation: gear-spin 4s infinite linear;
+                }
+
+                .anim-gear-reverse {
+                    animation: gear-spin 4s infinite linear reverse;
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #fca5a5; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative; overflow: hidden;">
+
+                <h3
+                    style="color: #b91c1c; margin-bottom: 20px; font-size: 1.4rem; z-index: 2; position: relative; background: white; padding: 0 10px;">
+                    Manufacturing Improvement</h3>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: center; width: 100%; position: relative; height: 120px;">
+                    <i class="fa-solid fa-gear anim-gear"
+                        style="font-size: 4rem; color: #f87171; position: absolute; left: 30%;"></i>
+                    <i class="fa-solid fa-gear anim-gear-reverse"
+                        style="font-size: 3rem; color: #ef4444; position: absolute; right: 35%; top: 20px;"></i>
+                    <i class="fa-solid fa-seedling"
+                        style="font-size: 2.5rem; color: #10b981; position: absolute; bottom: 0;"></i>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Tối ưu hóa
+                quy trình chế tạo để nâng cao năng suất (Yield).</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.3.
+        Mục tiêu của Scan Design (3/3)</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 40px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #f0fdf4; padding: 30px; border-radius: 16px; border-top: 5px solid #52c41a; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <ul style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px; text-align: justify;">
+                    <b style="color: #22c55e; font-size: 1.6rem;"><i class="fa-solid fa-money-bill-trend-up"></i>
+                        Optimize test cost</b><br><br>
+                    Giảm thời gian tổng hợp Pattern (ATPG), tối ưu hóa thời gian đứng máy (Test time) của thiết bị kiểm
+                    thử đắt tiền (ATE), qua đó tối ưu chi phí (Test cost) đáng kể so với phương pháp kiểm thử chức năng
+                    mù mờ.
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes cost-down {
+                    0% {
+                        transform: translateY(-5px);
+                        opacity: 0.8;
+                    }
+
+                    50% {
+                        transform: translateY(5px);
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: translateY(-5px);
+                        opacity: 0.8;
+                    }
+                }
+
+                .anim-cost {
+                    animation: cost-down 2s infinite ease-in-out;
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #86efac; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; position: relative;">
+
+                <h3 style="color: #15803d; margin-bottom: 20px; font-size: 1.4rem;">Test Cost Reduction</h3>
+
+                <div
+                    style="position: relative; width: 150px; height: 120px; display: flex; align-items: center; justify-content: center;">
+
+                    <i class="fa-solid fa-money-bill-wave anim-cost"
+                        style="font-size: 4rem; color: #22c55e; position: absolute; left: 10px;"></i>
+                    <i class="fa-solid fa-arrow-trend-down"
+                        style="font-size: 3.5rem; color: #16a34a; position: absolute; right: 20px; top: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);"></i>
+                    <i class="fa-regular fa-clock"
+                        style="font-size: 2rem; color: #64748b; position: absolute; bottom: 0;"></i>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Giảm thiểu
+                thời gian chuẩn bị và chi phí khi vận hành trên ATE.</p>
+        </div>
+    </div>
+</div>

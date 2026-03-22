@@ -1,0 +1,158 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.2.
+        Bối cảnh & Vai trò của Scan Design (1/2)</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #fff1f2; padding: 30px; border-radius: 16px; border-top: 5px solid #ff4d4f; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-chart-line"></i> Bối cảnh
+                (Background)</h2>
+            <ul style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;">Mật độ tích hợp ngày càng cao làm số lượng transistor và phần tử tuần
+                    tự tăng mạnh, khiến độ phức tạp của chip tăng nhanh.</li>
+                <li style="margin-bottom: 15px;"><b>Test Time (Thời gian kiểm thử)</b> tăng mạnh do số lượng vector kiểm
+                    thử (test vectors) cần sinh ra khổng lồ.</li>
+                <li style="margin-bottom: 15px;"><b>Test Cost (Chi phí kiểm thử)</b> trở thành một phần đáng kể trong
+                    tổng chi phí sản xuất IC do yêu cầu thiết bị kiểm thử tự động (ATE - Automatic Test Equipment) đắt
+                    đỏ và thời gian chạy lâu.</li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes draw-line {
+                    0% {
+                        stroke-dashoffset: 400;
+                        opacity: 0;
+                    }
+
+                    20% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        stroke-dashoffset: 0;
+                        opacity: 1;
+                    }
+                }
+
+                .anim-line {
+                    stroke-dasharray: 400;
+                    stroke-dashoffset: 400;
+                    animation: draw-line 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 25px 30px; border-radius: 16px; border: 2px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <h3
+                    style="color: #b91c1c; margin-bottom: 20px; font-size: 1.4rem; text-transform: uppercase; text-align: center; line-height: 1.4;">
+                    <i class="fa-solid fa-arrow-trend-up"></i> Tốc độ tăng trưởng của chi phí kiểm thử so với độ phức
+                    tạp của chip
+                </h3>
+
+                <div style="display: flex; width: 100%; height: 170px; align-items: stretch;">
+                    <div style="width: 40px; display: flex; align-items: center; justify-content: center;">
+                        <span
+                            style="transform: rotate(-90deg); font-weight: bold; color: #64748b; font-size: 1.1rem; white-space: nowrap;">Chi
+                            phí kiểm thử</span>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column;">
+                        <div
+                            style="flex: 1; border-left: 3px solid #cbd5e1; border-bottom: 3px solid #cbd5e1; position: relative;">
+                            <svg viewBox="0 0 300 150" preserveAspectRatio="none"
+                                style="width: 100%; height: 100%; overflow: visible; position: absolute; top: 0; left: 0;">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2"
+                                        orient="auto">
+                                        <polygon points="0 0, 6 2, 0 4" fill="#ef4444" />
+                                    </marker>
+                                </defs>
+                                <path class="anim-line" d="M 0 148 C 100 145, 180 110, 290 10" fill="none"
+                                    stroke="#ef4444" stroke-width="4" stroke-linecap="round"
+                                    marker-end="url(#arrowhead)"
+                                    filter="drop-shadow(0px 4px 6px rgba(239, 68, 68, 0.5))" />
+                            </svg>
+                        </div>
+                        <div
+                            style="height: 35px; display: flex; align-items: flex-end; justify-content: center; font-weight: bold; color: #64748b; font-size: 1.1rem;">
+                            Độ phức tạp của chip
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">
+        1.2.
+        Background & Vai trò của Scan Design (2/2)</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #f0fdf4; padding: 30px; border-radius: 16px; border-top: 5px solid #00cc66; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-microchip"></i> Vai trò của
+                Scan Design</h2>
+            <ul style="font-size: 1.4rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;"><b>Scan Design</b> là phương pháp hiệu quả nhất để giải quyết bài toán
+                    chi phí
+                    và thời gian kiểm thử cho mạch kỹ thuật số.</li>
+                <li style="margin-bottom: 15px;">Biến quá trình kiểm thử <b>Mạch Tuần Tự (Sequential)</b> phức tạp thành
+                    việc
+                    kiểm thử các khối <b>Logic Tổ Hợp (Combinational)</b> đơn giản hơn rất nhiều.</li>
+                <li style="margin-bottom: 15px;">Giúp các <b>Công cụ sinh mẫu thử tự động (ATPG - Automatic Test Pattern
+                        Generation)</b> đạt <b>Độ bao phủ lỗi (Fault Coverage)</b> rất cao trong khoảng thời gian ngắn.
+                </li>
+                <li style="margin-top: 15px; font-weight: bold; color: #005ce6;"><i class="fa-solid fa-arrow-right"></i>
+                    Phát hiện ra lỗi của chip sau khi sản xuất
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes pulse-shield {
+                    0% {
+                        transform: scale(0.95);
+                        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+                    }
+
+                    70% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+                    }
+
+                    100% {
+                        transform: scale(0.95);
+                        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+                    }
+                }
+
+                .anim-shield {
+                    animation: pulse-shield 2s infinite;
+                    border-radius: 50%;
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 30px; border-radius: 16px; border: 2px dashed #86efac; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <div class="anim-shield"
+                    style="background: #dcfce7; padding: 30px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 6rem; color: #10b981;"></i>
+                </div>
+
+                <div style="text-align: center;">
+                    <h3 style="color: #047857; margin-bottom: 10px; font-size: 1.6rem;">Cứu Tinh Kỹ Thuật Số</h3>
+                    <p style="color: #64748b; font-size: 1.2rem; margin: 0;">Giảm thiểu rủi ro, tối đa hóa Coverage</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Scan làm
+                rào chắn bảo vệ chất lượng IC.</p>
+        </div>
+    </div>
+</div>

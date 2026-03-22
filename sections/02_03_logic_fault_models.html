@@ -1,0 +1,250 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">2.
+        Thiết Kế Mạch Khả Kiểm (Tiếp)</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-bug"></i>2.6. Mô
+        hình Lỗi Logic - Logic Fault Models
+    </h2>
+
+    <p style="font-size: 1.35rem; margin-bottom: 25px;">Để làm rõ tại sao cần SCAN khi kiểm thử logic, ta cần định nghĩa
+        các mô hình lỗi cơ bản có thể xảy ra trong quá trình sản xuất vi mạch:</p>
+
+    <div style="display: flex; gap: 40px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #fff1f2; padding: 30px; border-radius: 16px; border-top: 5px solid #ff4d4f; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;"><b>Stuck-at Faults (Lỗi kẹt):</b> Lỗi phổ biến nhất. Một node logic bị
+                    "kẹt" cố định ở mức 0 (Stuck-at-0) hoặc mức 1 (Stuck-at-1), bất kể đầu vào là gì.</li>
+                <li style="margin-bottom: 15px;"><b>Transition/Delay Faults (Lỗi trễ):</b> Lỗi về mặt thời gian. Node
+                    phân phối chậm khi chuyển từ 0 lên 1 (Slow-to-Rise) hoặc 1 xuống 0 (Slow-to-Fall).</li>
+                <li style="margin-bottom: 15px;"><b>Bridging Faults (Lỗi chập chập):</b> Xảy ra khi hai dây tín hiệu bị
+                    ngắn mạch (shorted) với nhau do lỗi gia công.</li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; gap: 15px; justify-content: center;">
+            <style>
+                @keyframes signal-stuck {
+                    0% {
+                        width: 0%;
+                        background: #3b82f6;
+                    }
+
+                    49% {
+                        width: 45%;
+                        background: #3b82f6;
+                    }
+
+                    50% {
+                        width: 50%;
+                        background: #ef4444;
+                    }
+
+                    100% {
+                        width: 100%;
+                        background: #ef4444;
+                    }
+                }
+
+                @keyframes sparks {
+
+                    0%,
+                    100% {
+                        opacity: 0;
+                        transform: scale(0.5) rotate(0deg);
+                    }
+
+                    50% {
+                        opacity: 1;
+                        transform: scale(1.5) rotate(45deg);
+                        filter: drop-shadow(0 0 5px #eab308);
+                    }
+                }
+
+                @keyframes delay-wave {
+                    0% {
+                        stroke-dashoffset: 100;
+                        -webkit-mask-position: 0px;
+                    }
+
+                    100% {
+                        stroke-dashoffset: -100;
+                        -webkit-mask-position: 200px;
+                    }
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); padding: 25px; border-radius: 12px; border: 1px solid #334155; box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 10px 30px rgba(15, 23, 42, 0.4); display: flex; flex-direction: column; align-items: stretch; justify-content: space-around; height: 100%; gap: 20px;">
+
+                <!-- Stuck-at Fault -->
+                <div
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
+                    <span
+                        style="color: #f87171; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[1]
+                        STUCK-AT FAULT</span>
+                    <div style="height: 30px; display: flex; align-items: center; position: relative; margin-top: 5px;">
+                        <div
+                            style="width: 100%; height: 4px; background: #334155; border-radius: 2px; position: relative; overflow: hidden; box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);">
+                            <div
+                                style="height: 100%; animation: signal-stuck 2s infinite; box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);">
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-thumbtack"
+                            style="position: absolute; left: 45%; top: -15px; color: #ef4444; font-size: 1.2rem; transform: rotate(45deg);"></i>
+                        <span
+                            style="position: absolute; left: 50%; top: -20px; color: #ef4444; font-weight: bold; font-family: monospace;">SA0</span>
+                    </div>
+                </div>
+
+                <!-- Bridging Fault -->
+                <div
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
+                    <span
+                        style="color: #facc15; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[2]
+                        BRIDGING FAULT</span>
+                    <div style="height: 40px; position: relative; margin-top: 5px;">
+                        <div
+                            style="position: absolute; top: 10px; width: 100%; height: 4px; background: #22c55e; box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);">
+                        </div>
+                        <div
+                            style="position: absolute; top: 30px; width: 100%; height: 4px; background: #3b82f6; box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);">
+                        </div>
+                        <!-- Short circuit connection -->
+                        <div
+                            style="position: absolute; left: 50%; top: 10px; width: 4px; height: 24px; background: #eab308; box-shadow: 0 0 12px #facc15;">
+                        </div>
+                        <i class="fa-solid fa-bolt"
+                            style="position: absolute; left: calc(50% - 6px); top: 12px; font-size: 1.1rem; color: #fef08a; animation: sparks 0.5s infinite; filter: drop-shadow(0 0 8px #facc15);"></i>
+                    </div>
+                </div>
+
+                <!-- Delay Fault -->
+                <div
+                    style="background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); padding: 15px; border-radius: 8px; position: relative; margin-top: 10px; border: 1px solid #334155;">
+                    <span
+                        style="color: #c084fc; font-weight: bold; font-family: monospace; font-size: 0.85rem; position: absolute; top: -12px; left: 15px; background: #1e293b; padding: 0 5px; border-radius: 4px;">[3]
+                        DELAY FAULT</span>
+                    <div style="height: 40px; position: relative; margin-top: 5px; display: flex; align-items: center;">
+                        <svg width="100%" height="40" style="position: absolute;">
+                            <!-- Expected Clock -->
+                            <path d="M 0 30 L 40 30 L 40 10 L 80 10 L 80 30 L 120 30" fill="none" stroke="#475569"
+                                stroke-width="2" stroke-dasharray="4 4"
+                                style="filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));" />
+                            <!-- Actual Sluggish Clock -->
+                            <path d="M 0 30 L 55 30 L 70 10 L 110 10 L 130 30" fill="none" stroke="#c084fc"
+                                stroke-width="3"
+                                style="stroke-dasharray: 200; animation: delay-wave 2s infinite linear; filter: drop-shadow(0 0 5px #c084fc);" />
+                        </svg>
+                        <span
+                            style="position: absolute; right: 10px; color: #d8b4fe; font-weight: bold; font-size: 0.8rem; font-family: monospace; text-shadow: 0 0 8px rgba(192, 132, 252, 0.8);">>
+                            t_setup violation</span>
+                    </div>
+                </div>
+
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Các hình
+                thức lỗi vật lý phổ biến tàn phá logic.</p>
+        </div>
+    </div>
+</div>
+
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">2.
+        Thiết Kế Mạch Khả Kiểm (Tiếp)</h1>
+    <h2 class="gradient-text" style="font-size: 2.2rem; margin-bottom: 25px;"><i class="fa-solid fa-microchip"></i>2.7.
+        Tại
+        sao cần SCAN Design?</h2>
+
+    <div style="display: flex; gap: 40px; align-items: stretch; width: 100%;">
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #f0fdf4; padding: 30px; border-radius: 16px; border-top: 5px solid #00cc66; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);">
+            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;">Trong <b>>Mạch Tuần Tự (Sequential Circuit)</b>, trạng thái nằm ẩn bên
+                    trong các
+                    Flip-Flops. Việc phát hiện các lỗi logic này bằng cách điều khiển đầu vào từ ngoài và quan
+                    sát đầu ra là siêu khó khăn.</li>
+                <li style="margin-bottom: 15px;"><b>Giải pháp SCAN:</b> Biến các <b>Flip-Flops</b> thành <b>Dây chuyền
+                        dịch (Shift
+                        Register)</b>. Cho phép <b>"Shift"</b> trực tiếp dữ liệu (1/0) vào bất cứ vị trí FF nào
+                    (Controllability).</li>
+                <li style="margin-bottom: 15px;">Việc test mạch tuần tự bài toán giờ đây quy về giống bài toán test mạch
+                    tổ hợp có thể quan sát đầu ra dễ dàng (Observability).</li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes scan-shift-bits {
+                    0% {
+                        transform: translateX(-50px);
+                        opacity: 0;
+                    }
+
+                    20% {
+                        transform: translateX(-10px);
+                        opacity: 1;
+                    }
+
+                    80% {
+                        transform: translateX(50px);
+                        opacity: 1;
+                    }
+
+                    100% {
+                        transform: translateX(80px);
+                        opacity: 0;
+                    }
+                }
+            </style>
+
+            <div class="text-block-shadow"
+                style="background: white; padding: 25px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; height: 100%; overflow: hidden;">
+
+                <h3 style="color: #047857; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">From
+                    Hidden To Observable</h3>
+
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; width: 100%; position: relative; padding: 0 20px;">
+
+                    <!-- Dark Box -->
+                    <div
+                        style="background: #1e293b; border: 2px solid #0f172a; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; z-index: 2; box-shadow: 0 10px 15px rgba(0,0,0,0.3);">
+                        <i class="fa-solid fa-lock" style="font-size: 2.5rem; color: #94a3b8;"></i>
+                        <span
+                            style="color: #94a3b8; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">INTERNAL
+                            FFs</span>
+                    </div>
+
+                    <!-- Shift Pipeline -->
+                    <div
+                        style="position: absolute; left: 80px; right: 80px; height: 2px; border-bottom: 2px dashed #cbd5e1; top: 50%; z-index: 1;">
+                        <!-- Animated Bits -->
+                        <div
+                            style="position: absolute; top: -15px; display: flex; gap: 5px; animation: scan-shift-bits 2.5s infinite linear;">
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                            <span
+                                style="background: #10b981; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(16,185,129,0.6);">0</span>
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                            <span
+                                style="background: #3b82f6; color: white; font-family: monospace; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 0 10px rgba(59,130,246,0.6);">1</span>
+                        </div>
+                    </div>
+
+                    <!-- Output Tester -->
+                    <div
+                        style="background: #f0fdf4; border: 2px solid #22c55e; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; z-index: 2; box-shadow: 0 5px 15px rgba(34,197,94,0.2);">
+                        <i class="fa-solid fa-eye" style="font-size: 2.5rem; color: #10b981;"></i>
+                        <span
+                            style="color: #166534; font-family: monospace; font-size: 0.8rem; margin-top: 5px;">TESTER/DEBUGGER</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Dây chuyền
+                SCAN kéo tuột các bit trạng thái bí mật ra ngoài ánh sáng.</p>
+        </div>
+    </div>
+</div>

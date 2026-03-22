@@ -1,0 +1,219 @@
+<div class="slide slide-container">
+    <h1 style="border-bottom: 3px solid #005ce6; padding-bottom: 15px; display: inline-block;" class="gradient-text">5.
+        Các Kiến Trúc Scan (Tiếp)</h1>
+
+    <div style="display: flex; gap: 40px; margin-top: 30px; align-items: stretch; width: 100%;">
+        <div class="text-block-shadow"
+            style="flex: 1; min-width: 0; max-width: 50%; text-align: left; background: #ffffff; padding: 30px; border-radius: 16px; border-top: 5px solid #8a2be2;">
+            <h2 class="gradient-text" style="margin-bottom: 20px;"><i class="fa-solid fa-puzzle-piece"></i> 5.5 Các
+                Phương Pháp Scan Khác</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 15px;">Bên cạnh Full Scan, Shadow Register và Multiple Scan, kỹ
+                thuật DFT còn hỗ trợ các biến thể thiết kế sau để tối ưu hóa hiệu năng, độ trễ và cả chi phí die diện
+                tích:</p>
+            <ul style="font-size: 1.25rem; color: var(--text-color); margin-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;"><b>LSSD (Level-Sensitive Scan Design):</b>
+                    <ul style="margin-top: 5px;">
+                        <li>Thiết kế đặc trưng của IBM dựa trên Mạch chốt (Latch) thay vì Flip-Flop.</li>
+                        <li>Sử dụng cấu hình phân tách cổng D (Data) và cổng Scan độc lập.</li>
+                        <li>Loại bỏ hoàn toàn rủi ro Delay Faults / Race Condition do xung đột mạch dọc chuỗi truyền tín
+                            hiệu.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 15px;"><b>Scan Truy Cập Ngẫu Nhiên (Random Access Scan):</b>
+                    <ul style="margin-top: 5px;">
+                        <li>Biến các Flip-Flop trong hệ thống thành một lưới địa chỉ giống như RAM (SRAM tĩnh).</li>
+                        <li>Dùng bộ giải mã địa chỉ (Address Decoder) để ghi/đọc từng Flip-Flop mà không cần phải đẩy dữ
+                            liệu nối tiếp (shift) qua toàn bộ chuỗi.</li>
+                        <li>Tránh được giới hạn tốn quá nhiều xung nhịp (clock cycles) của Full Scan truyền thống.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div
+            style="flex: 1; min-width: 0; max-width: 50%; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+            <style>
+                @keyframes grid-scan-x {
+
+                    0%,
+                    100% {
+                        top: 15px;
+                    }
+
+                    25% {
+                        top: 45px;
+                    }
+
+                    50% {
+                        top: 75px;
+                    }
+
+                    75% {
+                        top: 105px;
+                    }
+                }
+
+                @keyframes grid-scan-y {
+
+                    0%,
+                    100% {
+                        left: 15px;
+                    }
+
+                    30% {
+                        left: 45px;
+                    }
+
+                    60% {
+                        left: 75px;
+                    }
+
+                    90% {
+                        left: 105px;
+                    }
+                }
+
+                @keyframes target-hit {
+
+                    0%,
+                    90% {
+                        background: #cbd5e1;
+                        box-shadow: none;
+                        transform: scale(1);
+                    }
+
+                    10%,
+                    80% {
+                        background: #a855f7;
+                        box-shadow: 0 0 10px #c084fc;
+                        transform: scale(1.2);
+                    }
+                }
+            </style>
+
+            <!-- LSSD Diagram Box -->
+            <div class="text-block-shadow"
+                style="background: #1e293b; padding: 20px; border-radius: 16px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <h3
+                    style="color: #38bdf8; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">
+                    LSSD Shift Register Latch (SRL)</h3>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%;">
+
+                    <!-- Latch Inputs -->
+                    <div
+                        style="display: flex; flex-direction: column; gap: 10px; font-weight: bold; font-size: 0.8rem; text-align: right; margin-right: 5px;">
+                        <span
+                            style="color: #60a5fa; display: flex; align-items: center; justify-content: flex-end; gap: 5px;">Data
+                            (D) <div style="width: 15px; height: 2px; background: #60a5fa;"></div></span>
+                        <span
+                            style="color: #f472b6; display: flex; align-items: center; justify-content: flex-end; gap: 5px;">Clock
+                            (C) <div style="width: 15px; height: 2px; background: #f472b6;"></div></span>
+                        <span
+                            style="color: #a78bfa; display: flex; align-items: center; justify-content: flex-end; gap: 5px;">Scan
+                            In (I) <div style="width: 15px; height: 2px; background: #a78bfa;"></div></span>
+                        <span
+                            style="color: #fbbf24; display: flex; align-items: center; justify-content: flex-end; gap: 5px;">Clock
+                            (A) <div style="width: 15px; height: 2px; background: #fbbf24;"></div></span>
+                    </div>
+
+                    <!-- L1 Latch Box -->
+                    <div
+                        style="width: 70px; height: 100px; background: #0f172a; border: 2px solid #38bdf8; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; box-shadow: inset 0 0 10px rgba(56, 189, 248, 0.2);">
+                        <span style="color: #e0f2fe; font-weight: bold; font-size: 1rem;">L1</span>
+                        <span style="color: #7dd3fc; font-size: 0.7rem;">(Master)</span>
+                    </div>
+
+                    <!-- Internal Connection -->
+                    <div style="width: 25px; height: 2px; background: #64748b;"></div>
+
+                    <!-- L2 Latch Box -->
+                    <div
+                        style="width: 70px; height: 100px; background: #0f172a; border: 2px solid #4ade80; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; box-shadow: inset 0 0 10px rgba(74, 222, 128, 0.2);">
+                        <span style="color: #f0fdf4; font-weight: bold; font-size: 1rem;">L2</span>
+                        <span style="color: #86efac; font-size: 0.7rem;">(Slave)</span>
+
+                        <!-- clock B input to L2 -->
+                        <div
+                            style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 20px; background: #fb923c;"></div>
+                            <span
+                                style="color: #fb923c; font-weight: bold; font-size: 0.8rem; text-align: center; margin-top: 2px;">Clock
+                                (B)</span>
+                        </div>
+                    </div>
+
+                    <!-- Output -->
+                    <div
+                        style="display: flex; flex-direction: column; font-weight: bold; font-size: 0.8rem; text-align: left; margin-left: 5px;">
+                        <span style="color: #cbd5e1; display: flex; align-items: center; gap: 5px;">
+                            <div style="width: 15px; height: 2px; background: #cbd5e1;"></div> Data Out /<br>Scan Out
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Random Access Scan Box -->
+            <div class="text-block-shadow"
+                style="background: #1e293b; padding: 25px; border-radius: 16px; border: 2px solid #334155; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <h3
+                    style="color: #c084fc; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">
+                    Random Access Scan Array</h3>
+
+                <div style="display: flex; gap: 20px; align-items: flex-end;">
+                    <!-- Y Decoder -->
+                    <div
+                        style="width: 20px; height: 120px; background: #334155; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-around; padding: 5px 0;">
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                        <div style="width: 100%; height: 2px; background: #64748b;"></div>
+                    </div>
+
+                    <!-- Array Grid -->
+                    <div
+                        style="position: relative; width: 130px; height: 130px; background: #0f172a; border: 2px solid #475569; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 5px; padding: 10px;">
+
+                        <!-- Scanner Lasers -->
+                        <div
+                            style="position: absolute; width: 100%; height: 2px; background: rgba(192, 132, 252, 0.5); left: 0; animation: grid-scan-x 4s infinite steps(4); box-shadow: 0 0 8px #c084fc; z-index: 2;">
+                        </div>
+                        <div
+                            style="position: absolute; height: 100%; width: 2px; background: rgba(192, 132, 252, 0.5); top: 0; animation: grid-scan-y 5s infinite steps(4); box-shadow: 0 0 8px #c084fc; z-index: 2;">
+                        </div>
+
+                        <!-- Cells (FFs) -->
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px; animation: target-hit 20s infinite;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                        <div style="background: #cbd5e1; border-radius: 2px;"></div>
+                    </div>
+                </div>
+
+                <!-- X Decoder -->
+                <div
+                    style="width: 120px; height: 20px; background: #334155; border-radius: 4px; display: flex; justify-content: space-around; padding: 0 5px; margin-left: 40px; margin-top: 10px; align-items: center;">
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                    <div style="height: 100%; width: 2px; background: #64748b;"></div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #64748b; font-style: italic; font-size: 0.95rem;">Minh họa: Mạng lưới
+                FF được đọc/ghi trực tiếp theo tọa độ X-Y (Random Access) bỏ qua việc dồn dịch tuần tự.</p>
+        </div>
+    </div>
+</div>
