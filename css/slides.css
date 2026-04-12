@@ -245,3 +245,60 @@ body.presentation-mode .slide.active {
   color: #cbd5e1;
   font-size: 1.2rem;
 }
+
+/* ─── Slides nạp từ sections_i2c/*.html (đường dẫn ảnh gốc = index.html) ───
+   Chữ lớn hơn, ảnh hiển thị đủ; ghi đè font-size inline nhỏ (không dùng !important trên inline — dùng layer đủ specificity) */
+.slide.slide-container {
+  font-size: 1.35rem;
+  line-height: 1.52;
+}
+
+.slide.slide-container h1.gradient-text {
+  font-size: clamp(2.35rem, 4.5vw, 3.4rem) !important;
+  line-height: 1.12 !important;
+}
+
+.slide.slide-container h2,
+.slide.slide-container h2.gradient-text {
+  font-size: clamp(1.95rem, 3.4vw, 2.75rem) !important;
+  line-height: 1.2 !important;
+}
+
+.slide.slide-container h3 {
+  font-size: 1.55rem !important;
+}
+
+.slide.slide-container p,
+.slide.slide-container li,
+.slide.slide-container td,
+.slide.slide-container th,
+.slide.slide-container ol,
+.slide.slide-container ul {
+  font-size: 1.28rem !important;
+  line-height: 1.48 !important;
+}
+
+.slide.slide-container table {
+  font-size: 1.22rem !important;
+}
+
+.slide.slide-container figcaption {
+  font-size: 1.15rem !important;
+}
+
+/* Ảnh minh họa: cao hơn mặc định .slide img 400px */
+.slide.slide-container img {
+  max-height: min(560px, 58vh) !important;
+  width: auto;
+}
+
+.slide.slide-container code {
+  font-size: 0.95em;
+}
+
+/* Bỏ giới hạn 800px của .slide p để khối chữ rộng, dễ đọc khi trình chiếu */
+.slide.slide-container p,
+.slide.slide-container ul,
+.slide.slide-container ol {
+  max-width: min(1180px, 100%) !important;
+}

@@ -1,14 +1,15 @@
 <div class="slide slide-container"
     style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
     <h1 class="gradient-text"
-        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 14px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.5rem;">
         Fig01 — Sơ đồ khối I2C Master</h1>
-    <p style="font-size: 1.02rem; color: #475569; margin: -0.35rem 0 1rem; line-height: 1.45;">Theo RD1139 / báo cáo nhóm
-        (Figure 2.1).</p>
-    <div style="text-align: center; width: 100%; margin: 0.35rem 0;">
-        <img src="../figures/i2c_from_docx/fig01.png" alt="Block diagram">
+    <p style="color: #475569; margin: 0 0 1.1rem; line-height: 1.45; max-width: 56rem;">Theo RD1139 / báo cáo nhóm
+        <strong>(Figure 2.1)</strong> — luồng dữ liệu từ CPU xuống pad bus.</p>
+    <div class="text-block-shadow"
+        style="padding: 1.35rem 1.6rem; border-radius: 18px; background: linear-gradient(165deg, #f8fafc 0%, #ffffff 55%); border: 1px solid #e2e8f0; max-width: 100%;">
+        <img src="figures/i2c_from_docx/fig01.png" alt="Sơ đồ khối I2C Master — Processor Interface, FSM, clock, Tx/Rx, pad">
         <p
-            style="margin-top: 0.65rem; font-size: 0.95rem; color: #475569; line-height: 1.45; max-width: 52rem; margin-left: auto; margin-right: auto;">
+            style="margin-top: 1rem; color: #334155; line-height: 1.5; max-width: 54rem; margin-left: auto; margin-right: auto; text-align: center;">
             Luồng: <strong>Processor Interface</strong> → <strong>Master Control FSM</strong> → <strong>Bus Control
                 FSM</strong> + <strong>Clock Gen/Sync</strong> → <strong>Tx/Rx Data FSM</strong> → pad
             <strong>open-drain</strong>; khối <strong>Start/Stop</strong> và <strong>ACK</strong>.</p>
