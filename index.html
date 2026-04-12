@@ -5,45 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EE5303 — I2C Master Controller</title>
-    <style>
-        :root {
-            color-scheme: light dark;
-            --accent: #006699;
-        }
-
-        body {
-            font-family: "Segoe UI", system-ui, sans-serif;
-            line-height: 1.6;
-            max-width: 40rem;
-            margin: 2rem auto;
-            padding: 0 1.25rem;
-        }
-
-        h1 {
-            font-size: 1.35rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            margin: 0.75rem 0;
-        }
-
-        code {
-            font-size: 0.95em;
-        }
-
-        a {
-            color: var(--accent);
-        }
-    </style>
+    <link rel="stylesheet" href="css/presentation-base.css">
+    <link rel="stylesheet" href="css/i2c-slides.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script>
+        window.slidesList = [
+            'sections_i2c/00_cover.html',
+            'sections_i2c/00_toc.html',
+            'sections_i2c/01_00_chapter.html',
+            'sections_i2c/01_01_de_tai_muc_tieu.html',
+            'sections_i2c/01_02_rang_buoc.html',
+            'sections_i2c/01_03_giao_thuc_i2c.html',
+            'sections_i2c/01_04_rd1139_va_tich_hop.html',
+            'sections_i2c/01_05_i2c_timing_mode.html',
+            'sections_i2c/01_06_doi_chieu_yeu_cau_de.html',
+            'sections_i2c/02_00_chapter.html',
+            'sections_i2c/02_01_kien_truc_khoi.html',
+            'sections_i2c/02_09_phan_ra_module_chi_tiet.html',
+            'sections_i2c/02_02_thanh_ghi.html',
+            'sections_i2c/02_10_config_status_chi_tiet.html',
+            'sections_i2c/02_12_processor_interface.html',
+            'sections_i2c/02_03_ghi_doc.html',
+            'sections_i2c/02_11_clock_gen_stretching.html',
+            'sections_i2c/02_04_repeated_start.html',
+            'sections_i2c/02_05_rtl_blocks.html',
+            'sections_i2c/02_06_bus_fsm.html',
+            'sections_i2c/02_13_bus_fsm_giai_thich.html',
+            'sections_i2c/02_07_master_fsm.html',
+            'sections_i2c/02_14_master_fsm_giai_thich.html',
+            'sections_i2c/02_08_byte_counter.html',
+            'sections_i2c/03_00_chapter.html',
+            'sections_i2c/03_01_mo_phong.html',
+            'sections_i2c/03_06_tb_tx_chi_tiet.html',
+            'sections_i2c/03_07_tb_rx_chi_tiet.html',
+            'sections_i2c/03_08_tb_rep_chi_tiet.html',
+            'sections_i2c/03_02_wave_timing.html',
+            'sections_i2c/03_03_wave_tx.html',
+            'sections_i2c/03_04_wave_rx.html',
+            'sections_i2c/03_05_wave_rep.html',
+            'sections_i2c/03_09_doc_waveform.html',
+            'sections_i2c/03_10_chung_minh_mo_phong.html',
+            'sections_i2c/04_00_chapter.html',
+            'sections_i2c/04_01_sky130_openlane.html',
+            'sections_i2c/04_07_openlane_pipeline.html',
+            'sections_i2c/04_02_opencores_wishbone.html',
+            'sections_i2c/04_05_wishbone_register_map.html',
+            'sections_i2c/04_06_byte_ctrl_fsm_opencores.html',
+            'sections_i2c/04_03_so_sanh_rd1139_opencores.html',
+            'sections_i2c/04_10_arbitration_multimaster.html',
+            'sections_i2c/04_08_signoff_drc_lvs.html',
+            'sections_i2c/04_04_ket_qua_pnr.html',
+            'sections_i2c/05_00_chapter.html',
+            'sections_i2c/05_01_ket_luan.html',
+            'sections_i2c/05_03_han_che_huong_pt.html',
+            'sections_i2c/05_02_tai_lieu_tham_khao.html'
+        ];
+        window.presentationSectionsPrefix = 'sections_i2c/';
+        window.presentationChapters = [
+            { num: 0, title: 'Trang bìa', color: '#006699', slideFile: '00_cover.html' },
+            { num: 0, title: 'Mục lục', color: '#0369a1', slideFile: '00_toc.html' },
+            { num: 1, title: 'Đề tài & đặc tả', color: '#0369a1', slideFile: '01_00_chapter.html' },
+            { num: 2, title: 'Kiến trúc & RTL', color: '#0d9488', slideFile: '02_00_chapter.html' },
+            { num: 3, title: 'Mô phỏng & waveform', color: '#7c3aed', slideFile: '03_00_chapter.html' },
+            { num: 4, title: 'ASIC Sky130', color: '#ea580c', slideFile: '04_00_chapter.html' },
+            { num: 5, title: 'Kết luận', color: '#64748b', slideFile: '05_00_chapter.html' }
+        ];
+    </script>
 </head>
 
 <body>
-    <h1>EE5303 Advanced Digital IC Design</h1>
-    <p><strong>I2C Master Controller</strong> — báo cáo môn học (nội dung theo tài liệu RD1139 / đề tài nhóm).</p>
-    <p>Nguồn LaTeX: <code>main.tex</code> và <code>chapters/i2c_report_body.tex</code>. PDF được tạo bằng XeLaTeX hoặc qua GitHub Actions (artifact <strong>ee5303-i2c-baocao-pdf</strong> và mục Releases).</p>
-    <p>Tham chiếu: Lattice Semiconductor (2015), <em>I2C Master Controller, Reference Design RD1139</em>.</p>
-    <p><a href="presentation_i2c.html">Slide thuyết trình (HTML)</a> — 49 slide (RD1139 + Sky130/OpenCores); mở qua HTTP server (xem <code>README.md</code>).</p>
+    <div id="loading">
+        <p style="margin:0;">Đang tải slide…</p>
+    </div>
+    <div id="slides_wrapper" aria-live="polite"></div>
+
+    <div id="controls">
+        <button type="button" aria-label="Slide trước" title="Slide trước (←)">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button type="button" aria-label="Bắt đầu / thoát trình chiếu" title="Trình chiếu (F)">
+            <i class="fa-solid fa-play"></i>
+        </button>
+        <button type="button" aria-label="Slide sau" title="Slide sau (→)">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <span id="counter">0 / 0</span>
+    </div>
+
+    <script src="js/presentation.js"></script>
+    <script src="js/presentation-tools.js"></script>
 </body>
 
 </html>

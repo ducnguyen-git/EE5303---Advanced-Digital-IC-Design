@@ -6,7 +6,7 @@
 (function () {
     'use strict';
 
-    // ─── Chapter navigation: chỉ lấy từ trang HTML (vd. presentation_i2c.html) — không fallback ───
+    // ─── Chapter navigation: chỉ lấy từ trang HTML (vd. index.html) — không fallback ───
     const chapters =
         Array.isArray(window.presentationChapters) && window.presentationChapters.length > 0
             ? window.presentationChapters

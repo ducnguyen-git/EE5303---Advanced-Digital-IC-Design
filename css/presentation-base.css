@@ -1,8 +1,10 @@
-/* Base layout + presentation tools UI (used by presentation_i2c.html & presentation-tools.js) */
+/* Base layout + presentation tools UI (used by index.html & presentation-tools.js) */
 :root {
     --text-color: #0f172a;
     --accent: #006699;
     --surface: #f8fafc;
+    --scale: 1;
+    --slide-zoom: 1;
 }
 
 * {
@@ -25,12 +27,89 @@ body.presenting {
     background: #0b1220;
 }
 
-body.presenting #slides-mount {
+body.presenting #slides-mount,
+body.presenting #slides_wrapper {
     display: flex !important;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     padding: 0;
+}
+
+#slides_wrapper {
+    display: block;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem 1rem 120px;
+}
+
+body:not(.presenting) #slides_wrapper {
+    zoom: var(--slide-zoom);
+}
+
+#loading {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(248, 250, 252, 0.96);
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+#controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.94);
+    border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.06);
+}
+
+body.presenting #controls {
+    background: rgba(15, 23, 42, 0.88);
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+#controls button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+body.presenting #controls button {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+}
+
+#controls button:hover {
+    filter: brightness(1.06);
+}
+
+#counter {
+    margin-left: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #334155;
+    min-width: 4.5rem;
+    text-align: center;
+}
+
+body.presenting #counter {
+    color: #e2e8f0;
 }
 
 #pre-start {
@@ -83,37 +162,35 @@ body.presenting #pres-slide-meta {
     display: block;
 }
 
-/* Each slide */
+/* Each slide — overview: all visible; presenting: only .active */
 .slide.slide-container {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: min(1440px, 100vw);
     min-height: min(900px, 100vh);
     padding: 28px 36px 100px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     background: #fff;
-    border-radius: 0;
+    border-radius: 12px;
     overflow: auto;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
 }
 
 body.presenting .slide.slide-container {
-    border-radius: 12px;
+    margin-bottom: 0;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
 }
 
-.slide.slide-container.active {
-    display: flex;
-}
-
-/* Override inline display:* on inactive slides when presenting */
 body.presenting .slide.slide-container:not(.active) {
     display: none !important;
 }
 
 body.presenting .slide.slide-container.active {
     display: flex !important;
+    transform: scale(var(--scale));
+    transform-origin: center center;
 }
 
 .gradient-text {
