@@ -1,0 +1,45 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Ràng buộc thiết kế — tổng hợp</h1>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="i2c-th-w22">Nhóm</th>
+                    <th>Yêu cầu / hệ quả</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Điện / bus</strong></td>
+                    <td>SDA/SCL <strong>open-drain</strong>; pull-up ngoài; master chỉ kéo thấp hoặc nhả high-Z.</td>
+                </tr>
+                <tr>
+                    <td><strong>Điều kiện SDA</strong></td>
+                    <td>Bit dữ liệu và ACK chỉ đổi khi <strong>SCL = 0</strong> (trừ START/STOP/Sr trên SCL = 1).</td>
+                </tr>
+                <tr>
+                    <td><strong>START / STOP</strong></td>
+                    <td><strong>START:</strong> SDA ↓ khi SCL = 1. <strong>STOP:</strong> SDA ↑ khi SCL = 1.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tốc độ</strong></td>
+                    <td>100 kHz / 400 kHz — chu kỳ SCL và nửa chu kỳ phù hợp chế độ (từ clock hệ thống và prescale).</td>
+                </tr>
+                <tr>
+                    <td><strong>HDL &amp; TB</strong></td>
+                    <td>Verilog/SystemVerilog; TB ghi/đọc/repeated START theo RD1139.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="i2c-grid-2 i2c-mt-1">
+        <div class="i2c-card i2c-card--amber">
+            <h3>Clock stretching</h3>
+            <p>Slave giữ SCL thấp — master <strong>chờ</strong> SCL cao trước bit kế. Cần <strong>Clock Generator &amp; Synchronizer</strong> và FSM không giả định SCL cố định.</p>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3>Tích hợp</h3>
+            <p>Ổn định trên <strong>SoC/FPGA</strong>: timing pad, reset, slew và điện áp bus thực tế.</p>
+        </div>
+    </div>
+</div>

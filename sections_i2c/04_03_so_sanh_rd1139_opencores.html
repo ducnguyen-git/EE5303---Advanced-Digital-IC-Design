@@ -1,0 +1,40 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">So sánh hệ thống: RD1139 (báo cáo) vs OpenCores (Sky130 ref)</h1>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="i2c-th-w18">Tiêu chí</th>
+                    <th>RD1139 / LaTeX nhóm</th>
+                    <th>Ref OpenCores + OpenLane</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Giao tiếp host</strong></td>
+                    <td>Processor Interface, tên <code>i_*</code> / <code>o_*</code> theo báo cáo.</td>
+                    <td>Wishbone: <code>wb_adr_i</code>, <code>wb_dat_*</code>, <code>wb_ack_o</code>, <code>wb_inta_o</code>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Điều khiển giao dịch</strong></td>
+                    <td><code>i_config_reg</code> (START, IE, ABORT…), status <code>o_cmd_status_reg</code>.</td>
+                    <td>Thanh ghi <code>cr</code> (STA/STO/RD/WR), <code>sr</code> (busy, al, irq…), <code>ctr</code> (enable, interrupt enable).</td>
+                </tr>
+                <tr>
+                    <td><strong>FSM</strong></td>
+                    <td>Tách rõ Master Control vs Bus Control (fig03–04).</td>
+                    <td>Byte FSM + Bit controller; chức năng tương đương nhưng tên trạng thái khác.</td>
+                </tr>
+                <tr>
+                    <td><strong>Đa master</strong></td>
+                    <td>Đề cập phát hiện bus (Bus FSM).</td>
+                    <td>Có bit <code>i2c_al</code>, status arbitration lost.</td>
+                </tr>
+                <tr>
+                    <td><strong>Vai trò trong đồ án</strong></td>
+                    <td colspan="2"><strong>Đặc tả &amp; hình</strong> lấy từ RD1139; <strong>silicon</strong> minh họa bằng core sẵn có đã P&amp;R — trình bày trung thực, không gộp nhầm hai RTL.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

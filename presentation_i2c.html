@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EE5303 — I2C Master Controller (Slides)</title>
+    <link rel="stylesheet" href="css/presentation-base.css">
+    <link rel="stylesheet" href="css/i2c-slides.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script>
+        window.slidesList = [
+            'sections_i2c/00_cover.html',
+            'sections_i2c/00_toc.html',
+            'sections_i2c/01_00_chapter.html',
+            'sections_i2c/01_01_de_tai_muc_tieu.html',
+            'sections_i2c/01_02_rang_buoc.html',
+            'sections_i2c/01_03_giao_thuc_i2c.html',
+            'sections_i2c/01_04_rd1139_va_tich_hop.html',
+            'sections_i2c/01_05_i2c_timing_mode.html',
+            'sections_i2c/01_06_doi_chieu_yeu_cau_de.html',
+            'sections_i2c/02_00_chapter.html',
+            'sections_i2c/02_01_kien_truc_khoi.html',
+            'sections_i2c/02_09_phan_ra_module_chi_tiet.html',
+            'sections_i2c/02_02_thanh_ghi.html',
+            'sections_i2c/02_10_config_status_chi_tiet.html',
+            'sections_i2c/02_12_processor_interface.html',
+            'sections_i2c/02_03_ghi_doc.html',
+            'sections_i2c/02_11_clock_gen_stretching.html',
+            'sections_i2c/02_04_repeated_start.html',
+            'sections_i2c/02_05_rtl_blocks.html',
+            'sections_i2c/02_06_bus_fsm.html',
+            'sections_i2c/02_13_bus_fsm_giai_thich.html',
+            'sections_i2c/02_07_master_fsm.html',
+            'sections_i2c/02_14_master_fsm_giai_thich.html',
+            'sections_i2c/02_08_byte_counter.html',
+            'sections_i2c/03_00_chapter.html',
+            'sections_i2c/03_01_mo_phong.html',
+            'sections_i2c/03_06_tb_tx_chi_tiet.html',
+            'sections_i2c/03_07_tb_rx_chi_tiet.html',
+            'sections_i2c/03_08_tb_rep_chi_tiet.html',
+            'sections_i2c/03_02_wave_timing.html',
+            'sections_i2c/03_03_wave_tx.html',
+            'sections_i2c/03_04_wave_rx.html',
+            'sections_i2c/03_05_wave_rep.html',
+            'sections_i2c/03_09_doc_waveform.html',
+            'sections_i2c/03_10_chung_minh_mo_phong.html',
+            'sections_i2c/04_00_chapter.html',
+            'sections_i2c/04_01_sky130_openlane.html',
+            'sections_i2c/04_07_openlane_pipeline.html',
+            'sections_i2c/04_02_opencores_wishbone.html',
+            'sections_i2c/04_05_wishbone_register_map.html',
+            'sections_i2c/04_06_byte_ctrl_fsm_opencores.html',
+            'sections_i2c/04_03_so_sanh_rd1139_opencores.html',
+            'sections_i2c/04_10_arbitration_multimaster.html',
+            'sections_i2c/04_08_signoff_drc_lvs.html',
+            'sections_i2c/04_04_ket_qua_pnr.html',
+            'sections_i2c/05_00_chapter.html',
+            'sections_i2c/05_01_ket_luan.html',
+            'sections_i2c/05_03_han_che_huong_pt.html',
+            'sections_i2c/05_02_tai_lieu_tham_khao.html'
+        ];
+        window.presentationSectionsPrefix = 'sections_i2c/';
+        window.presentationChapters = [
+            { num: 0, title: 'Trang bìa', color: '#006699', slideFile: '00_cover.html' },
+            { num: 0, title: 'Mục lục', color: '#0369a1', slideFile: '00_toc.html' },
+            { num: 1, title: 'Đề tài & đặc tả', color: '#0369a1', slideFile: '01_00_chapter.html' },
+            { num: 2, title: 'Kiến trúc & RTL', color: '#0d9488', slideFile: '02_00_chapter.html' },
+            { num: 3, title: 'Mô phỏng & waveform', color: '#7c3aed', slideFile: '03_00_chapter.html' },
+            { num: 4, title: 'ASIC Sky130', color: '#ea580c', slideFile: '04_00_chapter.html' },
+            { num: 5, title: 'Kết luận', color: '#64748b', slideFile: '05_00_chapter.html' }
+        ];
+    </script>
+</head>
+
+<body>
+    <div id="pre-start">
+        <h1 style="font-size:1.35rem;margin-top:0;">EE5303 — I2C Master Controller</h1>
+        <p style="color:#64748b;">Đang tải slide…</p>
+    </div>
+    <div id="slides-mount" style="display:none" aria-live="polite"></div>
+    <div id="pres-slide-meta" aria-hidden="true"></div>
+    <button type="button" id="btn-start-pres" style="display:none">Bắt đầu trình chiếu</button>
+
+    <script src="js/presentation-core.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.initPresentation();
+        });
+    </script>
+</body>
+
+</html>

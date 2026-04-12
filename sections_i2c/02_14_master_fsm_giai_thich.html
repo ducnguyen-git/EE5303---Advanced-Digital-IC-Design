@@ -1,0 +1,48 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">I2C Master Control FSM — chuỗi trạng thái (fig04)</h1>
+    <p class="i2c-lead">FSM <strong>mức byte</strong> điều phối toàn bộ giao dịch từ lệnh phần mềm đến STOP/DONE.</p>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Trạng thái</th>
+                    <th>Ý nghĩa vận hành</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>IDLE</code></td>
+                    <td>Chờ lệnh; bus có thể rảnh hoặc chờ cấu hình.</td>
+                </tr>
+                <tr>
+                    <td><code>START</code></td>
+                    <td>Phát điều kiện START; chuẩn bị byte địa chỉ.</td>
+                </tr>
+                <tr>
+                    <td><code>SEND_ADDR</code></td>
+                    <td>Đẩy 7+1 bit địa chỉ qua shifter/bit FSM.</td>
+                </tr>
+                <tr>
+                    <td><code>ADDR_ACK</code></td>
+                    <td>Kiểm tra ACK địa chỉ — lỗi có thể dẫn tới TX_ERR và dừng an toàn.</td>
+                </tr>
+                <tr>
+                    <td><code>TX_DATA</code> / <code>RX_DATA</code></td>
+                    <td>Lặp theo số byte; phối hợp với đếm byte và handshake dữ liệu với CPU.</td>
+                </tr>
+                <tr>
+                    <td><code>DATA_ACK</code></td>
+                    <td>Xử lý bit ACK sau mỗi byte dữ liệu.</td>
+                </tr>
+                <tr>
+                    <td><code>STOP</code></td>
+                    <td>Sinh STOP khi đủ byte hoặc lỗi/abort.</td>
+                </tr>
+                <tr>
+                    <td><code>DONE</code></td>
+                    <td>Báo hoàn tất; set TX_DONE/RX_DONE; có thể về IDLE.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

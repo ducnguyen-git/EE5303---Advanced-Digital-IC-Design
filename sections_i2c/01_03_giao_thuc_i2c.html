@@ -1,0 +1,25 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Giao thức I2C — master góc nhìn vận hành</h1>
+    <div class="i2c-grid-2 i2c-grid--asym">
+        <div class="i2c-card i2c-card--accent">
+            <h3>Chuỗi giao dịch điển hình (7-bit addr)</h3>
+            <ol>
+                <li>Bus idle: SCL, SDA đều cao (nhờ pull-up).</li>
+                <li>Master phát <strong>START</strong> — chiếm bus.</li>
+                <li>Byte đầu: <strong>7 bit địa chỉ</strong> + <strong>1 bit R/W</strong> (0 = write master→slave, 1 = read slave→master).</li>
+                <li>Bit thứ 9: slave kéo SDA thấp = <strong>ACK</strong>, không kéo (để float high sau setup) = <strong>NACK</strong> tùy ngữ cảnh.</li>
+                <li>Các byte sau: dữ liệu hoặc địa chỉ thanh ghi nội bộ (tùy thiết bị), mỗi byte kèm ACK/NACK.</li>
+                <li>Kết thúc: <strong>STOP</strong> hoặc <strong>repeated START (Sr)</strong> để bắt đầu giao dịch mới không nhả bus bằng STOP.</li>
+            </ol>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3>Khái niệm liên quan đồ án</h3>
+            <ul>
+                <li><strong>Đa master:</strong> nhiều master có thể treo trên cùng bus — cần <strong>arbitration</strong> (ưu tiên địa chỉ bit trên SDA); ref OpenCores có cờ arbitration lost.</li>
+                <li><strong>Độ dài giao dịch:</strong> do <code>i_byte_cnt_reg</code> và FSM master — sau đủ byte thì phát STOP (trừ kịch bản Sr).</li>
+                <li><strong>Processor side:</strong> firmware ghi bit START vào thanh cấu hình, poll <code>I2C_BUSY</code> / <code>TX_DONE</code> / <code>RX_DONE</code> / cờ lỗi.</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Liên kết báo cáo:</strong> Các luồng trên được cụ thể hóa trong mục “Nguyên lý hoạt động” và “Mô phỏng” — các tín hiệu <code>o_transmit_data_requested</code>, <code>o_receive_data</code>, <code>o_received_data_valid</code> là điểm giao giữa RTL và phần mềm điều khiển.</p>
+</div>

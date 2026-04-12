@@ -1,0 +1,11 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">I2C Bus Control FSM — gợi ý đọc sơ đồ (fig03)</h1>
+    <p class="i2c-lead">FSM này “ôm” <strong>timing bit</strong> trên SCL/SDA: mỗi trạng thái tương ứng một pha của xung hoặc một bit đang xử lý.</p>
+    <ul>
+        <li><strong>Sinh START/STOP:</strong> chỉ khi điều kiện SCL/SDA thỏa chuẩn — tránh glitch và vi phạm setup/hold.</li>
+        <li><strong>ACK bit:</strong> trong chu kỳ thứ 9, SDA do slave hoặc master kéo tùy hướng; FSM phải chọn đúng thời điểm mẫu.</li>
+        <li><strong>Multi-master:</strong> phát hiện START/STOP từ thiết bị khác — cần cho arbitration và tránh xung đột điều khiển bus.</li>
+        <li><strong>Đồng bộ với Master FSM:</strong> Bus FSM báo hoàn thành bit/byte để Master FSM chuyển SEND_ADDR → ADDR_ACK → DATA…</li>
+    </ul>
+    <p class="i2c-muted-small">Xem hình fig03 trên slide trước; chi tiết chuyển trạng thái nằm trong tài liệu RD1139 đầy đủ.</p>
+</div>

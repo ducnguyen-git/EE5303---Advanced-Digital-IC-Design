@@ -1,0 +1,24 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Chứng minh mô phỏng — checklist báo cáo</h1>
+    <p class="i2c-lead">Slide đã gắn sẵn ảnh timing trong <code>figures/i2c_from_docx/</code> (<strong>fig05–fig08</strong>). Khi viết báo cáo, có thể chèn thêm ảnh chụp từ tool mô phỏng của nhóm để đối chiếu cùng kênh SCL/SDA và tín hiệu RTL.</p>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--violet">
+            <h3>Đối chiếu với fig có trong repo</h3>
+            <ul>
+                <li><strong>TX:</strong> slide fig06 — START, addr+W, ACK, data, STOP; handshake <code>o_transmit_data_requested</code>, <code>TX_DONE</code>.</li>
+                <li><strong>RX:</strong> slide fig07 — addr+R, data, valid, <code>RX_DONE</code>.</li>
+                <li><strong>Sr:</strong> slide fig08 — hai START, không STOP giữa chừng.</li>
+                <li><strong>Timing tổng:</strong> slide fig05 — read vs write trên bus.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3>Tùy chọn làm điểm cộng</h3>
+            <ul>
+                <li>Xuất thêm ảnh từ ModelSim/Questa/GTKWave (một hàng thời gian: bus + tín hiệu nội bộ).</li>
+                <li>Ghi rõ file TB, test case, tần số SCL đo được.</li>
+                <li>Trong repo <strong>không có</strong> file dump dạng <code>.vcd</code>/<code>.fst</code> — chỉ cần nếu muốn đính kèm nguồn sóng gốc.</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Nguồn ảnh:</strong> toàn bộ <code>fig01.png</code>–<code>fig08.png</code> nằm dưới <code>figures/i2c_from_docx/</code>; LaTeX (<code>i2c_report_body.tex</code>) dùng cùng đường dẫn.</p>
+</div>

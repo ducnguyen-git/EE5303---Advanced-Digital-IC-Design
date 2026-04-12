@@ -1,0 +1,36 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Không gian thanh ghi (đặc tả báo cáo)</h1>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Thanh ghi</th>
+                    <th>Chức năng chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>i_slave_addr_reg</code></td>
+                    <td>Chứa <strong>7 bit địa chỉ</strong> slave (bit R/W được ghép trong giao dịch đầu theo hướng đọc/ghi).</td>
+                </tr>
+                <tr>
+                    <td><code>i_byte_cnt_reg</code></td>
+                    <td>Số byte còn lại cần truyền hoặc nhận — so khớp với bộ đếm byte nội bộ để quyết định kết thúc (STOP) hoặc tiếp tục.</td>
+                </tr>
+                <tr>
+                    <td><code>i_clk_div_lsb</code> + <code>i_mode_reg[2:0]</code></td>
+                    <td>Cấu hình <strong>bộ chia clock</strong> tạo SCL và chọn <strong>chế độ tốc độ</strong> (Standard/Fast theo mapping phần mềm).</td>
+                </tr>
+                <tr>
+                    <td><code>i_config_reg</code></td>
+                    <td>Điều khiển giao dịch: <strong>START</strong>, xóa ngắt <strong>INT_CLR</strong>, cho phép ngắt <strong>TX_IE</strong>/<strong>RX_IE</strong>, <strong>ABORT</strong>, <strong>RESET</strong> — cụ thể bit map theo tài liệu Word nhóm.</td>
+                </tr>
+                <tr>
+                    <td><code>o_cmd_status_reg</code></td>
+                    <td>Trạng thái: <strong>TX_DONE</strong>, <strong>RX_DONE</strong>, <strong>TX_ERR</strong>, <strong>RX_ERR</strong>, <strong>ABORT_ACK</strong>, <strong>I2C_BUSY</strong> — dùng để poll hoặc kết hợp ngắt.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="i2c-muted-small">Slide tiếp theo mở rộng luồng ghi bit START/INT trong <code>i_config_reg</code> và ý nghĩa từng cờ hoàn thành/lỗi.</p>
+</div>

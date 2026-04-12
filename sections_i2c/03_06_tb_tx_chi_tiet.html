@@ -1,0 +1,23 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Kịch bản TB — Master transmit</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--accent">
+            <h3>Quan sát trên bus</h3>
+            <ol>
+                <li>Điều kiện <strong>START</strong> rõ ràng sau idle.</li>
+                <li>Byte địa chỉ + <strong>ACK</strong> từ slave (mức SDA bit 9).</li>
+                <li>Chuỗi byte dữ liệu; mỗi byte có <strong>ACK</strong> (trừ kịch bản NACK).</li>
+                <li><strong>STOP</strong> sau byte cuối — khoảng idle phía sau.</li>
+            </ol>
+        </div>
+        <div class="i2c-card i2c-card--amber">
+            <h3>Kỳ vọng phía RTL/CPU</h3>
+            <ul>
+                <li><code>o_transmit_data_requested</code> kích hoạt <strong>trước</strong> mỗi byte dữ liệu cần nạp.</li>
+                <li>Sau byte cuối: <code>TX_DONE</code> = 1 (và ngắt nếu bật TX_IE).</li>
+                <li><code>I2C_BUSY</code> giữ đến khi STOP hoàn tất.</li>
+                <li>Nếu slave NACK địa chỉ hoặc data: kiểm tra <code>TX_ERR</code> (nếu có trong RTL).</li>
+            </ul>
+        </div>
+    </div>
+</div>

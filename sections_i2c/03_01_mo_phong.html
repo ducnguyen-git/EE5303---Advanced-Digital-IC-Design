@@ -1,0 +1,22 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Môi trường mô phỏng &amp; phạm vi kiểm chứng</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--violet">
+            <h3><i class="fa-solid fa-vial-circle-check"></i> Nguồn testbench</h3>
+            <p>Theo RD1139: testbench Verilog có sẵn để tái sử dụng — bao gồm model bus, slave giả lập (hoặc BFM), và các task gọi giao dịch.</p>
+            <ul>
+                <li>Mục tiêu: chứng minh <strong>đúng giao thức</strong> trước khi tổng hợp/tích hợp.</li>
+                <li>Có thể mở rộng: corner case (NACK, clock stretch, abort).</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3><i class="fa-solid fa-wave-square"></i> Tín hiệu cần theo dõi</h3>
+            <ul>
+                <li>Bus: <strong>SCL, SDA</strong> (và enable pad nếu mô hình tách).</li>
+                <li>Phần mềm: <code>I2C_BUSY</code>, <code>TX_DONE</code>/<code>RX_DONE</code>, handshake <code>o_transmit_data_requested</code>, <code>o_received_data_valid</code>.</li>
+                <li>So khớp với fig05–08 để đối chiếu timing mong đợi.</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Workflow đề xuất:</strong> chạy TB mặc định → ghi waveform → đối chiếu từng phase với báo cáo → chỉnh tham số chia clock nếu tần số SCL lệch chế độ.</p>
+</div>

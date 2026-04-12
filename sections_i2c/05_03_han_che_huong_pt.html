@@ -1,0 +1,21 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Hạn chế &amp; hướng phát triển</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--rose">
+            <h3>Hạn chế</h3>
+            <ul>
+                <li>RTL RD1139 trong báo cáo có thể không trùng file gate-level với ref OpenCores — so sánh ở mức chức năng/đặc tả, không phải netlist từng cổng.</li>
+                <li>Hình <code>figures/i2c_from_docx</code> phụ thuộc trích từ Word — cần đồng bộ khi sửa tài liệu gốc.</li>
+                <li>Sign-off ref là kết quả một tập constraint/run — không đại diện mọi corner PVT.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3>Hướng mở rộng</h3>
+            <ul>
+                <li>Tổng hợp và đóng gói RTL RD1139 (nếu có license) rồi chạy cùng pipeline OpenLane để so sánh diện tích/timing.</li>
+                <li>Mô phỏng ngẫu nhiên + cover property (SVA) cho FSM.</li>
+                <li>Tích hợp trên FPGA với analyzer logic đo SCL/SDA thực.</li>
+            </ul>
+        </div>
+    </div>
+</div>

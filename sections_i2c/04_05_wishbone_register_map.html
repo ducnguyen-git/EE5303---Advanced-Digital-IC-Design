@@ -1,0 +1,48 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Map thanh ghi Wishbone (OpenCores top)</h1>
+    <p class="i2c-lead">Địa chỉ <code>wb_adr_i[2:0]</code> — đọc/ghi theo <code>i2c_master_top.v</code>.</p>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>adr</th>
+                    <th>Đọc (wb_dat_o)</th>
+                    <th>Ghi (wb_dat_i)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>000</code></td>
+                    <td>PRER low byte</td>
+                    <td>Prescale</td>
+                </tr>
+                <tr>
+                    <td><code>001</code></td>
+                    <td>PRER high byte</td>
+                    <td>Prescale</td>
+                </tr>
+                <tr>
+                    <td><code>010</code></td>
+                    <td>CTR (control)</td>
+                    <td>CTR — bit7 <strong>core_en</strong>, bit6 <strong>ien</strong></td>
+                </tr>
+                <tr>
+                    <td><code>011</code></td>
+                    <td>RXR (receive)</td>
+                    <td>TXR (transmit)</td>
+                </tr>
+                <tr>
+                    <td><code>100</code></td>
+                    <td>SR (status)</td>
+                    <td>CR (command) khi core_en — STA, STO, RD, WR, ACK…</td>
+                </tr>
+                <tr>
+                    <td><code>101–111</code></td>
+                    <td>TXR / CR / 0</td>
+                    <td>Theo mux đọc/ghi</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="i2c-muted-small"><code>prer</code> reset 0xFFFF; <code>cr[7:4]</code> clear khi done hoặc arbitration lost. Prescale ×4 chu kỳ SCL so với mẫu nội bộ (xem byte controller).</p>
+</div>

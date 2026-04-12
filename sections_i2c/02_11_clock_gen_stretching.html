@@ -1,0 +1,20 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Clock Generator &amp; clock stretching</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--accent">
+            <h3>Sinh SCL từ clock hệ thống</h3>
+            <ul>
+                <li>Tham số <code>i_clk_div_lsb</code> và <code>i_mode_reg[2:0]</code> chọn tỷ lệ chia và chế độ — quyết định <strong>chu kỳ SCL</strong> và độ rộng nửa chu kỳ.</li>
+                <li>FSM bit phải căn cứ theo <strong>mẫu nội bộ</strong> đồng bộ với cạnh SCL (và trễ pad) để không vi phạm setup/hold SDA.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--mint">
+            <h3>Stretching</h3>
+            <ul>
+                <li>Slave kéo <strong>SCL thấp</strong> sau cạnh xuống để tạm dừng — master phải <strong>chờ SCL cao trở lại</strong> trước khi tính bit mới.</li>
+                <li>Khối <strong>Synchronizer</strong> đảm bảo đọc SCL/SDA từ pad không metastable; logic chờ phải tránh deadlock với timeout (nếu thiết kế có).</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Liên hệ đồ án:</strong> Figure RTL (fig02) thể hiện khối clock/sync nối với đường SCL; mô phỏng có thể cần model slave kéo SCL để kiểm tra FSM chờ.</p>
+</div>

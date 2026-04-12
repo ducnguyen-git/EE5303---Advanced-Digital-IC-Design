@@ -1,0 +1,21 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Sign-off: STA, DRC, LVS, Antenna</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card">
+            <h3>STA (Static Timing Analysis)</h3>
+            <p>Kiểm tra <strong>setup</strong> và <strong>hold</strong> sau routing + SPEF; báo cáo WNS/TNS. Run “sạch” trong README ref: vi phạm 0 cho một số cấu hình clock.</p>
+        </div>
+        <div class="i2c-card">
+            <h3>DRC (Design Rule Check)</h3>
+            <p>Khoảng cách metal, via, width — đảm bảo layout sản xuất được trên quy tắc sky130.</p>
+        </div>
+        <div class="i2c-card">
+            <h3>LVS (Layout vs Schematic)</h3>
+            <p>So khớp netlist layout với netlist logic — phát hiện short/open/missing device.</p>
+        </div>
+        <div class="i2c-card">
+            <h3>Antenna rule</h3>
+            <p>Hạn chế tích điện plasma làm hỏng cổng MOS trong quá trình etch — một số run ref ghi nhận vi phạm antenna (pins/nets).</p>
+        </div>
+    </div>
+</div>

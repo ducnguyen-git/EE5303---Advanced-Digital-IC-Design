@@ -1,0 +1,24 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Luồng phần mềm — config &amp; status</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--sky">
+            <h3><code>i_config_reg</code> — điển hình</h3>
+            <ul>
+                <li><strong>START = 1</strong> khởi động giao dịch; có thể <strong>tự clear</strong> sau khi nhận (theo RD1139/Word nhóm).</li>
+                <li><strong>TX_IE / RX_IE</strong> — ngắt khi hoàn thành thay vì poll <code>TX_DONE</code>/<code>RX_DONE</code>.</li>
+                <li><strong>INT_CLR</strong> — xóa pending sau ISR.</li>
+                <li><strong>ABORT</strong> / <strong>RESET</strong> — hủy an toàn / đưa FSM về trạng thái đã định nghĩa.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--amber">
+            <h3><code>o_cmd_status_reg</code></h3>
+            <ul>
+                <li><strong>I2C_BUSY</strong> — giao dịch chưa kết thúc bằng STOP; set trước khi START auto-clear.</li>
+                <li><strong>TX_DONE / RX_DONE</strong> — hoàn tất chuỗi byte theo hướng.</li>
+                <li><strong>TX_ERR / RX_ERR</strong> — NACK, timeout… (theo RTL RD1139).</li>
+                <li><strong>ABORT_ACK</strong> — xác nhận hủy từ phần cứng.</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Dữ liệu:</strong> <code>o_transmit_data_requested</code> trước mỗi byte gửi; <code>o_receive_data</code> khi <code>o_received_data_valid</code> = 1.</p>
+</div>

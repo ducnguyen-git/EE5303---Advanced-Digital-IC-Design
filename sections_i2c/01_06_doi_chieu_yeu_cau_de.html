@@ -1,0 +1,41 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Đối chiếu yêu cầu đề tài → nội dung trình bày</h1>
+    <p class="i2c-lead">Bám mục <strong>Yêu cầu đề tài</strong> trong <code>i2c_report_body.tex</code>: mỗi hàng là một tiêu chí có thể kiểm kê khi chấm.</p>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="i2c-th-w26">Yêu cầu</th>
+                    <th>Đáp ứng trên slide / báo cáo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>I2C Master theo chuẩn bus; địa chỉ <strong>7 bit</strong></td>
+                    <td>Phần 1 (giao thức); phần 2 (địa chỉ + R/W trong luồng TX/RX).</td>
+                </tr>
+                <tr>
+                    <td><strong>100 kHz</strong> / <strong>400 kHz</strong></td>
+                    <td>Slide chế độ tốc độ; clock divider + <code>i_mode_reg</code>.</td>
+                </tr>
+                <tr>
+                    <td>Đủ <strong>ghi</strong>, <strong>đọc</strong>, START/STOP, ACK/NACK, <strong>Sr</strong></td>
+                    <td>Luồng ghi/đọc; repeated START; waveform fig05–08.</td>
+                </tr>
+                <tr>
+                    <td>Điều kiện bus: SDA đổi khi SCL = 0; START/STOP; <strong>open-drain</strong></td>
+                    <td>Ràng buộc thiết kế; Bus FSM + pad.</td>
+                </tr>
+                <tr>
+                    <td>Clock hệ thống <strong>32 MHz</strong>; HDL + <strong>TB</strong></td>
+                    <td>Timing &amp; mô phỏng; kịch bản TB TX/RX/Sr.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tích hợp SoC/FPGA</strong>: ổn định khi ghép hệ thống</td>
+                    <td>Processor Interface; trạng thái busy/IRQ; (mở rộng) ref ASIC Sky130.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="i2c-note"><strong>Ghi chú chấm điểm:</strong> ref OpenCores + OpenLane là <strong>minh họa silicon</strong>, không thay thế RTL RD1139 trong văn bản — trình bày rõ để tránh hiểu nhầm.</p>
+</div>

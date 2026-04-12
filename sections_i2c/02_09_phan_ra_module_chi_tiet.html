@@ -1,0 +1,44 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Bảy khối chức năng — vai trò kỹ thuật</h1>
+    <p class="i2c-lead">Theo mục “Mô tả thiết kế” — mỗi khối có một phần trách nhiệm rõ để tách <strong>chính sách byte</strong> (master) và <strong>bit-level timing bus</strong> (bus).</p>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th class="i2c-th-w26">Khối</th>
+                    <th>Nhiệm vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Processor Interface</strong></td>
+                    <td>Đọc/ghi thanh ghi điều khiển/trạng thái; tạo xung chọn và handshake với bus nội bộ SoC (timing đặt theo clock hệ thống).</td>
+                </tr>
+                <tr>
+                    <td><strong>I2C Master Control FSM</strong></td>
+                    <td>FSM mức <strong>byte</strong>: IDLE → START → SEND_ADDR → ADDR_ACK → TX_DATA / RX_DATA → DATA_ACK → STOP → DONE; phối hợp với bộ đếm byte.</td>
+                </tr>
+                <tr>
+                    <td><strong>I2C Bus Control FSM</strong></td>
+                    <td>FSM mức <strong>bit</strong> trên bus: sinh START/STOP đúng điều kiện SCL; ACK bit; phát hiện điều kiện đa master nếu có.</td>
+                </tr>
+                <tr>
+                    <td><strong>Clock Gen &amp; Sync</strong></td>
+                    <td>Từ <code>i_clk_div_*</code> và mode → tạo nhịp SCL; đồng bộ mẫu SDA/SCL; xử lý <strong>clock stretching</strong>.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tx / Rx Data FSM</strong></td>
+                    <td>Đệm và dịch từng bit trong byte gửi/nhận; báo cho master FSM khi byte hoàn tất.</td>
+                </tr>
+                <tr>
+                    <td><strong>Start/Stop det &amp; gen</strong></td>
+                    <td>Logic tạo và nhận diện điều kiện START/STOP trên bus.</td>
+                </tr>
+                <tr>
+                    <td><strong>Acknowledge logic</strong></td>
+                    <td>Xử lý bit ACK thứ 9 sau mỗi byte (địa chỉ hoặc dữ liệu).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Bộ đếm byte — logic điều khiển độ dài giao dịch</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--violet">
+            <h3>Cấu trúc</h3>
+            <ul>
+                <li>Counter <strong>8 bit</strong> (theo báo cáo) — tăng sau mỗi byte hoàn chỉnh (sau ACK bit tương ứng).</li>
+                <li>So sánh với <code>i_byte_cnt_reg</code> để biết byte hiện tại có phải <strong>byte cuối</strong> hay không.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--violet">
+            <h3>Hệ quả</h3>
+            <ul>
+                <li>Byte cuối: sau khi ACK dữ liệu, FSM chuyển tới <strong>STOP</strong> (trừ kịch bản Sr hoặc chuỗi kéo dài).</li>
+                <li>Sai số đếm → STOP sớm/muộn → lỗi giao thức phía slave hoặc treo bus — cần kiểm tra TB và corner case (1 byte vs n byte).</li>
+            </ul>
+        </div>
+    </div>
+</div>

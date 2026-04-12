@@ -6,18 +6,23 @@
 (function () {
     'use strict';
 
-    // ─── Chapter definitions for navigation ───
-    const chapters = [
-        { num: 0, title: 'Trang bìa', color: '#005ce6', slideFile: '00_cover.html' },
-        { num: 0, title: 'Mục lục', color: '#005ce6', slideFile: '00_toc.html' },
-        { num: 1, title: 'Giới Thiệu Chung', color: '#005ce6', slideFile: '01_00_chapter.html' },
-        { num: 2, title: 'Mạch Khả Kiểm', color: '#ef4444', slideFile: '02_00_chapter.html' },
-        { num: 3, title: 'Chèn Điểm Kiểm Thử', color: '#10b981', slideFile: '03_00_chapter.html' },
-        { num: 4, title: 'Kỹ Thuật Full Scan DFT', color: '#8b5cf6', slideFile: '04_00_chapter.html' },
-        { num: 5, title: 'Các Kiến Trúc Scan', color: '#f59e0b', slideFile: '05_00_chapter.html' },
-        { num: 6, title: 'Scan Mức RTL', color: '#0ea5e9', slideFile: '06_00_chapter.html' },
-        { num: 7, title: 'Tổng kết & So sánh', color: '#6366f1', slideFile: '07_00_chapter.html' },
-    ];
+    // ─── Chapter navigation: chỉ lấy từ trang HTML (vd. presentation_i2c.html) — không fallback ───
+    const chapters =
+        Array.isArray(window.presentationChapters) && window.presentationChapters.length > 0
+            ? window.presentationChapters
+            : [];
+    const sectionsPrefix =
+        typeof window.presentationSectionsPrefix === 'string' && window.presentationSectionsPrefix.length > 0
+            ? window.presentationSectionsPrefix
+            : '';
+    if (!sectionsPrefix) {
+        console.warn(
+            '[presentation-tools] Thiếu window.presentationSectionsPrefix — điều hướng chương có thể sai. Gán trong <head> trước khi load script (vd. sections_i2c/).'
+        );
+    }
+    if (!chapters.length) {
+        console.warn('[presentation-tools] Thiếu hoặc rỗng window.presentationChapters — menu chương sẽ trống.');
+    }
 
     // ─── State ───
     let laserActive = false;
@@ -461,7 +466,7 @@
             // Mark current chapter
             if (slideIdx >= 0 && typeof currentSlide !== 'undefined') {
                 let nextChIdx = slideFiles.length;
-                for (let i = slideFiles.indexOf('sections/' + ch.slideFile) + 1; i < slideFiles.length; i++) {
+                for (let i = slideFiles.indexOf(sectionsPrefix + ch.slideFile) + 1; i < slideFiles.length; i++) {
                     if (slideFiles[i].includes('_00_chapter') || slideFiles[i].includes('00_cover') || slideFiles[i].includes('00_toc')) {
                         nextChIdx = i;
                         break;
@@ -717,6 +722,22 @@
                 if (e.key === 'ArrowRight') { saveDrawing(); nextSlide(); restoreDrawing(); return; }
                 if (e.key === 'ArrowLeft') { saveDrawing(); prevSlide(); restoreDrawing(); return; }
                 return; // Block all other keys in drawing mode
+            }
+
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (typeof nextSlide === 'function') nextSlide();
+                return;
+            }
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (typeof prevSlide === 'function') prevSlide();
+                return;
+            }
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                if (typeof togglePresentation === 'function') togglePresentation();
+                return;
             }
 
             switch (e.key.toLowerCase()) {

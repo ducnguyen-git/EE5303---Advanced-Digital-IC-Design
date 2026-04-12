@@ -1,0 +1,30 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Chế độ tốc độ bus &amp; liên hệ clock hệ thống</h1>
+    <div class="i2c-table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Chế độ</th>
+                    <th>Tần số SCL (đặt hướng)</th>
+                    <th>Gợi ý thiết kế</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Standard</strong></td>
+                    <td>~100 kHz</td>
+                    <td>Chu kỳ SCL ~10 µs — bộ chia từ 32 MHz phải cho phép cấu hình tương ứng (theo <code>i_clk_div_lsb</code> + <code>i_mode_reg</code> trong báo cáo).</td>
+                </tr>
+                <tr>
+                    <td><strong>Fast</strong></td>
+                    <td>~400 kHz</td>
+                    <td>Chu kỳ ~2.5 µs — yêu cầu margin timing chặt hơn trên đường pad và trong FSM bit.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="i2c-card i2c-card--amber">
+        <h3>Quan hệ với 32 MHz</h3>
+        <p>Tần số hệ thống <strong>f<sub>sys</sub></strong> cố định; tần số SCL <strong>f<sub>SCL</sub></strong> ≈ f<sub>sys</sub> / (2 × giá trị đếm prescale) sau các tầng chia trong <em>Clock Generator</em>. Phải kiểm tra: (1) đủ mẫu xung trong một nửa chu kỳ SCL để sinh cạnh hợp lệ; (2) setup/hold SDA so với cạnh SCL khi tổng hợp + layout (đối với chip thật thêm sign-off STA).</p>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Kịch bản TB — Master receive</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--mint">
+            <h3>Quan sát</h3>
+            <ul>
+                <li><strong>START</strong> → byte địa chỉ với <strong>R/W = 1</strong>.</li>
+                <li>Byte dữ liệu từ slave; master phát <strong>ACK/NACK</strong> tùy byte (thường NACK trước STOP ở byte cuối).</li>
+                <li><strong>STOP</strong> kết thúc.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--sky">
+            <h3>Kỳ vọng</h3>
+            <ul>
+                <li><code>o_receive_data</code> chứa byte mới; <code>o_received_data_valid</code> = 1 khi dữ liệu hợp lệ.</li>
+                <li><code>RX_DONE</code> sau byte cuối trong <code>i_byte_cnt_reg</code>.</li>
+                <li>Kiểm tra thứ tự: không đọc dữ liệu khi valid = 0.</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Kịch bản TB — Repeated START</h1>
+    <ol>
+        <li>Phát <strong>START</strong> đầu → gửi địa chỉ → nhận <strong>ACK</strong>.</li>
+        <li><strong>Không</strong> xuất hiện <strong>STOP</strong> giữa các phase.</li>
+        <li>Phát <strong>START</strong> lần hai (Sr) — đúng địa chỉ slave theo đặc tả.</li>
+        <li>Tiếp tục phase đọc/ghi theo TB; slave trả dữ liệu/ACK tương ứng.</li>
+        <li>Kết thúc bằng <strong>STOP</strong> khi toàn bộ chuỗi hoàn tất.</li>
+    </ol>
+    <p class="i2c-note i2c-note--danger"><strong>Kiểm tra lỗi:</strong> nếu waveform có STOP xen giữa hai phase định dùng Sr → kịch bản sai hoặc FSM lỗi đếm byte.</p>
+</div>

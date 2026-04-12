@@ -1,0 +1,9 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Arbitration &amp; multimaster (góc nhìn ref OpenCores)</h1>
+    <ul>
+        <li>Trên bus I2C, nhiều master có thể đồng thời kéo START — bit địa chỉ trên <strong>SDA</strong> quyết định master nào “thua” khi mức không khớp ý định (master phải nhả bus).</li>
+        <li>Core OpenCores khai báo tín hiệu <strong>arbitration lost</strong> (<code>i2c_al</code>) — cập nhật thanh ghi trạng thái và có thể tạo ngắt.</li>
+        <li>Phần cứng phải <strong>đồng bộ SDA/SCL</strong> nhập từ pad để tránh meta-stability và nhận diện đúng xung từ master khác.</li>
+    </ul>
+    <p class="i2c-note"><strong>RD1139 slide trước:</strong> Bus FSM “phát hiện START/STOP do slave/master khác” — cùng họ ý: bus là môi trường chia sẻ, không chỉ điều khiển nội bộ.</p>
+</div>

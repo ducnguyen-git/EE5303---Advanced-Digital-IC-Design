@@ -1,0 +1,18 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">RTL ref — OpenCores I2C Master (Wishbone)</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--accent">
+            <h3>Phân cấp module</h3>
+            <ul>
+                <li><code>i2c_master_top</code>: giao diện <strong>Wishbone revB.2</strong>, thanh ghi, ngắt.</li>
+                <li><code>i2c_master_byte_ctrl</code>: FSM mức byte + thanh ghi dịch 8 bit.</li>
+                <li><code>i2c_master_bit_ctrl</code>: điều khiển bit trên SCL/SDA, đồng bộ, multimaster.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--amber">
+            <h3>Đặc điểm</h3>
+            <p>Core hỗ trợ <strong>multimaster</strong> và phát hiện <strong>arbitration lost</strong> — mở rộng so với mô tả master đơn thuần trong báo cáo RD1139 (slide sau).</p>
+        </div>
+    </div>
+    <p class="i2c-muted-small">Nguồn file: <code>refs/i2c_skywater_130nm-main/i2c/src/*.v</code> — header ghi tác giả Richard Herveille / OpenCores.</p>
+</div>

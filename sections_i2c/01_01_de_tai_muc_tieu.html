@@ -1,0 +1,23 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Mục tiêu &amp; phạm vi thiết kế</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--accent">
+            <h3><i class="fa-solid fa-bullseye"></i> Mục tiêu chức năng</h3>
+            <ul>
+                <li>Thiết kế <strong>I2C Master</strong> tuân thủ đặc tả bus I2C, lấy <strong>kiến trúc tham chiếu Lattice RD1139</strong> làm cơ sở phân tích khối, FSM và giao tiếp phần mềm.</li>
+                <li>Hỗ trợ <strong>Standard Mode (100 kHz)</strong> và <strong>Fast Mode (400 kHz)</strong> — lựa chọn tốc độ qua cấu hình chia clock / mode (<code>i_clk_div_lsb</code>, <code>i_mode_reg[2:0]</code>).</li>
+                <li>Đầy đủ vai trò master: <strong>ghi</strong>, <strong>đọc</strong>, <strong>địa chỉ 7 bit</strong>, <strong>START / STOP / ACK / NACK / repeated START</strong>.</li>
+                <li>Thiết kế <strong>tổng hợp được</strong>, mô phỏng với <strong>testbench</strong> (TB kèm RD1139) trước khi tích hợp hệ thống.</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--sky">
+            <h3><i class="fa-solid fa-layer-group"></i> Phạm vi &amp; giả định</h3>
+            <ul>
+                <li>Trọng tâm <strong>master đơn</strong> (RD1139); đa master đề cập ở bus FSM và ref silicon (arbitration OpenCores).</li>
+                <li><strong>Processor Interface</strong> — map thanh ghi và ngắt; chi tiết bit theo tài liệu nhóm.</li>
+                <li>Đồng hồ hệ thống <strong>32 MHz</strong>: FSM và bộ chia đảm bảo setup/hold pad ở tốc độ bus đã chọn.</li>
+            </ul>
+        </div>
+    </div>
+    <p class="i2c-note"><strong>Ghi chú:</strong> Nội dung bám <code>i2c_report_body.tex</code>; ref <code>refs/i2c_skywater_130nm-main</code> minh họa P&amp;R — RTL khác RD1139, so sánh ở phần 4.</p>
+</div>

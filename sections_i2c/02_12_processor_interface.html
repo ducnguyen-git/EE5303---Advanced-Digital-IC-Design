@@ -1,0 +1,24 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Processor Interface — giao CPU ↔ I2C Master</h1>
+    <p class="i2c-lead">Khối <strong>Processor Interface</strong> (fig01) là lớp đưa thanh ghi vào không gian địa chỉ SoC/FPGA và đồng bộ với <strong>clock hệ thống</strong> (vd. 32 MHz), tách khỏi FSM bit trên bus I2C.</p>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--accent">
+            <h3>Vai trò</h3>
+            <ul>
+                <li>Giải mã <strong>địa chỉ thanh ghi</strong> (slave addr, byte count, config, status…).</li>
+                <li>Sinh tín hiệu <strong>đọc/ghi</strong> nội bộ tới các thanh ghi điều khiển/trạng thái.</li>
+                <li>Đồng bộ với Master FSM: ghi <code>START</code> kích hoạt chuỗi; đọc cờ <code>TX_DONE</code>/<code>RX_DONE</code>/<code>I2C_BUSY</code>.</li>
+                <li>Có thể phát <strong>ngắt</strong> khi bật TX_IE/RX_IE và có sự kiện hoàn thành.</li>
+            </ul>
+        </div>
+        <div class="i2c-card">
+            <h3>Điểm cần đối chiếu khi tích hợp</h3>
+            <ul>
+                <li>Timing <strong>setup/hold</strong> đọc/ghi thanh ghi theo xung hệ thống (khác nhịp SCL trên bus).</li>
+                <li>Tránh đọc dữ liệu RX khi <code>o_received_data_valid</code> = 0.</li>
+                <li>Hành vi <strong>ABORT/RESET</strong>: phần mềm phải đợi cờ xác nhận trong status (nếu RTL có).</li>
+                <li>Reset: đưa FSM về IDLE và pad về trạng thái an toàn theo quy ước dự án.</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">Repeated START (Sr) — khi nào dùng &amp; ràng buộc</h1>
+    <ul>
+        <li><strong>Mục đích:</strong> đổi hướng hoặc truy cập thanh ghi nội bộ slave (ví dụ: ghi địa chỉ thanh ghi rồi Sr rồi đọc dữ liệu) <strong>không</strong> phát STOP giữa hai phase.</li>
+        <li><strong>Điều kiện báo cáo:</strong> lần START thứ hai phải giữ <strong>cùng địa chỉ slave</strong> như đặc tả nhóm.</li>
+        <li><strong>Trên bus:</strong> Sr là điều kiện START xuất hiện khi bus đã busy (không có STOP trước đó) — SDA chuyển từ cao xuống thấp khi SCL = 1, sau phase trước.</li>
+        <li><strong>Phần mềm:</strong> cấu hình chuỗi lệnh trong TB/CPU để FSM master không chèn STOP sai vị trí; quan sát waveform fig08.</li>
+    </ul>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--amber">
+            <h3>Kiểm thử</h3>
+            <p>Kịch bản: START → addr+W → ACK → (data) → <strong>Sr</strong> → addr+R → … — không có STOP giữa hai START.</p>
+        </div>
+        <div class="i2c-card i2c-card--violet">
+            <h3>Lỗi thường gặp</h3>
+            <p>Nhầm Sr với STOP+START; đếm byte sai khiến STOP sớm hoặc thiếu ACK cuối.</p>
+        </div>
+    </div>
+</div>

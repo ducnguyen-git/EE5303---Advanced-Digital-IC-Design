@@ -1,0 +1,17 @@
+<div class="slide slide-container i2c-slide">
+    <h1 class="gradient-text">SkyWater 130 nm — bối cảnh ref trong repo</h1>
+    <div class="i2c-grid-2">
+        <div class="i2c-card i2c-card--orange">
+            <h3>PDK &amp; thư viện</h3>
+            <ul>
+                <li>Quy trình thiết kế dùng <strong>sky130</strong> — PDK mở, phù hợp luồng <strong>OpenLane</strong>.</li>
+                <li>Std cell: <strong>sky130_fd_sc_hd</strong> (high density) trong cấu hình ref <code>i2c/config.tcl</code>.</li>
+                <li>Top: <code>i2c_master_top</code> — clock port <code>wb_clk_i</code>, chu kỳ mặc định <strong>10 ns</strong> (100 MHz) trong file config (có thể đổi theo run).</li>
+            </ul>
+        </div>
+        <div class="i2c-card i2c-card--sky">
+            <h3>Mục tiêu minh họa</h3>
+            <p>Chứng minh khả năng đưa một core I2C master <strong>tổng hợp được</strong> qua đầy đủ bước floorplan → placement → CTS → routing → sign-off (STA, DRC, LVS, antenna). Đây là <strong>đường ống vật lý</strong>, không đồng nhất với RTL RD1139 trong báo cáo LaTeX.</p>
+        </div>
+    </div>
+</div>
