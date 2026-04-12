@@ -3,7 +3,7 @@
    Laser Pointer, Drawing, Context Menu, Blackout
    ============================================ */
 
-(function () {
+   (function () {
     'use strict';
 
     // ─── Chapter navigation: chỉ lấy từ trang HTML (vd. index.html) — không fallback ───

@@ -1,3 +1,59 @@
+/**
+ * Slide loader + overview / presenting modes.
+ * Ưu tiên window.slidesList (khai báo trong index.html); nếu không có thì dùng DEFAULT_SLIDES_LIST (bộ DFT mẫu).
+ * Class body khi trình chiếu: presentation-mode (khớp slides.css + presentation-tools.css).
+ */
+const DEFAULT_SLIDES_LIST = [
+    'sections/00_00_cover.html',
+    'sections/00_01_toc.html',
+    'sections/01_00_chapter.html',
+    'sections/01_01_khai_niem.html',
+    'sections/01_02_background.html',
+    'sections/01_03_objectives.html',
+    'sections/01_04_physical_defects.html',
+    'sections/02_00_chapter.html',
+    'sections/02_01_huffman.html',
+    'sections/02_02_combinational_testability.html',
+    'sections/02_03_why_scan_design.html',
+    'sections/02_04_tradeoffs.html',
+    'sections/02_05_logic_fault_models.html',
+    'sections/03_00_chapter.html',
+    'sections/03_01_insertion.html',
+    'sections/03_02_muxdemux.html',
+    'sections/03_03_isolated_scan.html',
+    'sections/03_04_reduce_simul.html',
+    'sections/03_05_basic_scan_concept.html',
+    'sections/04_00_chapter.html',
+    'sections/04_01_fullscan_intro.html',
+    'sections/04_02_ff_structures.html',
+    'sections/04_03_residue5.html',
+    'sections/04_04_virtual_tester.html',
+    'sections/05_00_chapter.html',
+    'sections/05_01_full_scan_architecture.html',
+    'sections/05_02_shadow_register.html',
+    'sections/05_03_partial_scan.html',
+    'sections/05_04_multiple_scan_intro.html',
+    'sections/05_05_other_scan.html',
+    'sections/06_00_chapter.html',
+    'sections/06_01_rtl_full_scan.html',
+    'sections/06_02_rtl_full_scan_ex.html',
+    'sections/06_03_rtl_multiple_scan.html',
+    'sections/06_04_rtl_multiple_scan_ex.html',
+    'sections/07_00_chapter.html',
+    'sections/07_01_comparison.html',
+    'sections/07_02_casestudy.html',
+    'sections/07_03_summary.html',
+    'sections/07_04_references.html',
+    'sections/07_99_thanks.html'
+];
+
+function getSlideUrls() {
+    if (Array.isArray(window.slidesList) && window.slidesList.length > 0) {
+        return window.slidesList;
+    }
+    return DEFAULT_SLIDES_LIST;
+}
+
 const wrapper = document.getElementById('slides_wrapper');
 var currentSlide = 0;
 var isPresenting = false;
@@ -60,24 +116,19 @@ window.addEventListener('resize', () => {
 });
 
 async function loadSlides() {
-    const slidesList = window.slidesList;
-    if (!Array.isArray(slidesList) || slidesList.length === 0) {
-        const err = new Error('Thiếu hoặc rỗng window.slidesList — khai báo trong <head> trước khi load presentation.js');
-        console.error(err);
+    const slideUrls = getSlideUrls();
+
+    if (!wrapper) {
         const loadingEl = document.getElementById('loading');
         if (loadingEl) {
             loadingEl.innerHTML =
-                '<p style="text-align:center;color:#b91c1c;padding:1rem;">Không có danh sách slide (<code>window.slidesList</code>).</p>';
+                '<p style="text-align:center;color:#b91c1c;">Thiếu phần tử <code>#slides_wrapper</code> trong HTML.</p>';
         }
-        return;
-    }
-    if (!wrapper) {
-        console.error('Thiếu #slides_wrapper');
         return;
     }
 
     try {
-        const promises = slidesList.map((url) =>
+        const promises = slideUrls.map((url) =>
             fetch(url).then((res) => {
                 if (!res.ok) throw new Error(`Could not load ${url}`);
                 return res.text();
@@ -129,6 +180,7 @@ async function loadSlides() {
                 <div style="background: #333; padding: 20px; border-radius: 8px; margin-top: 20px; word-break: break-word;">
                     <code>${error.message}</code>
                 </div>
+                <p style="margin-top:16px;font-size:0.95rem;color:#94a3b8;">Mở qua HTTP server (vd. <code>python -m http.server</code>), không mở file trực tiếp <code>file://</code>.</p>
             </div>
         `;
         }
@@ -175,7 +227,7 @@ let wasFullscreenAchieved = false;
 function togglePresentation() {
     const slides = document.querySelectorAll('.slide-container');
     isPresenting = !isPresenting;
-    document.body.classList.toggle('presenting', isPresenting);
+    document.body.classList.toggle('presentation-mode', isPresenting);
 
     if (isPresenting) {
         wasFullscreenAchieved = false;
