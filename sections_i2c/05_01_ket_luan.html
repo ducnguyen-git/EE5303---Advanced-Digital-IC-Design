@@ -1,6 +1,9 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Kết luận</h1>
-    <ol>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Kết luận</h1>
+    <ol style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0; padding-left: 1.35rem;">
         <li>Đã trình bày <strong>đặc tả I2C Master</strong> theo RD1139: kiến trúc khối, thanh ghi, FSM bus/master, luồng ghi/đọc/repeated START, <strong>Processor Interface</strong>, và kế hoạch kiểm chứng bằng TB + waveform (đối chiếu fig05–08).</li>
         <li>Đã bổ sung <strong>minh họa vật lý</strong> trên Sky130 với core OpenCores đi qua OpenLane — cho thấy đường ống từ RTL đến layout và các bước sign-off cơ bản (STA, DRC, LVS, antenna).</li>
         <li>Làm rõ phân tách vai trò: <strong>RD1139 = trục đồ án lý thuyết/hình</strong>; <strong>ref Sky130 = case study triển khai ASIC</strong> với RTL khác biệt nhưng cùng họ giao thức I2C.</li>

@@ -1,17 +1,22 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Hạn chế &amp; hướng phát triển</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--rose">
-            <h3>Hạn chế</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Hạn chế &amp; hướng phát triển</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fecaca; background: #fef2f2; border-top: 4px solid #dc2626; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #b91c1c;">Hạn chế</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #7f1d1d;">
                 <li>RTL RD1139 trong báo cáo có thể không trùng file gate-level với ref OpenCores — so sánh ở mức chức năng/đặc tả, không phải netlist từng cổng.</li>
                 <li>Hình <code>figures/i2c_from_docx</code> phụ thuộc trích từ Word — cần đồng bộ khi sửa tài liệu gốc.</li>
                 <li>Sign-off ref là kết quả một tập constraint/run — không đại diện mọi corner PVT.</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--mint">
-            <h3>Hướng mở rộng</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Hướng mở rộng</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
                 <li>Tổng hợp và đóng gói RTL RD1139 (nếu có license) rồi chạy cùng pipeline OpenLane để so sánh diện tích/timing.</li>
                 <li>Mô phỏng ngẫu nhiên + cover property (SVA) cho FSM.</li>
                 <li>Tích hợp trên FPGA với analyzer logic đo SCL/SDA thực.</li>

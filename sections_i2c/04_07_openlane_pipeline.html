@@ -1,6 +1,9 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Pipeline OpenLane (tổng quan bước)</h1>
-    <ol>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Pipeline OpenLane (tổng quan bước)</h1>
+    <ol style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 1rem; padding-left: 1.35rem;">
         <li><strong>Synthesis (Yosys):</strong> RTL → netlist cổng; ràng buộc clock/reset.</li>
         <li><strong>Floorplan + IO placement:</strong> định kích thước die, macro, vị trí pad.</li>
         <li><strong>Placement:</strong> đặt cell; tối ưu timing sơ bộ, congestion.</li>
@@ -8,5 +11,7 @@
         <li><strong>Routing:</strong> nối dây theo layer metal; fix DRC.</li>
         <li><strong>Sign-off:</strong> STA (setup/hold), DRC, LVS, antenna rule; xuất GDS.</li>
     </ol>
-    <p class="i2c-note i2c-note--warn">Ref README ghi lệnh dạng <code>./flow.tcl -design &lt;dir&gt; -tag &lt;run&gt;</code> — mỗi <code>tag</code> là một tập báo cáo/reports riêng trong <code>i2c/runs/</code>.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #fffbeb; border-left: 4px solid #d97706; font-size: 0.94rem; color: #78350f; line-height: 1.45;">
+        Ref README ghi lệnh dạng <code>./flow.tcl -design &lt;dir&gt; -tag &lt;run&gt;</code> — mỗi <code>tag</code> là một tập báo cáo/reports riêng trong <code>i2c/runs/</code>.</p>
 </div>

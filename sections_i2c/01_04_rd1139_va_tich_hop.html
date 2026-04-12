@@ -1,22 +1,37 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Tài liệu RD1139 &amp; vai trò trong đồ án</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--accent">
-            <h3>Reference Design Lattice</h3>
-            <p>RD1139 mô tả một <strong>I2C Master Controller</strong> dùng làm mẫu tích hợp — cung cấp kiến trúc khối, timing chức năng và môi trường mô phỏng (testbench) để xác minh giao dịch.</p>
-            <ul>
-                <li>Dùng làm <strong>chuẩn phân tích</strong>: tên khối, luồng byte-level, quan hệ Master FSM ↔ Bus FSM.</li>
-                <li>Báo cáo nhóm trích các <strong>figure</strong> (block, RTL, FSM, waveform) để thống nhất với đề bài.</li>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Tài liệu RD1139 &amp; vai trò trong đồ án</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Reference Design Lattice</h3>
+            <p style="margin: 0 0 0.5rem; font-size: 0.98rem; line-height: 1.48; color: #475569;">RD1139 mô tả một
+                <strong>I2C Master Controller</strong> dùng làm mẫu tích hợp — cung cấp kiến trúc khối, timing chức năng
+                và môi trường mô phỏng (testbench) để xác minh giao dịch.</p>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
+                <li>Dùng làm <strong>chuẩn phân tích</strong>: tên khối, luồng byte-level, quan hệ Master FSM ↔ Bus FSM.
+                </li>
+                <li>Báo cáo nhóm trích các <strong>figure</strong> (block, RTL, FSM, waveform) để thống nhất với đề bài.
+                </li>
             </ul>
         </div>
-        <div class="i2c-card">
-            <h3>Tích hợp SoC / FPGA</h3>
-            <ul>
-                <li><strong>Processor Interface:</strong> ánh xạ thanh ghi vào không gian địa chỉ CPU/SoC; có thể có ngắt TX/RX theo <code>TX_IE</code>, <code>RX_IE</code>.</li>
-                <li><strong>Clock domain:</strong> một domain xung hệ thống (ví dụ 32 MHz) sinh SCL qua bộ chia; cần xử lý reset, clock gating (nếu có) đúng quy ước dự án.</li>
-                <li><strong>Pad I/O:</strong> tri-state / open-drain phù hợp công nghệ IO — báo cáo nhấn mạnh mô hình inout logic.</li>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Tích hợp SoC / FPGA</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
+                <li><strong>Processor Interface:</strong> ánh xạ thanh ghi vào không gian địa chỉ CPU/SoC; có thể có ngắt
+                    TX/RX theo <code>TX_IE</code>, <code>RX_IE</code>.</li>
+                <li><strong>Clock domain:</strong> một domain xung hệ thống (ví dụ 32 MHz) sinh SCL qua bộ chia; cần xử
+                    lý reset, clock gating (nếu có) đúng quy ước dự án.</li>
+                <li><strong>Pad I/O:</strong> tri-state / open-drain phù hợp công nghệ IO — báo cáo nhấn mạnh mô hình inout
+                    logic.</li>
             </ul>
         </div>
     </div>
-    <p class="i2c-note"><strong>Lưu ý:</strong> Slide “ASIC Sky130” trình bày một core <strong>OpenCores Wishbone</strong> đã P&amp;R — không thay thế RTL RD1139 trong văn bản, mà bổ sung <strong>minh họa vật lý</strong> và đối chiếu giao diện.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
+        <strong>Lưu ý:</strong> Slide “ASIC Sky130” trình bày một core <strong>OpenCores Wishbone</strong> đã P&amp;R —
+        không thay thế RTL RD1139 trong văn bản, mà bổ sung <strong>minh họa vật lý</strong> và đối chiếu giao diện.</p>
 </div>

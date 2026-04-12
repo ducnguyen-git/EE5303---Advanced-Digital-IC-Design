@@ -1,36 +1,44 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Không gian thanh ghi (đặc tả báo cáo)</h1>
-    <div class="i2c-table-wrap">
-        <table>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Không gian thanh ghi (đặc tả báo cáo)</h1>
+    <div
+        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
             <thead>
                 <tr>
-                    <th>Thanh ghi</th>
-                    <th>Chức năng chi tiết</th>
+                    <th
+                        style="font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Thanh ghi</th>
+                    <th
+                        style="font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Chức năng chi tiết</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><code>i_slave_addr_reg</code></td>
-                    <td>Chứa <strong>7 bit địa chỉ</strong> slave (bit R/W được ghép trong giao dịch đầu theo hướng đọc/ghi).</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>i_slave_addr_reg</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chứa <strong>7 bit địa chỉ</strong> slave (bit R/W được ghép trong giao dịch đầu theo hướng đọc/ghi).</td>
                 </tr>
-                <tr>
-                    <td><code>i_byte_cnt_reg</code></td>
-                    <td>Số byte còn lại cần truyền hoặc nhận — so khớp với bộ đếm byte nội bộ để quyết định kết thúc (STOP) hoặc tiếp tục.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>i_byte_cnt_reg</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Số byte còn lại cần truyền hoặc nhận — so khớp với bộ đếm byte nội bộ để quyết định kết thúc (STOP) hoặc tiếp tục.</td>
                 </tr>
-                <tr>
-                    <td><code>i_clk_div_lsb</code> + <code>i_mode_reg[2:0]</code></td>
-                    <td>Cấu hình <strong>bộ chia clock</strong> tạo SCL và chọn <strong>chế độ tốc độ</strong> (Standard/Fast theo mapping phần mềm).</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>i_clk_div_lsb</code> + <code>i_mode_reg[2:0]</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Cấu hình <strong>bộ chia clock</strong> tạo SCL và chọn <strong>chế độ tốc độ</strong> (Standard/Fast theo mapping phần mềm).</td>
                 </tr>
-                <tr>
-                    <td><code>i_config_reg</code></td>
-                    <td>Điều khiển giao dịch: <strong>START</strong>, xóa ngắt <strong>INT_CLR</strong>, cho phép ngắt <strong>TX_IE</strong>/<strong>RX_IE</strong>, <strong>ABORT</strong>, <strong>RESET</strong> — cụ thể bit map theo tài liệu Word nhóm.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>i_config_reg</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Điều khiển giao dịch: <strong>START</strong>, xóa ngắt <strong>INT_CLR</strong>, cho phép ngắt <strong>TX_IE</strong>/<strong>RX_IE</strong>, <strong>ABORT</strong>, <strong>RESET</strong> — cụ thể bit map theo tài liệu Word nhóm.</td>
                 </tr>
-                <tr>
-                    <td><code>o_cmd_status_reg</code></td>
-                    <td>Trạng thái: <strong>TX_DONE</strong>, <strong>RX_DONE</strong>, <strong>TX_ERR</strong>, <strong>RX_ERR</strong>, <strong>ABORT_ACK</strong>, <strong>I2C_BUSY</strong> — dùng để poll hoặc kết hợp ngắt.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>o_cmd_status_reg</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Trạng thái: <strong>TX_DONE</strong>, <strong>RX_DONE</strong>, <strong>TX_ERR</strong>, <strong>RX_ERR</strong>, <strong>ABORT_ACK</strong>, <strong>I2C_BUSY</strong> — dùng để poll hoặc kết hợp ngắt.</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <p class="i2c-muted-small">Slide tiếp theo mở rộng luồng ghi bit START/INT trong <code>i_config_reg</code> và ý nghĩa từng cờ hoàn thành/lỗi.</p>
+    <p style="margin: 0.65rem 0 0; font-size: 0.88rem; color: #64748b; line-height: 1.45;">Slide tiếp theo mở rộng luồng ghi bit START/INT trong <code>i_config_reg</code> và ý nghĩa từng cờ hoàn thành/lỗi.</p>
 </div>

@@ -1,9 +1,14 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Arbitration &amp; multimaster (góc nhìn ref OpenCores)</h1>
-    <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Arbitration &amp; multimaster (góc nhìn ref OpenCores)</h1>
+    <ul style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 1rem; padding-left: 1.35rem;">
         <li>Trên bus I2C, nhiều master có thể đồng thời kéo START — bit địa chỉ trên <strong>SDA</strong> quyết định master nào “thua” khi mức không khớp ý định (master phải nhả bus).</li>
         <li>Core OpenCores khai báo tín hiệu <strong>arbitration lost</strong> (<code>i2c_al</code>) — cập nhật thanh ghi trạng thái và có thể tạo ngắt.</li>
         <li>Phần cứng phải <strong>đồng bộ SDA/SCL</strong> nhập từ pad để tránh meta-stability và nhận diện đúng xung từ master khác.</li>
     </ul>
-    <p class="i2c-note"><strong>RD1139 slide trước:</strong> Bus FSM “phát hiện START/STOP do slave/master khác” — cùng họ ý: bus là môi trường chia sẻ, không chỉ điều khiển nội bộ.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
+        <strong>RD1139 slide trước:</strong> Bus FSM “phát hiện START/STOP do slave/master khác” — cùng họ ý: bus là môi trường chia sẻ, không chỉ điều khiển nội bộ.</p>
 </div>

@@ -1,45 +1,68 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Ràng buộc thiết kế — tổng hợp</h1>
-    <div class="i2c-table-wrap">
-        <table>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Ràng buộc thiết kế — tổng hợp</h1>
+    <div
+        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
             <thead>
                 <tr>
-                    <th class="i2c-th-w22">Nhóm</th>
-                    <th>Yêu cầu / hệ quả</th>
+                    <th
+                        style="width: 22%; font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Nhóm</th>
+                    <th
+                        style="font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Yêu cầu / hệ quả</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><strong>Điện / bus</strong></td>
-                    <td>SDA/SCL <strong>open-drain</strong>; pull-up ngoài; master chỉ kéo thấp hoặc nhả high-Z.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Điện /
+                            bus</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">SDA/SCL
+                        <strong>open-drain</strong>; pull-up ngoài; master chỉ kéo thấp hoặc nhả high-Z.</td>
                 </tr>
-                <tr>
-                    <td><strong>Điều kiện SDA</strong></td>
-                    <td>Bit dữ liệu và ACK chỉ đổi khi <strong>SCL = 0</strong> (trừ START/STOP/Sr trên SCL = 1).</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Điều kiện
+                            SDA</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Bit dữ liệu và
+                        ACK chỉ đổi khi <strong>SCL = 0</strong> (trừ START/STOP/Sr trên SCL = 1).</td>
                 </tr>
-                <tr>
-                    <td><strong>START / STOP</strong></td>
-                    <td><strong>START:</strong> SDA ↓ khi SCL = 1. <strong>STOP:</strong> SDA ↑ khi SCL = 1.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>START /
+                            STOP</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>START:</strong> SDA ↓ khi SCL = 1. <strong>STOP:</strong> SDA ↑ khi SCL = 1.</td>
                 </tr>
-                <tr>
-                    <td><strong>Tốc độ</strong></td>
-                    <td>100 kHz / 400 kHz — chu kỳ SCL và nửa chu kỳ phù hợp chế độ (từ clock hệ thống và prescale).</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Tốc
+                            độ</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">100 kHz / 400 kHz
+                        — chu kỳ SCL và nửa chu kỳ phù hợp chế độ (từ clock hệ thống và prescale).</td>
                 </tr>
-                <tr>
-                    <td><strong>HDL &amp; TB</strong></td>
-                    <td>Verilog/SystemVerilog; TB ghi/đọc/repeated START theo RD1139.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>HDL &amp;
+                            TB</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Verilog/SystemVerilog;
+                        TB ghi/đọc/repeated START theo RD1139.</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="i2c-grid-2 i2c-mt-1">
-        <div class="i2c-card i2c-card--amber">
-            <h3>Clock stretching</h3>
-            <p>Slave giữ SCL thấp — master <strong>chờ</strong> SCL cao trước bit kế. Cần <strong>Clock Generator &amp; Synchronizer</strong> và FSM không giả định SCL cố định.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%; margin-top: 0.75rem;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Clock stretching</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #475569;">Slave giữ SCL thấp — master
+                <strong>chờ</strong> SCL cao trước bit kế. Cần <strong>Clock Generator &amp; Synchronizer</strong> và FSM
+                không giả định SCL cố định.</p>
         </div>
-        <div class="i2c-card i2c-card--mint">
-            <h3>Tích hợp</h3>
-            <p>Ổn định trên <strong>SoC/FPGA</strong>: timing pad, reset, slew và điện áp bus thực tế.</p>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Tích hợp</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #14532d;">Ổn định trên <strong>SoC/FPGA</strong>:
+                timing pad, reset, slew và điện áp bus thực tế.</p>
         </div>
     </div>
 </div>

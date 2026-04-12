@@ -1,18 +1,23 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Luồng phần mềm — config &amp; status</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--sky">
-            <h3><code>i_config_reg</code> — điển hình</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Luồng phần mềm — config &amp; status</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #bae6fd; background: #f0f9ff; border-top: 4px solid #0ea5e9; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0c4a6e;"><code>i_config_reg</code> — điển hình</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
                 <li><strong>START = 1</strong> khởi động giao dịch; có thể <strong>tự clear</strong> sau khi nhận (theo RD1139/Word nhóm).</li>
                 <li><strong>TX_IE / RX_IE</strong> — ngắt khi hoàn thành thay vì poll <code>TX_DONE</code>/<code>RX_DONE</code>.</li>
                 <li><strong>INT_CLR</strong> — xóa pending sau ISR.</li>
                 <li><strong>ABORT</strong> / <strong>RESET</strong> — hủy an toàn / đưa FSM về trạng thái đã định nghĩa.</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--amber">
-            <h3><code>o_cmd_status_reg</code></h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;"><code>o_cmd_status_reg</code></h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #78350f;">
                 <li><strong>I2C_BUSY</strong> — giao dịch chưa kết thúc bằng STOP; set trước khi START auto-clear.</li>
                 <li><strong>TX_DONE / RX_DONE</strong> — hoàn tất chuỗi byte theo hướng.</li>
                 <li><strong>TX_ERR / RX_ERR</strong> — NACK, timeout… (theo RTL RD1139).</li>
@@ -20,5 +25,7 @@
             </ul>
         </div>
     </div>
-    <p class="i2c-note"><strong>Dữ liệu:</strong> <code>o_transmit_data_requested</code> trước mỗi byte gửi; <code>o_receive_data</code> khi <code>o_received_data_valid</code> = 1.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
+        <strong>Dữ liệu:</strong> <code>o_transmit_data_requested</code> trước mỗi byte gửi; <code>o_receive_data</code> khi <code>o_received_data_valid</code> = 1.</p>
 </div>

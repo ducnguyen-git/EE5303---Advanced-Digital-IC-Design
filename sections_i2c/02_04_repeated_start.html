@@ -1,19 +1,24 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Repeated START (Sr) — khi nào dùng &amp; ràng buộc</h1>
-    <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Repeated START (Sr) — khi nào dùng &amp; ràng buộc</h1>
+    <ul style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 1rem; padding-left: 1.35rem;">
         <li><strong>Mục đích:</strong> đổi hướng hoặc truy cập thanh ghi nội bộ slave (ví dụ: ghi địa chỉ thanh ghi rồi Sr rồi đọc dữ liệu) <strong>không</strong> phát STOP giữa hai phase.</li>
         <li><strong>Điều kiện báo cáo:</strong> lần START thứ hai phải giữ <strong>cùng địa chỉ slave</strong> như đặc tả nhóm.</li>
         <li><strong>Trên bus:</strong> Sr là điều kiện START xuất hiện khi bus đã busy (không có STOP trước đó) — SDA chuyển từ cao xuống thấp khi SCL = 1, sau phase trước.</li>
         <li><strong>Phần mềm:</strong> cấu hình chuỗi lệnh trong TB/CPU để FSM master không chèn STOP sai vị trí; quan sát waveform fig08.</li>
     </ul>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--amber">
-            <h3>Kiểm thử</h3>
-            <p>Kịch bản: START → addr+W → ACK → (data) → <strong>Sr</strong> → addr+R → … — không có STOP giữa hai START.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Kiểm thử</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #78350f;">Kịch bản: START → addr+W → ACK → (data) → <strong>Sr</strong> → addr+R → … — không có STOP giữa hai START.</p>
         </div>
-        <div class="i2c-card i2c-card--violet">
-            <h3>Lỗi thường gặp</h3>
-            <p>Nhầm Sr với STOP+START; đếm byte sai khiến STOP sớm hoặc thiếu ACK cuối.</p>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #ddd6fe; background: #faf5ff; border-top: 4px solid #7c3aed; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #6d28d9;">Lỗi thường gặp</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #4c1d95;">Nhầm Sr với STOP+START; đếm byte sai khiến STOP sớm hoặc thiếu ACK cuối.</p>
         </div>
     </div>
 </div>

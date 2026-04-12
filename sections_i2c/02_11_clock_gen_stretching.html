@@ -1,20 +1,27 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Clock Generator &amp; clock stretching</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--accent">
-            <h3>Sinh SCL từ clock hệ thống</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Clock Generator &amp; clock stretching</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Sinh SCL từ clock hệ thống</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
                 <li>Tham số <code>i_clk_div_lsb</code> và <code>i_mode_reg[2:0]</code> chọn tỷ lệ chia và chế độ — quyết định <strong>chu kỳ SCL</strong> và độ rộng nửa chu kỳ.</li>
                 <li>FSM bit phải căn cứ theo <strong>mẫu nội bộ</strong> đồng bộ với cạnh SCL (và trễ pad) để không vi phạm setup/hold SDA.</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--mint">
-            <h3>Stretching</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Stretching</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
                 <li>Slave kéo <strong>SCL thấp</strong> sau cạnh xuống để tạm dừng — master phải <strong>chờ SCL cao trở lại</strong> trước khi tính bit mới.</li>
                 <li>Khối <strong>Synchronizer</strong> đảm bảo đọc SCL/SDA từ pad không metastable; logic chờ phải tránh deadlock với timeout (nếu thiết kế có).</li>
             </ul>
         </div>
     </div>
-    <p class="i2c-note"><strong>Liên hệ đồ án:</strong> Figure RTL (fig02) thể hiện khối clock/sync nối với đường SCL; mô phỏng có thể cần model slave kéo SCL để kiểm tra FSM chờ.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
+        <strong>Liên hệ đồ án:</strong> Figure RTL (fig02) thể hiện khối clock/sync nối với đường SCL; mô phỏng có thể cần model slave kéo SCL để kiểm tra FSM chờ.</p>
 </div>

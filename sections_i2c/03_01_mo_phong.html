@@ -1,22 +1,29 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Môi trường mô phỏng &amp; phạm vi kiểm chứng</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--violet">
-            <h3><i class="fa-solid fa-vial-circle-check"></i> Nguồn testbench</h3>
-            <p>Theo RD1139: testbench Verilog có sẵn để tái sử dụng — bao gồm model bus, slave giả lập (hoặc BFM), và các task gọi giao dịch.</p>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Môi trường mô phỏng &amp; phạm vi kiểm chứng</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #ddd6fe; background: #faf5ff; border-top: 4px solid #7c3aed; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #6d28d9;"><i class="fa-solid fa-vial-circle-check"></i> Nguồn testbench</h3>
+            <p style="margin: 0 0 0.5rem; font-size: 0.98rem; line-height: 1.48; color: #4c1d95;">Theo RD1139: testbench Verilog có sẵn để tái sử dụng — bao gồm model bus, slave giả lập (hoặc BFM), và các task gọi giao dịch.</p>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #4c1d95;">
                 <li>Mục tiêu: chứng minh <strong>đúng giao thức</strong> trước khi tổng hợp/tích hợp.</li>
                 <li>Có thể mở rộng: corner case (NACK, clock stretch, abort).</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--mint">
-            <h3><i class="fa-solid fa-wave-square"></i> Tín hiệu cần theo dõi</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;"><i class="fa-solid fa-wave-square"></i> Tín hiệu cần theo dõi</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
                 <li>Bus: <strong>SCL, SDA</strong> (và enable pad nếu mô hình tách).</li>
                 <li>Phần mềm: <code>I2C_BUSY</code>, <code>TX_DONE</code>/<code>RX_DONE</code>, handshake <code>o_transmit_data_requested</code>, <code>o_received_data_valid</code>.</li>
                 <li>So khớp với fig05–08 để đối chiếu timing mong đợi.</li>
             </ul>
         </div>
     </div>
-    <p class="i2c-note"><strong>Workflow đề xuất:</strong> chạy TB mặc định → ghi waveform → đối chiếu từng phase với báo cáo → chỉnh tham số chia clock nếu tần số SCL lệch chế độ.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
+        <strong>Workflow đề xuất:</strong> chạy TB mặc định → ghi waveform → đối chiếu từng phase với báo cáo → chỉnh tham số chia clock nếu tần số SCL lệch chế độ.</p>
 </div>

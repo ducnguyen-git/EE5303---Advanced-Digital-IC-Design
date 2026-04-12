@@ -1,18 +1,23 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">RTL ref — OpenCores I2C Master (Wishbone)</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--accent">
-            <h3>Phân cấp module</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        RTL ref — OpenCores I2C Master (Wishbone)</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phân cấp module</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
                 <li><code>i2c_master_top</code>: giao diện <strong>Wishbone revB.2</strong>, thanh ghi, ngắt.</li>
                 <li><code>i2c_master_byte_ctrl</code>: FSM mức byte + thanh ghi dịch 8 bit.</li>
                 <li><code>i2c_master_bit_ctrl</code>: điều khiển bit trên SCL/SDA, đồng bộ, multimaster.</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--amber">
-            <h3>Đặc điểm</h3>
-            <p>Core hỗ trợ <strong>multimaster</strong> và phát hiện <strong>arbitration lost</strong> — mở rộng so với mô tả master đơn thuần trong báo cáo RD1139 (slide sau).</p>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Đặc điểm</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #78350f;">Core hỗ trợ <strong>multimaster</strong> và phát hiện <strong>arbitration lost</strong> — mở rộng so với mô tả master đơn thuần trong báo cáo RD1139 (slide sau).</p>
         </div>
     </div>
-    <p class="i2c-muted-small">Nguồn file: <code>refs/i2c_skywater_130nm-main/i2c/src/*.v</code> — header ghi tác giả Richard Herveille / OpenCores.</p>
+    <p style="margin: 0.65rem 0 0; font-size: 0.88rem; color: #64748b; line-height: 1.45;">Nguồn file: <code>refs/i2c_skywater_130nm-main/i2c/src/*.v</code> — header ghi tác giả Richard Herveille / OpenCores.</p>
 </div>

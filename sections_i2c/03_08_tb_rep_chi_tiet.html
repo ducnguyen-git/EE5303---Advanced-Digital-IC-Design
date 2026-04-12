@@ -1,11 +1,16 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Kịch bản TB — Repeated START</h1>
-    <ol>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Kịch bản TB — Repeated START</h1>
+    <ol style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 1rem; padding-left: 1.35rem;">
         <li>Phát <strong>START</strong> đầu → gửi địa chỉ → nhận <strong>ACK</strong>.</li>
         <li><strong>Không</strong> xuất hiện <strong>STOP</strong> giữa các phase.</li>
         <li>Phát <strong>START</strong> lần hai (Sr) — đúng địa chỉ slave theo đặc tả.</li>
         <li>Tiếp tục phase đọc/ghi theo TB; slave trả dữ liệu/ACK tương ứng.</li>
         <li>Kết thúc bằng <strong>STOP</strong> khi toàn bộ chuỗi hoàn tất.</li>
     </ol>
-    <p class="i2c-note i2c-note--danger"><strong>Kiểm tra lỗi:</strong> nếu waveform có STOP xen giữa hai phase định dùng Sr → kịch bản sai hoặc FSM lỗi đếm byte.</p>
+    <p
+        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #fef2f2; border-left: 4px solid #dc2626; font-size: 0.94rem; color: #7f1d1d; line-height: 1.45;">
+        <strong>Kiểm tra lỗi:</strong> nếu waveform có STOP xen giữa hai phase định dùng Sr → kịch bản sai hoặc FSM lỗi đếm byte.</p>
 </div>

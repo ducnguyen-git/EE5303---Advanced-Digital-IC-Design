@@ -1,46 +1,54 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">I2C Master Control FSM — chuỗi trạng thái (fig04)</h1>
-    <p class="i2c-lead">FSM <strong>mức byte</strong> điều phối toàn bộ giao dịch từ lệnh phần mềm đến STOP/DONE.</p>
-    <div class="i2c-table-wrap">
-        <table>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        I2C Master Control FSM — chuỗi trạng thái (fig04)</h1>
+    <p style="font-size: 1.02rem; color: #475569; margin: -0.35rem 0 1rem; line-height: 1.45;">FSM <strong>mức byte</strong> điều phối toàn bộ giao dịch từ lệnh phần mềm đến STOP/DONE.</p>
+    <div
+        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
             <thead>
                 <tr>
-                    <th>Trạng thái</th>
-                    <th>Ý nghĩa vận hành</th>
+                    <th
+                        style="font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Trạng thái</th>
+                    <th
+                        style="font-weight: 700; text-align: left; padding: 0.55rem 0.65rem; background: linear-gradient(90deg, #0c4a6e, #0369a1); color: #fff; font-size: 0.92rem;">
+                        Ý nghĩa vận hành</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><code>IDLE</code></td>
-                    <td>Chờ lệnh; bus có thể rảnh hoặc chờ cấu hình.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>IDLE</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chờ lệnh; bus có thể rảnh hoặc chờ cấu hình.</td>
                 </tr>
-                <tr>
-                    <td><code>START</code></td>
-                    <td>Phát điều kiện START; chuẩn bị byte địa chỉ.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>START</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phát điều kiện START; chuẩn bị byte địa chỉ.</td>
                 </tr>
-                <tr>
-                    <td><code>SEND_ADDR</code></td>
-                    <td>Đẩy 7+1 bit địa chỉ qua shifter/bit FSM.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>SEND_ADDR</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đẩy 7+1 bit địa chỉ qua shifter/bit FSM.</td>
                 </tr>
-                <tr>
-                    <td><code>ADDR_ACK</code></td>
-                    <td>Kiểm tra ACK địa chỉ — lỗi có thể dẫn tới TX_ERR và dừng an toàn.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>ADDR_ACK</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Kiểm tra ACK địa chỉ — lỗi có thể dẫn tới TX_ERR và dừng an toàn.</td>
                 </tr>
-                <tr>
-                    <td><code>TX_DATA</code> / <code>RX_DATA</code></td>
-                    <td>Lặp theo số byte; phối hợp với đếm byte và handshake dữ liệu với CPU.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>TX_DATA</code> / <code>RX_DATA</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Lặp theo số byte; phối hợp với đếm byte và handshake dữ liệu với CPU.</td>
                 </tr>
-                <tr>
-                    <td><code>DATA_ACK</code></td>
-                    <td>Xử lý bit ACK sau mỗi byte dữ liệu.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>DATA_ACK</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Xử lý bit ACK sau mỗi byte dữ liệu.</td>
                 </tr>
-                <tr>
-                    <td><code>STOP</code></td>
-                    <td>Sinh STOP khi đủ byte hoặc lỗi/abort.</td>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>STOP</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Sinh STOP khi đủ byte hoặc lỗi/abort.</td>
                 </tr>
-                <tr>
-                    <td><code>DONE</code></td>
-                    <td>Báo hoàn tất; set TX_DONE/RX_DONE; có thể về IDLE.</td>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>DONE</code></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Báo hoàn tất; set TX_DONE/RX_DONE; có thể về IDLE.</td>
                 </tr>
             </tbody>
         </table>

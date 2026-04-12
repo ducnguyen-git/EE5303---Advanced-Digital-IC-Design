@@ -1,10 +1,16 @@
-<div class="slide slide-container i2c-slide i2c-slide--toc">
-    <h1 class="gradient-text"><i class="fa-solid fa-list"></i> Mục lục chi tiết</h1>
-    <p class="i2c-lead i2c-lead--toc">Toàn bộ <strong>49 slide</strong> — 5 phần (bìa + mục lục + nội dung).</p>
-    <div class="i2c-toc-grid">
-        <div class="i2c-toc-block i2c-toc-block--c1">
-            <h3>Phần 1 — Bối cảnh &amp; đặc tả I2C</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.35rem;">
+        <i class="fa-solid fa-list"></i> Mục lục chi tiết</h1>
+    <p style="font-size: 1.02rem; color: #475569; margin: -0.25rem 0 0.85rem;">Toàn bộ <strong>49 slide</strong> — 5 phần
+        (bìa + mục lục + nội dung).</p>
+    <div
+        style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1rem; width: 100%; align-items: start;">
+        <div
+            style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 45%); border-top: 4px solid #0369a1;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 1 — Bối cảnh &amp; đặc tả I2C</h3>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
                 <li>Mục tiêu, phạm vi RD1139, ràng buộc vật lý/bus</li>
                 <li><strong>Đối chiếu đề tài</strong> — bảng map yêu cầu → slide</li>
                 <li>Giao thức: địa chỉ, byte, ACK, arbitration ý niệm</li>
@@ -12,9 +18,10 @@
                 <li>Chế độ Standard/Fast — timing tổng quát</li>
             </ul>
         </div>
-        <div class="i2c-toc-block i2c-toc-block--c2">
-            <h3>Phần 2 — Kiến trúc RD1139 &amp; RTL</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #fef2f2 0%, #fff 45%); border-top: 4px solid #ef4444;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 2 — Kiến trúc RD1139 &amp; RTL</h3>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
                 <li>7 khối chức năng; phân tách Master/Bus FSM</li>
                 <li>Thanh ghi, bit điều khiển/trạng thái</li>
                 <li><strong>Processor Interface</strong> — CPU ↔ master</li>
@@ -22,26 +29,29 @@
                 <li>Sơ đồ RTL; phân tích FSM &amp; byte counter</li>
             </ul>
         </div>
-        <div class="i2c-toc-block i2c-toc-block--c3">
-            <h3>Phần 3 — Kiểm chứng &amp; waveform</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #ecfdf5 0%, #fff 45%); border-top: 4px solid #059669;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 3 — Kiểm chứng &amp; waveform</h3>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
                 <li>TB RD1139: kịch bản, tín hiệu cần quan sát</li>
                 <li>Checklist TX/RX/repeated START</li>
                 <li>Fig05–08: đọc timing &amp; handshake phần mềm</li>
                 <li><strong>Chứng minh mô phỏng</strong> — ảnh sóng + đối chiếu fig</li>
             </ul>
         </div>
-        <div class="i2c-toc-block i2c-toc-block--c4">
-            <h3>Phần 4 — Thực thi ASIC (ref Sky130)</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #fffbeb 0%, #fff 45%); border-top: 4px solid #d97706;">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 4 — Thực thi ASIC (ref Sky130)</h3>
+            <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
                 <li>PDK Sky130, OpenLane, pipeline tổng hợp → sign-off</li>
                 <li>OpenCores Wishbone: map thanh ghi, phân cấp byte/bit</li>
                 <li>Đối chiếu RD1139 ↔ core tham chiếu silicon</li>
                 <li>STA/DRC/LVS/Antenna; kết quả run mẫu</li>
             </ul>
         </div>
-        <div class="i2c-toc-block i2c-toc-block--c5">
-            <h3>Phần 5 — Kết luận, hạn chế, hướng mở rộng</h3>
+        <div
+            style="grid-column: 1 / -1; border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #eef2ff 0%, #fff 45%); border-top: 4px solid #6366f1;">
+            <h3 style="margin: 0; font-size: 1.05rem; color: #0f172a;">Phần 5 — Kết luận, hạn chế, hướng mở rộng</h3>
         </div>
     </div>
 </div>

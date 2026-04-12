@@ -1,16 +1,21 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Bộ đếm byte — logic điều khiển độ dài giao dịch</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--violet">
-            <h3>Cấu trúc</h3>
-            <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Bộ đếm byte — logic điều khiển độ dài giao dịch</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #ddd6fe; background: #faf5ff; border-top: 4px solid #7c3aed; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #6d28d9;">Cấu trúc</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #4c1d95;">
                 <li>Counter <strong>8 bit</strong> (theo báo cáo) — tăng sau mỗi byte hoàn chỉnh (sau ACK bit tương ứng).</li>
                 <li>So sánh với <code>i_byte_cnt_reg</code> để biết byte hiện tại có phải <strong>byte cuối</strong> hay không.</li>
             </ul>
         </div>
-        <div class="i2c-card i2c-card--violet">
-            <h3>Hệ quả</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #ddd6fe; background: #faf5ff; border-top: 4px solid #7c3aed; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #6d28d9;">Hệ quả</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #4c1d95;">
                 <li>Byte cuối: sau khi ACK dữ liệu, FSM chuyển tới <strong>STOP</strong> (trừ kịch bản Sr hoặc chuỗi kéo dài).</li>
                 <li>Sai số đếm → STOP sớm/muộn → lỗi giao thức phía slave hoặc treo bus — cần kiểm tra TB và corner case (1 byte vs n byte).</li>
             </ul>

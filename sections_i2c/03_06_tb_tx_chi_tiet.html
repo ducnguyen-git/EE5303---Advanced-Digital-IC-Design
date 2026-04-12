@@ -1,18 +1,23 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Kịch bản TB — Master transmit</h1>
-    <div class="i2c-grid-2">
-        <div class="i2c-card i2c-card--accent">
-            <h3>Quan sát trên bus</h3>
-            <ol>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        Kịch bản TB — Master transmit</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Quan sát trên bus</h3>
+            <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
                 <li>Điều kiện <strong>START</strong> rõ ràng sau idle.</li>
                 <li>Byte địa chỉ + <strong>ACK</strong> từ slave (mức SDA bit 9).</li>
                 <li>Chuỗi byte dữ liệu; mỗi byte có <strong>ACK</strong> (trừ kịch bản NACK).</li>
                 <li><strong>STOP</strong> sau byte cuối — khoảng idle phía sau.</li>
             </ol>
         </div>
-        <div class="i2c-card i2c-card--amber">
-            <h3>Kỳ vọng phía RTL/CPU</h3>
-            <ul>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Kỳ vọng phía RTL/CPU</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #78350f;">
                 <li><code>o_transmit_data_requested</code> kích hoạt <strong>trước</strong> mỗi byte dữ liệu cần nạp.</li>
                 <li>Sau byte cuối: <code>TX_DONE</code> = 1 (và ngắt nếu bật TX_IE).</li>
                 <li><code>I2C_BUSY</code> giữ đến khi STOP hoàn tất.</li>

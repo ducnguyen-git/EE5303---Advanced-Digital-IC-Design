@@ -1,12 +1,15 @@
-<div class="slide slide-container i2c-slide">
-    <h1 class="gradient-text">Byte controller FSM (OpenCores) — tóm tắt</h1>
-    <p class="i2c-lead">Trong <code>i2c_master_byte_ctrl.v</code>: các trạng thái <code>ST_IDLE</code>, <code>ST_START</code>, <code>ST_READ</code>, <code>ST_WRITE</code>, <code>ST_ACK</code>, <code>ST_STOP</code>.</p>
-    <ul>
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
+        Byte controller FSM (OpenCores) — tóm tắt</h1>
+    <p style="font-size: 1.02rem; color: #475569; margin: -0.35rem 0 1rem; line-height: 1.45;">Trong <code>i2c_master_byte_ctrl.v</code>: các trạng thái <code>ST_IDLE</code>, <code>ST_START</code>, <code>ST_READ</code>, <code>ST_WRITE</code>, <code>ST_ACK</code>, <code>ST_STOP</code>.</p>
+    <ul style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 0.75rem; padding-left: 1.35rem;">
         <li><strong>ST_IDLE:</strong> chờ <code>go</code> từ lệnh read/write/stop/start — nạp thanh ghi dịch khi <code>ld</code>.</li>
         <li><strong>ST_START:</strong> phát lệnh <code>I2C_CMD_START</code> tới bit controller; sau ACK chuyển READ hoặc WRITE.</li>
         <li><strong>ST_WRITE / ST_READ:</strong> lặp 8 bit — <code>shift</code> và đếm <code>dcnt</code> đến 0 → <code>ST_ACK</code>.</li>
         <li><strong>ST_ACK:</strong> xử lý bit thứ 9; có thể chuyển <code>ST_STOP</code> nếu lệnh stop.</li>
         <li>Bit controller nhận <code>cmd</code>: NOP, START, STOP, WRITE, READ (định nghĩa trong <code>i2c_master_defines.v</code>).</li>
     </ul>
-    <p class="i2c-muted-small">Đây là lớp tương đương “chồng” giữa đặc tả RD1139 (Master/Bus FSM) và một triển khai cụ thể trong ref silicon.</p>
+    <p style="margin: 0.65rem 0 0; font-size: 0.88rem; color: #64748b; line-height: 1.45;">Đây là lớp tương đương “chồng” giữa đặc tả RD1139 (Master/Bus FSM) và một triển khai cụ thể trong ref silicon.</p>
 </div>
