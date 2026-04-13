@@ -3,11 +3,49 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
         Tài liệu tham khảo</h1>
-    <ol style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0 0 1rem; padding-left: 1.35rem;">
-        <li>Lattice Semiconductor (2015). <em>I2C Master Controller, Reference Design RD1139</em>.</li>
-        <li>R. Herveille. OpenCores project <em>i2c</em> — các file <code>i2c_master_top.v</code>, <code>i2c_master_byte_ctrl.v</code>, <code>i2c_master_bit_ctrl.v</code>.</li>
-        <li>SkyWater SKY130 PDK; OpenLane flow documentation / theo README trong <code>refs/i2c_skywater_130nm-main</code>.</li>
-        <li>UM10204 (I2C-bus specification) — tra cứu timing và điều kiện START/STOP chuẩn (bổ sung ngoài báo cáo nhóm).</li>
-    </ol>
-    <p style="margin-top: auto; padding-top: 0.75rem; font-size: 0.92rem; color: #64748b;">Cảm ơn thầy cô và nhóm đã theo dõi.</p>
+    <div class="text-block-shadow"
+        style="padding: 1.25rem; border-radius: 14px; background: linear-gradient(165deg, #f8fafc 0%, #ffffff 100%); border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); width: 100%;">
+        <p style="margin: 0 0 1rem; color: #475569; line-height: 1.6; font-size: 1.02rem;">
+            Danh sách tài liệu chính dùng cho đặc tả I2C, RTL tham khảo và flow ASIC Sky130.
+        </p>
+
+        <ol
+            style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.85rem; color: #0f172a;">
+            <li
+                style="display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.95rem 1rem; border-radius: 12px; border: 1px solid #e2e8f0; background: #ffffff;">
+                <span
+                    style="min-width: 2.1rem; height: 2.1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.65rem; font-weight: 800; color: #075985; background: #e0f2fe; border: 1px solid #bae6fd;">1</span>
+                <div style="flex: 1; line-height: 1.6; color: #334155; font-size: 1.05rem;">
+                    Lattice Semiconductor (2015). <em>I2C Master Controller, Reference Design RD1139</em>.
+                </div>
+            </li>
+            <li
+                style="display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.95rem 1rem; border-radius: 12px; border: 1px solid #e2e8f0; background: #ffffff;">
+                <span
+                    style="min-width: 2.1rem; height: 2.1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.65rem; font-weight: 800; color: #1e40af; background: #e0e7ff; border: 1px solid #c7d2fe;">2</span>
+                <div style="flex: 1; line-height: 1.6; color: #334155; font-size: 1.05rem;">
+                    R. Herveille. OpenCores project <em>i2c</em> — các file <code>i2c_master_top.v</code>,
+                    <code>i2c_master_byte_ctrl.v</code>, <code>i2c_master_bit_ctrl.v</code>.
+                </div>
+            </li>
+            <li
+                style="display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.95rem 1rem; border-radius: 12px; border: 1px solid #e2e8f0; background: #ffffff;">
+                <span
+                    style="min-width: 2.1rem; height: 2.1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.65rem; font-weight: 800; color: #065f46; background: #dcfce7; border: 1px solid #bbf7d0;">3</span>
+                <div style="flex: 1; line-height: 1.6; color: #334155; font-size: 1.05rem;">
+                    SkyWater SKY130 PDK; OpenLane flow documentation / theo README trong
+                    <code>refs/i2c_skywater_130nm-main</code>.
+                </div>
+            </li>
+            <li
+                style="display: flex; gap: 0.85rem; align-items: flex-start; padding: 0.95rem 1rem; border-radius: 12px; border: 1px solid #e2e8f0; background: #ffffff;">
+                <span
+                    style="min-width: 2.1rem; height: 2.1rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 0.65rem; font-weight: 800; color: #9a3412; background: #ffedd5; border: 1px solid #fed7aa;">4</span>
+                <div style="flex: 1; line-height: 1.6; color: #334155; font-size: 1.05rem;">
+                    UM10204 (I2C-bus specification) — tra cứu timing và điều kiện START/STOP chuẩn (bổ sung ngoài báo
+                    cáo nhóm).
+                </div>
+            </li>
+        </ol>
+    </div>
 </div>
