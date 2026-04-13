@@ -3,8 +3,7 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
         Ràng buộc thiết kế — tổng hợp</h1>
-    <div
-        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+    <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
         <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
             <thead>
                 <tr>
@@ -18,13 +17,16 @@
             </thead>
             <tbody>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Điện /
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Tín
+                            hiệu /
                             bus</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">SDA/SCL
-                        <strong>open-drain</strong>; pull-up ngoài; master chỉ kéo thấp hoặc nhả high-Z.</td>
+                        <strong>open-drain</strong>; pull-up ngoài; master chỉ kéo thấp hoặc nhả high-Z.
+                    </td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Điều kiện
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Điều
+                            kiện
                             SDA</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Bit dữ liệu và
                         ACK chỉ đổi khi <strong>SCL = 0</strong> (trừ START/STOP/Sr trên SCL = 1).</td>
@@ -33,19 +35,23 @@
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>START /
                             STOP</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
-                        <strong>START:</strong> SDA ↓ khi SCL = 1. <strong>STOP:</strong> SDA ↑ khi SCL = 1.</td>
+                        <strong>START:</strong> SDA ↓ khi SCL = 1. <strong>STOP:</strong> SDA ↑ khi SCL = 1.
+                    </td>
                 </tr>
                 <tr style="background: #f8fafc;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Tốc
                             độ</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">100 kHz / 400 kHz
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">100 kHz / 400
+                        kHz
                         — chu kỳ SCL và nửa chu kỳ phù hợp chế độ (từ clock hệ thống và prescale).</td>
                 </tr>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>HDL &amp;
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>HDL
+                            &amp;
                             TB</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Verilog/SystemVerilog;
-                        TB ghi/đọc/repeated START theo RD1139.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        Verilog/SystemVerilog;
+                        Testcase ghi/đọc/repeated START theo RD1139.</td>
                 </tr>
             </tbody>
         </table>
@@ -55,14 +61,18 @@
             style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
             <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Clock stretching</h3>
             <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #475569;">Slave giữ SCL thấp — master
-                <strong>chờ</strong> SCL cao trước bit kế. Cần <strong>Clock Generator &amp; Synchronizer</strong> và FSM
-                không giả định SCL cố định.</p>
+                <strong>chờ</strong> SCL cao trước bit kế. Cần <strong>Clock Generator &amp; Synchronizer</strong> và
+                FSM
+                không giả định SCL cố định.
+            </p>
         </div>
         <div
             style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
-            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Tích hợp</h3>
-            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #14532d;">Ổn định trên <strong>SoC/FPGA</strong>:
-                timing pad, reset, slew và điện áp bus thực tế.</p>
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Tổng hợp</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #14532d;">Không xảy ra lỗi khi
+                <strong>synthesis</strong>:
+                Đạt chuẩn <strong>Analysis, Fitter, Assembler, Timing, Netlist</strong>.
+            </p>
         </div>
     </div>
 </div>

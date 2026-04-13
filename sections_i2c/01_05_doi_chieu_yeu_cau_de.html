@@ -5,8 +5,7 @@
         Đối chiếu yêu cầu đề tài → nội dung trình bày</h1>
     <p style="font-size: 1.02rem; color: #475569; margin: 0 0 0.75rem; line-height: 1.45;">Bám mục <strong>Yêu cầu đề
             tài</strong> trong <code>i2c_report_body.tex</code>: mỗi hàng là một tiêu chí có thể kiểm kê khi chấm.</p>
-    <div
-        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+    <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
         <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
             <thead>
                 <tr>
@@ -22,44 +21,52 @@
                 <tr style="background: #fff;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">I2C Master theo
                         chuẩn bus; địa chỉ <strong>7 bit</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phần 1 (giao thức);
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phần 1 (giao
+                        thức);
                         phần 2 (địa chỉ + R/W trong luồng TX/RX).</td>
                 </tr>
                 <tr style="background: #f8fafc;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>100
                             kHz</strong> / <strong>400 kHz</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Slide chế độ tốc
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Slide chế độ
+                        tốc
                         độ; clock divider + <code>i_mode_reg</code>.</td>
                 </tr>
                 <tr style="background: #fff;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đủ
-                        <strong>ghi</strong>, <strong>đọc</strong>, START/STOP, ACK/NACK, <strong>Sr</strong></td>
+                        <strong>ghi</strong>, <strong>đọc</strong>, START/STOP, ACK/NACK, <strong>Sr</strong>
+                    </td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Luồng ghi/đọc;
                         repeated START; waveform fig05–08.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Điều kiện bus: SDA
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Điều kiện bus:
+                        SDA
                         đổi khi SCL = 0; START/STOP; <strong>open-drain</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Ràng buộc thiết kế;
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Ràng buộc thiết
+                        kế;
                         Bus FSM + pad.</td>
                 </tr>
                 <tr style="background: #fff;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Clock hệ thống
-                        <strong>32 MHz</strong>; HDL + <strong>TB</strong></td>
+                        <strong>32 MHz</strong>; HDL + <strong>TB</strong>
+                    </td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Timing &amp; mô
                         phỏng; kịch bản TB TX/RX/Sr.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Tích hợp
-                            SoC/FPGA</strong>: ổn định khi ghép hệ thống</td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Processor
-                        Interface; trạng thái busy/IRQ; (mở rộng) ref ASIC Sky130.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>Signoff</strong>: kiểm thử vật lý và thời gian
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Vượt qua các
+                        kiểm tra <strong>DRC, LVS, STA và Antenna</strong>.</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <p
         style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
-        <strong>Ghi chú chấm điểm:</strong> ref OpenCores + OpenLane là <strong>minh họa silicon</strong>, không thay thế
-        RTL RD1139 trong văn bản — trình bày rõ để tránh hiểu nhầm.</p>
+        <strong>Ghi chú:</strong> Bước Signoff sử dụng tool open-source <strong>LibreLane</strong> là <strong>minh họa
+            silicon</strong>, không bao gồm trong tài liệu tham khảo <strong>thiết kế RD1139</strong>.
+    </p>
 </div>

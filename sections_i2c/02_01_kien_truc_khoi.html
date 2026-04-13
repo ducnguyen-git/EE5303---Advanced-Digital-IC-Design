@@ -2,7 +2,7 @@
     style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 14px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.5rem;">
-        Fig01 — Sơ đồ khối I2C Master</h1>
+        Sơ đồ khối Top Module của I2C Master Controller</h1>
     <p style="color: #475569; margin: 0 0 1.1rem; line-height: 1.45; max-width: 56rem;">Theo RD1139 / báo cáo nhóm
         <strong>(Figure 2.1)</strong> — luồng dữ liệu từ CPU xuống pad bus.
     </p>
@@ -12,9 +12,9 @@
             alt="Sơ đồ khối I2C Master — Processor Interface, FSM, clock, Tx/Rx, pad">
         <p
             style="margin-top: 1rem; color: #334155; line-height: 1.5; max-width: 54rem; margin-left: auto; margin-right: auto; text-align: center;">
-            Luồng: <strong>Processor Interface</strong> → <strong>Master Control FSM</strong> → <strong>Bus Control
-                FSM</strong> + <strong>Clock Gen/Sync</strong> → <strong>Tx/Rx Data FSM</strong> → pad
-            <strong>open-drain</strong>; khối <strong>Start/Stop</strong> và <strong>ACK</strong>.
+            Luồng: <strong>Processor Interface</strong> → <strong>Master Control FSM</strong> + <strong>Bus Control
+                FSM</strong> + <strong>Filtered SDA &amp; SCL</strong> → pad <strong>open-drain</strong> → Khối
+            <strong>I2C Slave</strong> nhận tín hiệu <strong>Start/Stop</strong> và trả lại <strong>ACK</strong> bit.
         </p>
     </div>
 </div>

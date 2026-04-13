@@ -3,8 +3,7 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
         Chế độ tốc độ bus &amp; liên hệ clock hệ thống</h1>
-    <div
-        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+    <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
         <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
             <thead>
                 <tr>
@@ -21,16 +20,21 @@
             </thead>
             <tbody>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Standard</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>Standard</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">~100 kHz</td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chu kỳ SCL ~10 µs
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chu kỳ SCL ~10
+                        µs
                         — bộ chia từ 32 MHz phải cho phép cấu hình tương ứng (theo <code>i_clk_div_lsb</code> +
-                        <code>i_mode_reg</code> trong báo cáo).</td>
+                        <code>i_mode_reg</code> trong báo cáo).
+                    </td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Fast</strong></td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>Fast</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">~400 kHz</td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chu kỳ ~2.5 µs —
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chu kỳ ~2.5 µs
+                        —
                         yêu cầu margin timing chặt hơn trên đường pad và trong FSM bit.</td>
                 </tr>
             </tbody>
@@ -40,9 +44,13 @@
         style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fcd34d; background: #fffbeb; border-top: 4px solid #d97706; margin-top: 0.5rem; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
         <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Quan hệ với 32 MHz</h3>
         <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #78350f;">Tần số hệ thống
-            <strong>f<sub>sys</sub></strong> cố định; tần số SCL <strong>f<sub>SCL</sub></strong> ≈ f<sub>sys</sub> / (2 ×
-            giá trị đếm prescale) sau các tầng chia trong <em>Clock Generator</em>. Phải kiểm tra: (1) đủ mẫu xung trong một
-            nửa chu kỳ SCL để sinh cạnh hợp lệ; (2) setup/hold SDA so với cạnh SCL khi tổng hợp + layout (đối với chip thật
-            thêm sign-off STA).</p>
+            <strong>f<sub>sys</sub></strong> cố định; tần số SCL <strong>f<sub>SCL</sub></strong> ≈ f<sub>sys</sub> / (2
+            ×
+            giá trị đếm prescale) sau các tầng chia trong <em>Clock Generator</em>. Phải kiểm tra: (1) đủ mẫu xung trong
+            một
+            nửa chu kỳ SCL để sinh cạnh hợp lệ; (2) setup/hold SDA so với cạnh SCL khi tổng hợp + layout (đối với chip
+            thật
+            thêm sign-off STA).
+        </p>
     </div>
 </div>

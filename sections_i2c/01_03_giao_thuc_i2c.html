@@ -3,40 +3,38 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
         Giao thức I2C — master góc nhìn vận hành</h1>
-    <div
-        style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1rem 1.35rem; width: 100%; align-items: start;">
-            <div
-                style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
-                <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Chuỗi giao dịch điển hình (7-bit addr)</h3>
-                <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
-                    <li>Bus idle: SCL, SDA đều cao (nhờ pull-up).</li>
-                    <li>Master phát <strong>START</strong> — chiếm bus.</li>
-                    <li>Byte đầu: <strong>7 bit địa chỉ</strong> + <strong>1 bit R/W</strong> (0 = write master→slave, 1 =
-                        read slave→master).</li>
-                    <li>Bit thứ 9: slave kéo SDA thấp = <strong>ACK</strong>, không kéo (để float high sau setup) =
-                        <strong>NACK</strong> tùy ngữ cảnh.</li>
-                    <li>Các byte sau: dữ liệu hoặc địa chỉ thanh ghi nội bộ (tùy thiết bị), mỗi byte kèm ACK/NACK.</li>
-                    <li>Kết thúc: <strong>STOP</strong> hoặc <strong>repeated START (Sr)</strong> để bắt đầu giao dịch mới
-                        không nhả bus bằng STOP.</li>
-                </ol>
-            </div>
-            <div
-                style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
-                <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Khái niệm liên quan đồ án</h3>
-                <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
-                    <li><strong>Đa master:</strong> nhiều master có thể treo trên cùng bus — cần
-                        <strong>arbitration</strong> (ưu tiên địa chỉ bit trên SDA); ref OpenCores có cờ arbitration lost.
-                    </li>
-                    <li><strong>Độ dài giao dịch:</strong> do <code>i_byte_cnt_reg</code> và FSM master — sau đủ byte thì
-                        phát STOP (trừ kịch bản Sr).</li>
-                    <li><strong>Processor side:</strong> firmware ghi bit START vào thanh cấu hình, poll
-                        <code>I2C_BUSY</code> / <code>TX_DONE</code> / <code>RX_DONE</code> / cờ lỗi.</li>
-                </ul>
-            </div>
+    <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1rem 1.35rem; width: 100%; align-items: start;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Chuỗi giao dịch điển hình (7-bit addr)
+            </h3>
+            <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
+                <li>Bus idle: SCL, SDA đều cao (nhờ pull-up).</li>
+                <li>Master phát <strong>START</strong> — chiếm bus.</li>
+                <li>Byte đầu: <strong>7 bit địa chỉ</strong> + <strong>1 bit R/W</strong> (0 = write master→slave, 1 =
+                    read slave→master).</li>
+                <li>Bit thứ 9: slave kéo SDA thấp = <strong>ACK</strong>, không kéo (để float high sau setup) =
+                    <strong>NACK</strong> tùy ngữ cảnh.
+                </li>
+                <li>Các byte sau: dữ liệu hoặc địa chỉ thanh ghi nội bộ (tùy thiết bị), mỗi byte kèm ACK/NACK.</li>
+                <li>Kết thúc: <strong>STOP</strong> hoặc <strong>Repeated START (RS)</strong> để bắt đầu giao dịch mới
+                    không nhả bus bằng STOP.</li>
+            </ol>
+        </div>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #86efac; background: #ecfdf5; border-top: 4px solid #16a34a; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Khái niệm liên quan đồ án</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
+                <li><strong>Đa master:</strong> nhiều master có thể treo trên cùng bus — cần
+                    <strong>arbitration</strong> (ưu tiên địa chỉ bit trên SDA).
+                </li>
+                <li><strong>Số byte giao dịch:</strong> do <code>i_byte_cnt_reg</code> và FSM master — sau đủ byte thì
+                    phát STOP (trừ kịch bản Abort).
+                </li>
+                <li><strong>Processor side:</strong> firmware ghi bit START vào thanh cấu hình, poll
+                    <code>I2C_BUSY</code> / <code>TX_DONE</code> / <code>RX_DONE</code> / cờ lỗi.
+                </li>
+            </ul>
+        </div>
     </div>
-    <p
-        style="margin-top: 0.75rem; padding: 0.65rem 0.9rem; border-radius: 8px; background: #f1f5f9; border-left: 4px solid #0369a1; font-size: 0.94rem; color: #475569; line-height: 1.45;">
-        <strong>Liên kết báo cáo:</strong> Các luồng trên được cụ thể hóa trong mục “Nguyên lý hoạt động” và “Mô phỏng”
-        — các tín hiệu <code>o_transmit_data_requested</code>, <code>o_receive_data</code>,
-        <code>o_received_data_valid</code> là điểm giao giữa RTL và phần mềm điều khiển.</p>
 </div>
