@@ -4,8 +4,25 @@
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
         Kiểm tra Layout vs Schematic - LVS Flow</h1>
     <div style="display: flex; flex-direction: column; gap: 1.25rem; width: 100%; align-items: center;">
-        <div class="text-block-shadow" style="padding: 1.25rem; border-radius: 12px; background: linear-gradient(165deg, #f8fafc 0%, #ffffff 100%); border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); width: 100%;">
-            <img src="figures/i2c_from_docx/lvs_flow.png" style="width: 100%; max-height: 65vh; object-fit: contain; height: auto; border-radius: 8px;" alt="Kiểm tra Layout vs Schematic - LVS Flow">
+        <div class="text-block-shadow"
+            style="padding: 1.25rem; border-radius: 12px; background: linear-gradient(165deg, #f8fafc 0%, #ffffff 100%); border: 1px solid #cbd5e1; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); width: 100%;">
+            <img src="figures/i2c_from_docx/lvs_flow.png"
+                style="width: 100%; max-height: 50vh; object-fit: contain; height: auto; border-radius: 8px;"
+                alt="Kiểm tra Layout vs Schematic - LVS Flow">
+            <div
+                style="margin-top: 1.25rem; color: #334155; line-height: 1.55; font-size: 0.98rem; width: 100%; max-width: 60rem; text-align: left;">
+                <p style="margin: 0 0 0.5rem; font-weight: 600; color: #0284c7;">Quy trình Ký duyệt (Sign-off) LVS:</p>
+                <ul style="margin: 0; padding-left: 1.5rem; color: #475569;">
+                    <li><strong>Netlist Extraction:</strong> Trình trích xuất (Magic) đọc bản layout vật lý (GDSII) và
+                        thư viện PDK để xuất ra một bản mạch <strong>Netlist (SPICE)</strong> ở mức linh kiện
+                        (device-level).</li>
+                    <li><strong>So sánh mạch:</strong> Công cụ kiểm tra (Netgen) sẽ so sánh song song Netlist vật lý
+                        (SPICE) vừa tạo với thiết kế mức gate ban đầu <strong>Netlist (Verilog)</strong>.</li>
+                    <li><strong>Khớp nối:</strong> Hệ thống đối chiếu thông mạch, thông số linh kiện và xuất ra file
+                        <strong>Log/Report</strong> xác nhận mạch khớp nhau (match) hoặc báo lưới lỗi nối sai lưới
+                        (mismatch).</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
