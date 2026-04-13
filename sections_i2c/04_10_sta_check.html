@@ -9,6 +9,23 @@
             <img src="figures/i2c_from_docx/sta_flow.png"
                 style="width: 100%; max-height: 65vh; object-fit: contain; height: auto; border-radius: 8px;"
                 alt="Kiểm tra Static Timing Analysis - STA">
+            <div
+                style="margin-top: 1.25rem; color: #334155; line-height: 1.55; font-size: 0.98rem; width: 100%; max-width: 60rem; text-align: left;">
+                <p style="margin: 0 0 0.5rem; font-weight: 600; color: #0284c7;">Quy trình Ký duyệt (Sign-off) STA:</p>
+                <ul style="margin: 0; padding-left: 1.5rem; color: #475569;">
+                    <li><strong>Parasitics Extraction:</strong> Công cụ (OpenRCX) đọc <strong>layout vật lý
+                            (DEF)</strong> và PDK để
+                        trích xuất parasitic (R, C) và tạo file <strong>SPEF</strong>.</li>
+                    <li><strong>Phân tích timing:</strong> Công cụ STA (OpenSTA) sử dụng <strong>netlist, SPEF,
+                            constraints (SDC) và thư viện từ PDK</strong> để tính toán <strong>delay</strong> và kiểm
+                        tra <strong>setup/hold</strong>.
+                    </li>
+                    <li><strong>Đánh giá & kết quả:</strong> Hệ thống xuất <strong>báo cáo timing (Reports)</strong> và
+                        file <strong>SDF</strong> để xác
+                        nhận thiết kế <strong>đạt timing</strong> hoặc phát hiện <strong>vi phạm (violation)</strong>.
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

@@ -3,10 +3,67 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
         Kết luận</h1>
-    <ol style="font-size: 1.05rem; line-height: 1.55; color: #334155; max-width: 100%; margin: 0; padding-left: 1.35rem;">
-        <li>Đã trình bày <strong>đặc tả I2C Master</strong> theo RD1139: kiến trúc khối, thanh ghi, FSM bus/master, luồng ghi/đọc/repeated START, <strong>Processor Interface</strong>, và kế hoạch kiểm chứng bằng TB + waveform (đối chiếu fig05–08).</li>
-        <li>Đã bổ sung <strong>minh họa vật lý</strong> trên Sky130 với core OpenCores đi qua OpenLane — cho thấy đường ống từ RTL đến layout và các bước sign-off cơ bản (STA, DRC, LVS, antenna).</li>
-        <li>Làm rõ phân tách vai trò: <strong>RD1139 = trục đồ án lý thuyết/hình</strong>; <strong>ref Sky130 = case study triển khai ASIC</strong> với RTL khác biệt nhưng cùng họ giao thức I2C.</li>
-        <li>Đã ánh xạ <strong>yêu cầu đề tài</strong> (tốc độ, chế độ, bus, 32 MHz, TB) sang nội dung slide/báo cáo để dễ đối chiếu khi báo cáo hoặc trả lời hỏi.</li>
-    </ol>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; width: 100%;">
+
+        <!-- Card 1 -->
+        <div
+            style="background: #ffffff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid #3b82f6; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s;">
+            <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div
+                    style="background: #eff6ff; color: #1d4ed8; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                    1</div>
+                <h3 style="margin: 0; color: #1e293b; font-size: 1.25rem;">Đặc tả I2C Master</h3>
+            </div>
+            <p style="margin: 0; color: #475569; line-height: 1.6; font-size: 1.05rem;">
+                Trình bày thiết kế theo <strong>RD1139</strong>: kiến trúc khối, thanh ghi, FSM bus/master, luồng
+                ghi/đọc/repeated START, <strong>Processor Interface</strong> và kế hoạch kiểm chứng TB.
+            </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+            style="background: #ffffff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid #10b981; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s;">
+            <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div
+                    style="background: #ecfdf5; color: #047857; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                    2</div>
+                <h3 style="margin: 0; color: #1e293b; font-size: 1.25rem;">Minh họa luồng IC Design</h3>
+            </div>
+            <p style="margin: 0; color: #475569; line-height: 1.6; font-size: 1.05rem;">
+                Bổ sung minh họa với <strong>Sky130</strong> đi qua LibreLane — trải nghiệm thực tế về quy trình từ RTL
+                đến Layout và các khâu Sign-off (STA, DRC, LVS, Antenna).
+            </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+            style="background: #ffffff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid #f59e0b; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s;">
+            <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div
+                    style="background: #fffbeb; color: #b45309; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                    3</div>
+                <h3 style="margin: 0; color: #1e293b; font-size: 1.25rem;">Phân tách vai trò rõ ràng</h3>
+            </div>
+            <p style="margin: 0; color: #475569; line-height: 1.6; font-size: 1.05rem;">
+                Kết hợp tài liệu <strong>RD1139</strong> làm lý thuyết nền tảng cốt lõi và kiến trúc
+                <strong>OpenCores</strong> để đóng vai trò case study thực tiễn triển khai ASIC.
+            </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+            style="background: #ffffff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-left: 6px solid #8b5cf6; display: flex; flex-direction: column; gap: 0.75rem; transition: transform 0.2s;">
+            <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div
+                    style="background: #f5f3ff; color: #6d28d9; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;">
+                    4</div>
+                <h3 style="margin: 0; color: #1e293b; font-size: 1.25rem;">Đáp ứng yêu cầu môn học</h3>
+            </div>
+            <p style="margin: 0; color: #475569; line-height: 1.6; font-size: 1.05rem;">
+                Đã ánh xạ <strong>yêu cầu đề tài</strong> vào nội dung báo cáo (I2C tốc độ cao, APB, tần số 32 MHz) giúp
+                hội đồng tiện theo dõi và đánh giá tổng quan.
+            </p>
+        </div>
+
+    </div>
 </div>
