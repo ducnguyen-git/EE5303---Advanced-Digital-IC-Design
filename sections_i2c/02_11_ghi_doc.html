@@ -3,16 +3,19 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
         Quá trình ghi &amp; đọc — chi tiết trình tự</h1>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+    <div style="display: flex; flex-direction: column; gap: 1.25rem; width: 100%;">
         <div
             style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 40%); border-top: 4px solid #0369a1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
             <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Master transmit (ghi)</h3>
             <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #334155;">
                 <li>Chuẩn bị địa chỉ slave + hướng W, số byte <code>i_byte_cnt_reg</code>.</li>
-                <li>Ghi <strong>START</strong> trong <code>i_config_reg</code> — <strong>I2C_BUSY</strong> lên trước khi START tự xóa.</li>
+                <li>Ghi <strong>START</strong> trong <code>i_config_reg</code> — <strong>I2C_BUSY</strong> lên trước khi
+                    START tự xóa.</li>
                 <li>Trên bus: <strong>START</strong> → byte địa chỉ (R/W=0) → <strong>ACK</strong> slave.</li>
-                <li>Lặp: mỗi byte dữ liệu — chờ <code>o_transmit_data_requested</code> để nạp byte kế; slave <strong>ACK</strong> từng byte.</li>
-                <li>Kết thúc: <strong>STOP</strong>; <strong>TX_DONE</strong> sau byte cuối; <strong>I2C_BUSY</strong> chỉ hết khi STOP hoàn tất.</li>
+                <li>Lặp: mỗi byte dữ liệu — chờ <code>o_transmit_data_requested</code> để nạp byte kế; slave
+                    <strong>ACK</strong> từng byte.</li>
+                <li>Kết thúc: <strong>STOP</strong>; <strong>TX_DONE</strong> sau byte cuối; <strong>I2C_BUSY</strong>
+                    chỉ hết khi STOP hoàn tất.</li>
             </ol>
         </div>
         <div
@@ -20,8 +23,10 @@
             <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #15803d;">Master receive (đọc)</h3>
             <ol style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #14532d;">
                 <li>Cấu hình tương tự nhưng bit <strong>R/W = 1</strong> trong byte địa chỉ.</li>
-                <li>Byte từ slave vào <code>o_receive_data</code>; cờ <code>o_received_data_valid</code> = 1 khi byte sẵn sàng đọc.</li>
-                <li>Master có thể trả <strong>ACK/NACK</strong> cho slave trên các byte dữ liệu (theo chính sách đọc cuối — NACK thường dùng trước STOP).</li>
+                <li>Byte từ slave vào <code>o_receive_data</code>; cờ <code>o_received_data_valid</code> = 1 khi byte
+                    sẵn sàng đọc.</li>
+                <li>Master có thể trả <strong>ACK/NACK</strong> cho slave trên các byte dữ liệu (theo chính sách đọc
+                    cuối — NACK thường dùng trước STOP).</li>
                 <li><strong>RX_DONE</strong> khi byte cuối trong <code>i_byte_cnt_reg</code> đã vào.</li>
             </ol>
         </div>

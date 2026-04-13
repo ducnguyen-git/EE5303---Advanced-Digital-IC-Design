@@ -2,10 +2,7 @@
     style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
-        Bảy khối chức năng — vai trò kỹ thuật</h1>
-    <p style="font-size: 1.02rem; color: #475569; margin: -0.35rem 0 1rem; line-height: 1.45;">Theo mục “Mô tả thiết kế”
-        — mỗi khối có một phần trách nhiệm rõ để tách <strong>chính sách byte</strong> (master) và <strong>bit-level
-            timing bus</strong> (bus).</p>
+        Vai trò các khối</h1>
     <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
         <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
             <thead>
@@ -19,51 +16,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
-                        <strong>Processor Interface</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đọc/ghi thanh
-                        ghi điều khiển/trạng thái; tạo xung chọn và handshake với bus nội bộ SoC (timing đặt theo clock
-                        hệ thống).</td>
-                </tr>
-                <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>I2C
-                            Master Control FSM</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">FSM mức
-                        <strong>byte</strong>: IDLE → START → SEND_ADDR → ADDR_ACK → TX_DATA / RX_DATA → DATA_ACK → STOP
-                        → DONE; phối hợp với bộ đếm byte.</td>
-                </tr>
-                <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>I2C Bus
-                            Control FSM</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">FSM mức
-                        <strong>bit</strong> trên bus: sinh START/STOP đúng điều kiện SCL; ACK bit; phát hiện điều kiện
-                        đa master nếu có.</td>
-                </tr>
                 <tr style="background: #f8fafc;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Clock
                             Gen &amp; Sync</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Từ
                         <code>i_clk_div_*</code> và mode → tạo nhịp SCL; đồng bộ mẫu SDA/SCL; xử lý <strong>clock
-                            stretching</strong>.</td>
+                            stretching</strong>.
+                    </td>
+                </tr>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>START &amp; STOP Generate/Detect Logic</strong>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Logic tạo và
+                        nhận diện điều kiện START/STOP trên bus.</td>
+                </tr>
+                <tr style="background: #fff;">
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <strong>Acknowledge logic</strong>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Xử lý bit ACK
+                        thứ 9 sau mỗi byte (địa chỉ hoặc dữ liệu).</td>
                 </tr>
                 <tr style="background: #fff;">
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><strong>Tx / Rx
                             Data FSM</strong></td>
                     <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đệm và dịch
                         từng bit trong byte gửi/nhận; báo cho master FSM khi byte hoàn tất.</td>
-                </tr>
-                <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
-                        <strong>Start/Stop det &amp; gen</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Logic tạo và
-                        nhận diện điều kiện START/STOP trên bus.</td>
-                </tr>
-                <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
-                        <strong>Acknowledge logic</strong></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Xử lý bit ACK
-                        thứ 9 sau mỗi byte (địa chỉ hoặc dữ liệu).</td>
                 </tr>
             </tbody>
         </table>

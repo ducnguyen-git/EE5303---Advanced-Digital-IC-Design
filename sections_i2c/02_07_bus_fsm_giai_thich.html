@@ -2,10 +2,8 @@
     style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.75rem;">
-        I2C Master Control FSM — chuỗi trạng thái (fig04)</h1>
-    <p style="font-size: 1.02rem; color: #475569; margin: -0.35rem 0 1rem; line-height: 1.45;">FSM <strong>mức byte</strong> điều phối toàn bộ giao dịch từ lệnh phần mềm đến STOP/DONE.</p>
-    <div
-        style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
+        I2C Bus Control FSM — chuỗi trạng thái</h1>
+    <div style="width: 100%; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; margin: 0.5rem 0;">
         <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
             <thead>
                 <tr>
@@ -19,36 +17,60 @@
             </thead>
             <tbody>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>IDLE</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chờ lệnh; bus có thể rảnh hoặc chờ cấu hình.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>BUS IDLE</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Chờ lệnh; bus
+                        có thể rảnh hoặc chờ cấu hình.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>START</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phát điều kiện START; chuẩn bị byte địa chỉ.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>START DETECT</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Kiểm tra tín
+                        hiệu START; chuẩn bị sinh điều kiện để START giao dịch.</td>
                 </tr>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>SEND_ADDR</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đẩy 7+1 bit địa chỉ qua shifter/bit FSM.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>SCL LOW</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Giữ SCL thấp để
+                        ổn định SDA trước khi đẩy bit dữ liệu.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>ADDR_ACK</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Kiểm tra ACK địa chỉ — lỗi có thể dẫn tới TX_ERR và dừng an toàn.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>SCL HIGH</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Đẩy bit dữ
+                        liệu; sau đó giữ SCL thấp để slave có thể kéo SDA xuống (clock stretching).</td>
                 </tr>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>TX_DATA</code> / <code>RX_DATA</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Lặp theo số byte; phối hợp với đếm byte và handshake dữ liệu với CPU.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>ACK DETECT</code> / <code>GENERATE</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phát hiện
+                        ACK/NACK; sinh ACK/NACK.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>DATA_ACK</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Xử lý bit ACK sau mỗi byte dữ liệu.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>STOP DETECT</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Phát hiện điều
+                        kiện STOP trên bus.</td>
                 </tr>
                 <tr style="background: #fff;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>STOP</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Sinh STOP khi đủ byte hoặc lỗi/abort.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>STOP GENERATE</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Sinh STOP khi
+                        đủ byte hoặc lỗi/abort.</td>
                 </tr>
                 <tr style="background: #f8fafc;">
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;"><code>DONE</code></td>
-                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Báo hoàn tất; set TX_DONE/RX_DONE; có thể về IDLE.</td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">
+                        <code>DONE</code>
+                    </td>
+                    <td style="padding: 0.5rem 0.65rem; border: 1px solid #e2e8f0; vertical-align: top;">Báo hoàn tất
+                        giao dịch; set TX_DONE/RX_DONE; có thể về IDLE.</td>
                 </tr>
             </tbody>
         </table>
