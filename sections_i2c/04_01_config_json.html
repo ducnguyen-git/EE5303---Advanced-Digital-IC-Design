@@ -1,0 +1,32 @@
+<div class="slide slide-container"
+    style="justify-content: flex-start; align-items: stretch; box-sizing: border-box; text-align: left;">
+    <h1 class="gradient-text"
+        style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 1rem;">
+        SkyWater 130 nm — bối cảnh ref trong repo</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.35rem; width: 100%;">
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #fdba74; background: #fff7ed; border-top: 4px solid #ea580c; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #c2410c;">PDK &amp; thư viện</h3>
+            <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.98rem; line-height: 1.48; color: #7c2d12;">
+                <li>Quy trình thiết kế dùng thư viện<strong>sky130nm</strong> — PDK mở, phù hợp luồng
+                    <strong>LibreLane</strong>.
+                </li>
+                <li>Top: <code>i2c_master_top</code> — clock port <code>i_clk</code>, chu kỳ mặc định <strong>10
+                        ns</strong> (100 MHz) trong file config (có thể đổi theo run).</li>
+            </ul>
+        </div>
+        <div
+            style="border-radius: 12px; padding: 1rem 1.15rem; border: 1px solid #bae6fd; background: #f0f9ff; border-top: 4px solid #0ea5e9; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+            <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0c4a6e;">Mục tiêu minh họa</h3>
+            <p style="margin: 0; font-size: 0.98rem; line-height: 1.48; color: #334155;">Chứng minh khả năng đưa một
+                core I2C master <strong>tổng hợp được</strong> qua đầy đủ bước floorplan → placement → CTS → routing →
+                sign-off (STA, DRC, LVS, antenna). Đây là <strong>đường ống vật lý</strong>, sử dụng nguồn RTL RD1139.
+            </p>
+        </div>
+    </div>
+    <div class="text-block-shadow"
+        style="margin-top: 1.25rem; padding: 1.25rem; border-radius: 12px; background: #f8fafc; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);">
+        <img src="figures/i2c_from_docx/config_json.png" style="width: 100%; max-width: 650px; height: auto;"
+            alt="config.json configuration">
+    </div>
+</div>
