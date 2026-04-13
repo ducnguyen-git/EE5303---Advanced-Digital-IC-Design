@@ -3,7 +3,7 @@
     <h1 class="gradient-text"
         style="border-bottom: 3px solid #005ce6; padding-bottom: 12px; display: inline-block; width: 100%; max-width: 100%; margin-bottom: 0.35rem;">
         <i class="fa-solid fa-list"></i> Mục lục chi tiết</h1>
-    <p style="font-size: 1.02rem; color: #475569; margin: -0.25rem 0 0.85rem;">Toàn bộ <strong>49 slide</strong> — 5 phần
+    <p style="font-size: 1.02rem; color: #475569; margin: -0.25rem 0 0.85rem;">Toàn bộ <strong>48 slide</strong> — 5 phần
         (bìa + mục lục + nội dung).</p>
     <div
         style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1rem; width: 100%; align-items: start;">
@@ -11,22 +11,23 @@
             style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #f8fafc 0%, #fff 45%); border-top: 4px solid #0369a1;">
             <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 1 — Bối cảnh &amp; đặc tả I2C</h3>
             <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
-                <li>Mục tiêu, phạm vi RD1139, ràng buộc vật lý/bus</li>
-                <li><strong>Đối chiếu đề tài</strong> — bảng map yêu cầu → slide</li>
-                <li>Giao thức: địa chỉ, byte, ACK, arbitration ý niệm</li>
-                <li>Tích hợp SoC/FPGA, tài liệu tham chiếu</li>
-                <li>Chế độ Standard/Fast — timing tổng quát</li>
+                <li>Mục tiêu &amp; phạm vi thiết kế I2C Master theo <strong>RD1139</strong></li>
+                <li>Ràng buộc bus: <strong>open-drain</strong>, START/STOP, SDA đổi khi SCL = 0, clock stretching</li>
+                <li>Chuỗi giao dịch I2C: địa chỉ 7-bit + R/W, byte dữ liệu, <strong>ACK/NACK</strong>, STOP/RS</li>
+                <li>Chế độ <strong>Standard (100 kHz)</strong> / <strong>Fast (400 kHz)</strong> — liên hệ clock 32 MHz</li>
+                <li><strong>Đối chiếu yêu cầu</strong> — checklist map tiêu chí → phần trình bày</li>
             </ul>
         </div>
         <div
             style="border-radius: 12px; padding: 0.85rem 1rem; border: 1px solid #e2e8f0; background: linear-gradient(180deg, #fef2f2 0%, #fff 45%); border-top: 4px solid #ef4444;">
             <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; color: #0f172a;">Phần 2 — Kiến trúc RD1139 &amp; RTL</h3>
             <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.95rem; line-height: 1.45; color: #334155;">
-                <li>7 khối chức năng; phân tách Master/Bus FSM</li>
-                <li>Thanh ghi, bit điều khiển/trạng thái</li>
-                <li><strong>Processor Interface</strong> — CPU ↔ master</li>
-                <li>Luồng TX/RX, repeated START; clock gen &amp; stretching</li>
-                <li>Sơ đồ RTL; phân tích FSM &amp; byte counter</li>
+                <li>Sơ đồ khối top module &amp; luồng CPU → FSM → pad <strong>open-drain</strong></li>
+                <li>Phân rã vai trò các khối: Processor IF, Filtered SDA/SCL, Slave model</li>
+                <li>Sơ đồ khối chức năng: clock gen &amp; sync, start/stop, ACK, Tx/Rx data</li>
+                <li><strong>Bus Control FSM (bit-level)</strong>: block diagram, graph, giải thích chuỗi trạng thái</li>
+                <li><strong>Master Control FSM (byte-level)</strong>: block diagram, graph, giải thích chuỗi trạng thái</li>
+                <li>Trình tự <strong>ghi/đọc</strong> + <strong>Repeated START</strong> (RS) và ràng buộc</li>
             </ul>
         </div>
         <div
