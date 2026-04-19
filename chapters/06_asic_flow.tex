@@ -1,0 +1,79 @@
+\section{\texorpdfstring{ASIC SkyWater 130\,nm \& LibreLane}{ASIC SkyWater 130nm \& LibreLane}}
+
+\subsection{Cấu hình dự án}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/config_json.png}
+    \caption{Minh họa file cấu hình (ví dụ \texttt{config.json}) cho luồng LibreLane}
+    \label{fig:config_json}
+\end{figure}
+
+Từ Hình \ref{fig:config_json} có thể đọc trực tiếp các tham số cấu hình quan trọng:
+\begin{itemize}[leftmargin=1.2cm]
+    \item \texttt{DESIGN\_NAME}: \texttt{i2c\_master\_controller\_top}.
+    \item \texttt{VERILOG\_FILES}: lấy từ thư mục \texttt{source/verilog/*.v}.
+    \item \texttt{CLOCK\_PORT}: \texttt{i\_clk}.
+    \item \texttt{CLOCK\_PERIOD}: 32 (đặt theo chu kỳ clock hệ thống trong flow).
+\end{itemize}
+
+\subsection{Layout và Routing GUI}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/klayout_gui.png}
+    \caption{KLayout GUI: xem GDS}
+    \label{fig:klayout}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/openroad_gui.png}
+    \caption{OpenROAD GUI: routing map}
+    \label{fig:openroad}
+\end{figure}
+
+\subsection{Sign-off (DRC/LVS/STA/IPVT)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/drc_flow.png}
+    \caption{DRC Flow}
+    \label{fig:drc_flow}
+\end{figure}
+
+Hình \ref{fig:drc_flow} mô tả luồng DRC: \textbf{Layout (GDSII)} và \textbf{PDK} được đưa vào \textbf{DRC Checker (KLayout/Magic)} để sinh \textbf{Log} và \textbf{DRC Report (XML)}; XML tiếp tục được nạp vào KLayout để debug vi phạm theo marker.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/lvs_flow.png}
+    \caption{LVS Flow}
+    \label{fig:lvs_flow}
+\end{figure}
+
+Theo Hình \ref{fig:lvs_flow}, LVS gồm 2 nhánh đầu vào: (1) layout (GDSII/DEF) và (2) netlist Verilog. Layout được Magic \textbf{trích xuất netlist mức thiết bị} thành SPICE. Sau đó Netgen so sánh \textbf{SPICE vs Verilog} để xuất \textbf{Log} và \textbf{Report}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/sta_flow.png}
+    \caption{STA Flow}
+    \label{fig:sta_flow}
+\end{figure}
+
+Hình \ref{fig:sta_flow} mô tả STA: từ layout DEF và PDK, OpenRCX trích xuất parasitic tạo SPEF; OpenSTA dùng SPEF + thư viện/constraint để xuất báo cáo timing và file SDF phục vụ mô phỏng hậu layout.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/IPVT_corner_explain.png}
+    \caption{Ý nghĩa các Corner IPVT}
+    \label{fig:ipvt}
+\end{figure}
+
+Hình \ref{fig:ipvt} liệt kê nhóm báo cáo STA thường gặp (ví dụ \texttt{min.rpt}, \texttt{max.rpt}, \texttt{wns.*}, \texttt{tns.*}, \texttt{skew.*}, \texttt{violator\_list.rpt}) và các hạng mục kiểm tra tổng hợp trong \texttt{checks.rpt} (capacitance, slew, fanout, unconstrained paths, SDC sanity, v.v.).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/pass_signoff.png}
+    \caption{Pass sign-off}
+    \label{fig:pass_signoff}
+\end{figure}
+
+Từ log trong Hình \ref{fig:pass_signoff} có thể thấy trạng thái \textbf{Antenna/LVS/DRC đều Passed} và flow kết thúc với thư mục \texttt{.../runs/.../final}.
+

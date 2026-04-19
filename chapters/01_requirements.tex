@@ -1,0 +1,60 @@
+\section{Yêu cầu đề tài}
+
+\subsection{Mục tiêu thiết kế}
+Thiết kế bộ điều khiển I2C Master tuân thủ chuẩn I2C dựa trên kiến trúc RD1139 của Lattice Semiconductor.
+
+Hỗ trợ tốc độ 100 kHz (Standard Mode) và 400 kHz (Fast Mode).
+
+Hỗ trợ các chế độ:
+\begin{itemize}[leftmargin=1.2cm]
+    \item Ghi dữ liệu (Write)
+    \item Đọc dữ liệu (Read)
+    \item Địa chỉ slave 7-bit
+    \item Tạo và xử lý đầy đủ START, STOP, ACK/NACK, repeated START.
+\end{itemize}
+
+Đảm bảo hoạt động ổn định khi tích hợp vào SoC hoặc FPGA.
+
+\subsection{Phạm vi và cấu hình tốc độ}
+Trọng tâm báo cáo là kiến trúc \emph{đơn master}; đa master chỉ được nhắc ở mức bus FSM (arbitration, phát hiện START/STOP do master khác).
+
+Tốc độ SCL được chọn thông qua \texttt{i\_clk\_div\_lsb} và \texttt{i\_mode\_reg[2:0]} cùng bộ chia clock trong khối Clock Generator.
+
+\texttt{Processor Interface} ánh xạ thanh ghi điều khiển/trạng thái và tín hiệu ngắt.
+
+\subsection{Ràng buộc thiết kế}
+Hoạt động theo chuẩn I2C:
+\begin{itemize}[leftmargin=1.2cm]
+    \item Tốc độ: 100 kHz (Standard), 400 kHz (Fast Mode).
+    \item SDA phải thay đổi khi SCL = LOW.
+    \item START: SDA đi từ HIGH $\rightarrow$ LOW khi SCL = HIGH.
+    \item STOP: SDA đi từ LOW $\rightarrow$ HIGH khi SCL = HIGH.
+    \item Tín hiệu SDA và SCL là open-drain (Inout).
+    \item Hoạt động ổn định ở xung clock hệ thống 32 MHz.
+    \item Được mô tả bằng Verilog/SystemVerilog HDL với testbench có sẵn.
+\end{itemize}
+
+SDA/SCL là \emph{open-drain} với pull-up ngoài; master chỉ kéo mức thấp hoặc để high-Z.
+
+\textit{Clock stretching:} slave có thể giữ SCL thấp — master phải chờ SCL trở lại mức cao trước bit kế tiếp.
+
+\subsection{Giao dịch I2C (tóm tắt)}
+Khi bus rảnh, SCL và SDA đều cao nhờ pull-up. Master phát \textbf{START} để chiếm bus. Byte đầu gồm 7 bit địa chỉ và 1 bit R/W (0: master ghi, 1: master đọc). Bit thứ 9: slave kéo SDA thấp là \textbf{ACK}; không kéo là \textbf{NACK} tùy ngữ cảnh. Các byte sau mang dữ liệu hoặc địa chỉ thanh ghi nội bộ của thiết bị slave. Kết thúc bằng \textbf{STOP} hoặc \textbf{Repeated START (Sr)} để mở giao dịch mới mà không nhả bus bằng STOP.
+
+\subsection{Chế độ clock}
+\begin{table}[H]
+    \centering
+    \caption{Chế độ clock và gợi ý thiết kế}
+    \label{tab:clock_mode}
+    \begin{tabularx}{\textwidth}{|l|l|X|}
+        \hline
+        \textbf{Chế độ} & \textbf{Tần số SCL (hướng đặt)} & \textbf{Gợi ý} \\
+        \hline
+        Standard & $\sim$100 kHz & Chu kỳ SCL $\sim$10\,$\mu$s — bộ chia từ 32 MHz cấu hình qua \texttt{i\_clk\_div\_lsb} và \texttt{i\_mode\_reg}. \\
+        \hline
+        Fast & $\sim$400 kHz & Chu kỳ $\sim$2{,}5\,$\mu$s — margin timing chặt hơn trên pad và trong FSM bit. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+Với tần số hệ thống $f_{\mathrm{sys}}$ cố định, tần số SCL gần đúng $f_{\mathrm{SCL}} \approx f_{\mathrm{sys}} / (2 \times \mathrm{prescale})$ sau các tầng chia trong Clock Generator.

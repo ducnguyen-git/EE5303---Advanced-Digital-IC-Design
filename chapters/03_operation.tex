@@ -1,0 +1,39 @@
+\section{Nguyên lý hoạt động}
+
+\subsection{Quá trình ghi (Master Transmit)}
+Viết START = 1 trong \texttt{i\_config\_reg} để bắt đầu giao dịch.
+
+\texttt{I2C\_BUSY} được set lên trước khi START bị auto-clear.
+
+Trình tự:
+\begin{itemize}[leftmargin=1.2cm]
+    \item START.
+    \item Gửi địa chỉ + bit R/W = 0.
+    \item Slave trả lại ACK địa chỉ.
+    \item Gửi từng byte dữ liệu.
+    \item Slave trả lại ACK mỗi byte dữ liệu.
+    \item STOP
+\end{itemize}
+
+\texttt{TX\_DONE} được set sau khi byte cuối được gửi.
+
+\texttt{I2C\_BUSY} chỉ clear khi STOP hoàn tất.
+
+\subsection{Quá trình đọc (Master Receive)}
+Tương tự truyền, nhưng bit R/W = 1.
+
+Byte dữ liệu từ slave được lấy vào \texttt{o\_receive\_data}, với \texttt{o\_received\_data\_valid} = 1.
+
+Khi byte cuối đến, \texttt{RX\_DONE} được set.
+
+Ở chế độ đọc, master có thể trả ACK hoặc NACK cho từng byte dữ liệu từ slave (thường NACK byte cuối trước STOP).
+
+\subsection{Repeated START}
+Mục đích: đổi hướng hoặc truy cập thanh ghi nội bộ slave (ví dụ ghi địa chỉ thanh ghi rồi Sr rồi đọc dữ liệu) \emph{không} phát STOP giữa hai phase.
+
+Trong lần START thứ hai, phải giữ nguyên địa chỉ slave theo đặc tả nhóm.
+
+Trên bus, Sr là điều kiện START khi bus đang bận (không có STOP trước đó): SDA chuyển từ cao xuống thấp khi SCL = 1 sau phase trước.
+
+Kịch bản kiểm thử điển hình: START $\rightarrow$ addr+W $\rightarrow$ ACK $\rightarrow$ (data) $\rightarrow$ Sr $\rightarrow$ addr+R $\rightarrow$ \ldots\ — không có STOP giữa hai START.
+
