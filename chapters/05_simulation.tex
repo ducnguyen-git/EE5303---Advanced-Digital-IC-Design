@@ -19,6 +19,13 @@ Trong Hình \ref{fig:w_tx}, các tín hiệu điều khiển chính cần đối
     \item Sau byte cuối, \texttt{cmd\_status\_reg} chuyển trạng thái (ví dụ TX\_DONE), đồng thời bus quay lại idle sau STOP.
 \end{itemize}
 
+\textbf{Cách ``đọc'' bus trong waveform (TX):} đối chiếu chu kỳ SCL theo cụm 9 xung cho mỗi byte:
+\begin{itemize}[leftmargin=1.2cm]
+    \item 8 xung đầu: dữ liệu/địa chỉ dịch MSB-first trên SDA (ổn định khi SCL HIGH, đổi khi SCL LOW).
+    \item Xung thứ 9: pha ACK --- master nhả SDA; nếu slave kéo thấp ở SCL HIGH thì ACK, nếu SDA vẫn cao thì NACK (khi đó \texttt{TX\_ERR} có thể được set).
+    \item Khi \texttt{o\_transmit\_data\_request} lên mức 1, byte mới phải sẵn sàng tại \texttt{i\_transmit\_data} trước khi 8 xung dữ liệu của byte kế tiếp bắt đầu.
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/waveform_read.png}
@@ -28,6 +35,12 @@ Trong Hình \ref{fig:w_tx}, các tín hiệu điều khiển chính cần đối
 
 Trong Hình \ref{fig:w_rx}, dữ liệu nhận xuất hiện trên \texttt{o\_receive\_data} đồng thời \texttt{o\_received\_data\_valid} lên mức 1 trong cửa sổ hợp lệ. Byte được giữ ổn định để CPU đọc; sau byte cuối, trạng thái hoàn tất (RX\_DONE) được set trong \texttt{cmd\_status\_reg}.
 
+\textbf{Cách ``đọc'' bus trong waveform (RX):} với mỗi byte nhận, slave lái 8 bit dữ liệu; sau đó master phát ACK/NACK ở xung thứ 9. Thực tế kiểm trên waveform:
+\begin{itemize}[leftmargin=1.2cm]
+    \item \texttt{o\_received\_data\_valid} thường nhấp 1 lần/byte ở ranh giới kết thúc byte (sau bit thứ 8 hoặc sau ACK tùy implement).
+    \item Byte cuối thường đi kèm NACK (master nhả SDA ở bit thứ 9) trước khi phát STOP để kết thúc đọc.
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/waveform_repeat_start.png}
@@ -36,4 +49,6 @@ Trong Hình \ref{fig:w_rx}, dữ liệu nhận xuất hiện trên \texttt{o\_re
 \end{figure}
 
 Hình \ref{fig:w_rs} thể hiện hai pha giao dịch nối tiếp nhau với \textbf{Repeated START} ở giữa: đường bus không có STOP xen kẽ; sau Sr, địa chỉ/slave phase tiếp theo bắt đầu ngay. Đây là điểm cần kiểm để phân biệt Sr với STOP+START.
+
+\textbf{Điểm phân biệt Sr vs STOP+START:} với Sr, SDA tạo điều kiện START mới khi SCL HIGH \emph{mà không có đoạn bus idle dài} và \texttt{I2C\_BUSY} không clear; còn STOP+START sẽ có pha STOP (SDA lên khi SCL HIGH) và bus trở về idle (SCL=SDA=1) trước START kế tiếp.
 

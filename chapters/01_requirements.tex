@@ -41,6 +41,18 @@ SDA/SCL là \emph{open-drain} với pull-up ngoài; master chỉ kéo mức th�
 \subsection{Giao dịch I2C (tóm tắt)}
 Khi bus rảnh, SCL và SDA đều cao nhờ pull-up. Master phát \textbf{START} để chiếm bus. Byte đầu gồm 7 bit địa chỉ và 1 bit R/W (0: master ghi, 1: master đọc). Bit thứ 9: slave kéo SDA thấp là \textbf{ACK}; không kéo là \textbf{NACK} tùy ngữ cảnh. Các byte sau mang dữ liệu hoặc địa chỉ thanh ghi nội bộ của thiết bị slave. Kết thúc bằng \textbf{STOP} hoặc \textbf{Repeated START (Sr)} để mở giao dịch mới mà không nhả bus bằng STOP.
 
+\textbf{Quy tắc timing cốt lõi:} dữ liệu trên SDA chỉ được phép thay đổi khi SCL = LOW; trong pha SCL = HIGH, SDA phải ổn định để phía thu lấy mẫu. Điều kiện START/STOP là ngoại lệ duy nhất được phép thay đổi SDA khi SCL = HIGH.
+
+\textbf{Open-drain và mức logic:} SDA/SCL là dây open-drain nên ``mức 1'' đến từ điện trở pull-up; master/slave chỉ có quyền kéo xuống 0 hoặc nhả high-Z. Vì vậy, một số cơ chế như \emph{clock stretching} (slave giữ SCL thấp) và \emph{arbitration} (đa master) dựa trên việc so sánh mức bus thực tế với mức master muốn phát.
+
+\textbf{Các ngoại lệ cần xử lý trong thiết kế:}
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{NACK}: xảy ra ở địa chỉ hoặc dữ liệu (slave không ACK), cần kết thúc giao dịch và báo lỗi.
+    \item \textbf{Clock stretching}: slave giữ SCL thấp $\Rightarrow$ master phải chờ SCL thật về 1 trước khi đi tiếp bit kế.
+    \item \textbf{Bus contention/arbitration}: nếu đa master, master phát '1' nhưng bus bị kéo '0' $\Rightarrow$ mất arbitration.
+    \item \textbf{Timeout}: SCL bị giữ thấp quá lâu hoặc bus không tiến triển $\Rightarrow$ abort để tránh treo hệ thống.
+\end{itemize}
+
 \subsection{Chế độ clock}
 \begin{table}[H]
     \centering

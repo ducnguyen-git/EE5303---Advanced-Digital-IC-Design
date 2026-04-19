@@ -7,17 +7,18 @@ Viết START = 1 trong \texttt{i\_config\_reg} để bắt đầu giao dịch.
 
 Trình tự:
 \begin{itemize}[leftmargin=1.2cm]
-    \item START.
-    \item Gửi địa chỉ + bit R/W = 0.
-    \item Slave trả lại ACK địa chỉ.
-    \item Gửi từng byte dữ liệu.
-    \item Slave trả lại ACK mỗi byte dữ liệu.
-    \item STOP
+    \item START: SDA kéo xuống thấp khi SCL đang ở mức HIGH.
+    \item Byte địa chỉ: 7-bit địa chỉ + 1-bit R/W = 0 (write). Master chỉ được đổi SDA khi SCL = LOW.
+    \item Bit ACK (bit thứ 9): master nhả SDA (high-Z) và lấy mẫu ở pha SCL HIGH; slave kéo thấp $\Rightarrow$ ACK, nhả cao $\Rightarrow$ NACK.
+    \item Các byte dữ liệu: mỗi byte gồm 8 bit MSB-first + 1 bit ACK tương tự.
+    \item STOP: SDA lên HIGH khi SCL đang HIGH để nhả bus.
 \end{itemize}
 
 \texttt{TX\_DONE} được set sau khi byte cuối được gửi.
 
 \texttt{I2C\_BUSY} chỉ clear khi STOP hoàn tất.
+
+\textbf{Trường hợp lỗi/NACK:} nếu NACK xảy ra ở địa chỉ hoặc ở một byte dữ liệu, Master FSM thường set \texttt{TX\_ERR} và kết thúc giao dịch sớm (phát STOP hoặc ABORT tùy cấu hình), đồng thời báo ngắt để CPU xử lý retry hoặc báo lỗi thiết bị.
 
 \subsection{Quá trình đọc (Master Receive)}
 Tương tự truyền, nhưng bit R/W = 1.
@@ -28,6 +29,8 @@ Khi byte cuối đến, \texttt{RX\_DONE} được set.
 
 Ở chế độ đọc, master có thể trả ACK hoặc NACK cho từng byte dữ liệu từ slave (thường NACK byte cuối trước STOP).
 
+Trong pha đọc, \textbf{nguồn điều khiển SDA đảo vai}: slave lái dữ liệu từng bit, còn master chỉ điều khiển bit ACK/NACK sau mỗi byte bằng cách kéo SDA thấp (ACK) hoặc nhả SDA (NACK) ở bit thứ 9.
+
 \subsection{Repeated START}
 Mục đích: đổi hướng hoặc truy cập thanh ghi nội bộ slave (ví dụ ghi địa chỉ thanh ghi rồi Sr rồi đọc dữ liệu) \emph{không} phát STOP giữa hai phase.
 
@@ -36,4 +39,6 @@ Trong lần START thứ hai, phải giữ nguyên địa chỉ slave theo đặc
 Trên bus, Sr là điều kiện START khi bus đang bận (không có STOP trước đó): SDA chuyển từ cao xuống thấp khi SCL = 1 sau phase trước.
 
 Kịch bản kiểm thử điển hình: START $\rightarrow$ addr+W $\rightarrow$ ACK $\rightarrow$ (data) $\rightarrow$ Sr $\rightarrow$ addr+R $\rightarrow$ \ldots\ — không có STOP giữa hai START.
+
+Điểm kỹ thuật cần kiểm: \textbf{I2C\_BUSY không được clear} giữa hai START; Bus FSM phải tạo START thứ hai trong khi vẫn đang chiếm bus (SCL/SDA không trở về trạng thái idle kéo dài).
 

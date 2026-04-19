@@ -58,3 +58,55 @@ Hai khối \textbf{Filtered SCL} và \textbf{Filtered SDA} là lớp đệm/lọ
     \end{tabularx}
 \end{table}
 
+\subsubsection{Bitfield thanh ghi điều khiển và trạng thái}
+
+Các thanh ghi trong RD1139 thường được thao tác theo hướng ``\emph{write-1-to-start / write-1-to-clear}'' và dùng cờ trạng thái để đồng bộ giữa CPU và FSM. Với các tín hiệu đã thể hiện ở Hình \ref{fig:block}, có thể mô tả tối thiểu hai nhóm bitfield quan trọng như sau.
+
+\begin{table}[H]
+    \centering
+    \caption{\texttt{i\_config\_reg[5:0]} --- các bit điều khiển}
+    \label{tab:config_reg_bits}
+    \begin{tabularx}{\textwidth}{|c|c|X|}
+        \hline
+        \textbf{Bit} & \textbf{Tên} & \textbf{Ý nghĩa/ảnh hưởng} \\
+        \hline
+        0 & START & Ghi 1 để yêu cầu Master FSM phát START (hoặc Sr nếu bus đang bận) và bắt đầu giao dịch theo các thanh ghi địa chỉ/số byte/mode hiện tại. \\
+        \hline
+        1 & INT\_CLR & Ghi 1 để xóa cờ/ngắt, giải phóng \texttt{o\_int\_n} về trạng thái không báo ngắt. \\
+        \hline
+        2 & TX\_IE & Enable ngắt liên quan truyền (TX done / TX error). \\
+        \hline
+        3 & RX\_IE & Enable ngắt liên quan nhận (data valid / RX done / RX error). \\
+        \hline
+        4 & ABORT & Hủy giao dịch đang chạy (ví dụ khi timeout, NACK bất thường, hoặc CPU muốn dừng). \\
+        \hline
+        5 & RESET & Reset mềm cho FSM nội bộ về trạng thái idle (khác với reset hệ thống \texttt{i\_rst\_n}). \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{\texttt{o\_cmd\_status\_reg[7:0]} --- các bit trạng thái điển hình}
+    \label{tab:cmd_status_bits}
+    \begin{tabularx}{\textwidth}{|c|c|X|}
+        \hline
+        \textbf{Bit} & \textbf{Tên} & \textbf{Ý nghĩa/điều kiện set} \\
+        \hline
+        0 & TX\_DONE & Set khi đã truyền xong đủ \texttt{i\_byte\_cnt\_reg} byte và STOP hoàn tất (bus về idle). \\
+        \hline
+        1 & RX\_DONE & Set khi đã nhận xong đủ byte theo cấu hình và kết thúc giao dịch. \\
+        \hline
+        2 & TX\_ERR & Lỗi trong pha truyền (ví dụ NACK ở địa chỉ hoặc dữ liệu, arbitration lost). \\
+        \hline
+        3 & RX\_ERR & Lỗi trong pha nhận (ví dụ timeout, arbitration lost, điều kiện bus bất thường). \\
+        \hline
+        4 & ABORT\_ACK & Acknowledge việc abort đã được FSM xử lý (đã dừng/đang về idle). \\
+        \hline
+        5 & I2C\_BUSY & Bus/FSM đang bận; clear khi STOP hoàn tất và SCL/SDA về mức idle. \\
+        \hline
+        6--7 & (tuỳ thiết kế) & Có thể dùng cho các cờ phụ (ví dụ arbitration/timeout) tuỳ bản RTL. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
