@@ -15,6 +15,33 @@ Theo Hình \ref{fig:rtl}, lõi I\textsuperscript{2}C được phân rã thành:
     \item \textbf{Filter}: tách lọc đường \textbf{SDA} và \textbf{SCL} để nhận/điều khiển pad.
 \end{itemize}
 
+\subsection{Clock Generator và Synchronizer}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/clock_gen_sync_block_diagram.png}
+    \caption{Clock Generator and Synchronizer Block Diagram (trích từ RD1139)}
+    \label{fig:clk_gen_sync}
+\end{figure}
+
+Khối Hình \ref{fig:clk_gen_sync} nhận tham số chia clock (kết hợp \texttt{i\_clk\_div\_lsb} và \texttt{i\_mode\_reg[2:0]}) để tạo nhịp SCL, đồng thời đồng bộ SCL thực tế trên bus để xử lý \textbf{clock stretching} (không giả định SCL luôn lên cao đúng theo bộ chia).
+
+\subsection{Logic tạo/phát hiện START và STOP}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/start_gen_detect_logic.png}
+    \caption{Start Condition Generate/Detect Logic (trích từ RD1139)}
+    \label{fig:start_logic}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/stop_gen_detect_logic.png}
+    \caption{Stop Condition Generate/Detect Logic (trích từ RD1139)}
+    \label{fig:stop_logic}
+\end{figure}
+
+Hai khối Hình \ref{fig:start_logic}--\ref{fig:stop_logic} đảm bảo điều kiện START/STOP đúng chuẩn: SDA chỉ được đổi khi SCL high tại thời điểm tạo START/STOP, còn các bit dữ liệu/ACK đổi khi SCL low.
+
 \subsection{I2C Bus Control FSM}
 \begin{figure}[H]
     \centering

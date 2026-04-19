@@ -18,8 +18,14 @@ Thiết kế bao gồm các module chính:
     \caption{Sơ đồ khối I2C Master Controller (top module)}
     \label{fig:block}
 \end{figure}
+\footnote{Nguồn sơ đồ khối tham chiếu: Lattice Semiconductor (2015), \emph{I2C Master Controller, Reference Design RD1139}.}
 
-\textit{\small Nguồn sơ đồ khối tham chiếu: Lattice Semiconductor (2015), \emph{I2C Master Controller, Reference Design RD1139}.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/pin_des_top_module.png}
+    \caption{Bảng mô tả chân (pin) của top module (trích từ RD1139)}
+    \label{fig:pin_desc}
+\end{figure}
 
 Hình \ref{fig:block} thể hiện ranh giới giữa \textbf{Processor Interface} và lõi \textbf{I\textsuperscript{2}C Master Controller}. Phía CPU cấu hình các thanh ghi:
 \begin{itemize}[leftmargin=1.2cm]
@@ -37,6 +43,50 @@ Bên trong controller có hai FSM chính:
 \end{itemize}
 
 Hai khối \textbf{Filtered SCL} và \textbf{Filtered SDA} là lớp đệm/lọc tín hiệu pad, nối ra bus \texttt{io\_scl} và \texttt{io\_sda} (open-drain) sang \textbf{I\textsuperscript{2}C Slave}.
+
+\subsection{Mô tả chân (pin) giao tiếp}
+\begin{table}[H]
+    \centering
+    \caption{I2C Master Controller Pin Description (tóm lược theo RD1139)}
+    \label{tab:pin_desc}
+    \begin{tabularx}{\textwidth}{|l|c|l|X|}
+        \hline
+        \textbf{Signal} & \textbf{Width} & \textbf{Type} & \textbf{Description} \\
+        \hline
+        \texttt{i\_clk} & 1 & Input & System clock (32\,MHz). \\
+        \hline
+        \texttt{i\_rst\_n} & 1 & Input & Asynchronous active-low system reset. \\
+        \hline
+        \texttt{i\_slave\_addr\_reg} & 8 & Input & 7-bit slave address + R/W bit. \\
+        \hline
+        \texttt{i\_byte\_cnt\_reg} & 8 & Input & Number of data bytes to be read/written in one transaction. \\
+        \hline
+        \texttt{i\_clk\_div\_lsb} & 8 & Input & Lower byte of clock divider to generate SCL; upper 3 bits in \texttt{i\_mode\_reg[2:0]}. \\
+        \hline
+        \texttt{i\_config\_reg} & 6 & Input & Control register (RESET/ABORT/TX\_IE/RX\_IE/INT\_CLR/START). \\
+        \hline
+        \texttt{i\_mode\_reg} & 8 & Input & Mode register (speed, ACK\_POL, RW\_MODE, divider MSBs). \\
+        \hline
+        \texttt{i\_transmit\_data} & 8 & Input & Data byte to transmit over SDA. \\
+        \hline
+        \texttt{o\_cmd\_status\_reg} & 8 & Output & Status register (I2C\_BUSY/TX\_DONE/RX\_DONE/TX\_ERR/RX\_ERR/ABORT\_ACK). \\
+        \hline
+        \texttt{o\_receive\_data} & 8 & Output & Received data bus. \\
+        \hline
+        \texttt{o\_int\_n} & 1 & Output & Active-low interrupt. \\
+        \hline
+        \texttt{o\_start\_ack} & 1 & Output & Acknowledge for START request from \texttt{i\_config\_reg}. \\
+        \hline
+        \texttt{o\_transmit\_data\_request} & 1 & Output & Requests next transmit byte from CPU. \\
+        \hline
+        \texttt{o\_received\_data\_valid} & 1 & Output & Indicates \texttt{o\_receive\_data} is valid. \\
+        \hline
+        \texttt{io\_scl} & 1 & Inout & I2C clock line (open-drain). \\
+        \hline
+        \texttt{io\_sda} & 1 & Inout & I2C data line (open-drain). \\
+        \hline
+    \end{tabularx}
+\end{table}
 
 \subsection{Mô tả các thanh ghi}
 \begin{table}[H]
@@ -72,42 +122,63 @@ Các thanh ghi trong RD1139 thường được thao tác theo hướng ``\emph{w
         \hline
         \textbf{Bit} & \textbf{Tên} & \textbf{Ý nghĩa/ảnh hưởng} \\
         \hline
-        0 & START & Ghi 1 để yêu cầu Master FSM phát START (hoặc Sr nếu bus đang bận) và bắt đầu giao dịch theo các thanh ghi địa chỉ/số byte/mode hiện tại. \\
+        0 & START & Ghi 1 để bắt đầu một giao dịch I\textsuperscript{2}C; bit này auto-clear sau khi master arbitrated và acquire bus. \\
         \hline
-        1 & INT\_CLR & Ghi 1 để xóa cờ/ngắt, giải phóng \texttt{o\_int\_n} về trạng thái không báo ngắt. \\
+        1 & INT\_CLR & Ghi 1 để clear các bit trong \texttt{o\_cmd\_status\_reg} (trừ \texttt{I2C\_BUSY}); sau đó ghi 0 để clear bit này. \\
         \hline
-        2 & TX\_IE & Enable ngắt liên quan truyền (TX done / TX error). \\
+        2 & RX\_IE & Enable interrupt khi receive completion (STOP issued) hoặc khi có error. \\
         \hline
-        3 & RX\_IE & Enable ngắt liên quan nhận (data valid / RX done / RX error). \\
+        3 & TX\_IE & Enable interrupt khi transmit completion (STOP issued) hoặc khi có error. \\
         \hline
-        4 & ABORT & Hủy giao dịch đang chạy (ví dụ khi timeout, NACK bất thường, hoặc CPU muốn dừng). \\
+        4 & ABORT & Ghi 1 để dừng giao dịch đang chạy; bit này được clear bởi \texttt{ABORT\_ACK} trong status register. \\
         \hline
-        5 & RESET & Reset mềm cho FSM nội bộ về trạng thái idle (khác với reset hệ thống \texttt{i\_rst\_n}). \\
+        5 & RESET & Ghi 1 để reset I\textsuperscript{2}C master controller. \\
         \hline
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
     \centering
-    \caption{\texttt{o\_cmd\_status\_reg[7:0]} --- các bit trạng thái điển hình}
+    \caption{\texttt{o\_cmd\_status\_reg[7:0]} --- các bit trạng thái (theo RD1139)}
     \label{tab:cmd_status_bits}
     \begin{tabularx}{\textwidth}{|c|c|X|}
         \hline
         \textbf{Bit} & \textbf{Tên} & \textbf{Ý nghĩa/điều kiện set} \\
         \hline
-        0 & TX\_DONE & Set khi đã truyền xong đủ \texttt{i\_byte\_cnt\_reg} byte và STOP hoàn tất (bus về idle). \\
+        7 & I2C\_BUSY & Read-only: bridge/bus đang bận và STOP chưa được phát; không thể clear bằng user. \\
         \hline
-        1 & RX\_DONE & Set khi đã nhận xong đủ byte theo cấu hình và kết thúc giao dịch. \\
+        6 & TX\_DONE & Read-only: write operation hoàn tất (STOP có thể vẫn đang 진행). \\
         \hline
-        2 & TX\_ERR & Lỗi trong pha truyền (ví dụ NACK ở địa chỉ hoặc dữ liệu, arbitration lost). \\
+        5 & RX\_DONE & Read-only: read operation hoàn tất (STOP có thể vẫn đang 진행). \\
         \hline
-        3 & RX\_ERR & Lỗi trong pha nhận (ví dụ timeout, arbitration lost, điều kiện bus bất thường). \\
+        4 & TX\_ERR & Read-only: error xảy ra trong write operation. \\
         \hline
-        4 & ABORT\_ACK & Acknowledge việc abort đã được FSM xử lý (đã dừng/đang về idle). \\
+        3 & RX\_ERR & Read-only: error xảy ra trong read operation. \\
         \hline
-        5 & I2C\_BUSY & Bus/FSM đang bận; clear khi STOP hoàn tất và SCL/SDA về mức idle. \\
+        2 & ABORT\_ACK & Read-only: ABORT command hoàn tất; user cần clear FIFO và status bits sau đó. \\
         \hline
-        6--7 & (tuỳ thiết kế) & Có thể dùng cho các cờ phụ (ví dụ arbitration/timeout) tuỳ bản RTL. \\
+        1--0 & Unimplemented/Undefined & Theo tài liệu tham chiếu, các bit còn lại không dùng hoặc không xác định. \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Tóm lược \texttt{i\_mode\_reg} (theo RD1139)}
+    \label{tab:mode_reg_bits}
+    \begin{tabularx}{\textwidth}{|c|c|X|}
+        \hline
+        \textbf{Bit(s)} & \textbf{Name} & \textbf{Description} \\
+        \hline
+        7:6 & BPS[1:0] & Chọn speed mode (00: standard 100\,kHz; 01: fast 400\,kHz; giá trị khác reserved). \\
+        \hline
+        4 & ACK\_POL & Hành vi ACK ở byte cuối của master read: 0=ACK, 1=NACK (khuyến nghị NACK ở byte cuối nếu không dùng repeated START). \\
+        \hline
+        3 & RW\_MODE & 0=write, 1=read. \\
+        \hline
+        2:0 & DIV[10:8] & 3 bit MSB của clock divider (kết hợp với \texttt{i\_clk\_div\_lsb[7:0]}). \\
+        \hline
+        5 & (reserved) & Không dùng trong bảng mô tả tham chiếu. \\
         \hline
     \end{tabularx}
 \end{table}

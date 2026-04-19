@@ -1,0 +1,12 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {table}{\numberline {1.1}{\ignorespaces Chế độ clock và gợi ý thiết kế}}{7}{table.caption.1}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces I2C Master Controller Pin Description (tóm lược theo RD1139)}}{10}{table.caption.4}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Register Description}}{11}{table.caption.5}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces \texttt {i\_config\_reg[5:0]} --- các bit điều khiển}}{11}{table.caption.6}%
+\contentsline {table}{\numberline {2.4}{\ignorespaces \texttt {o\_cmd\_status\_reg[7:0]} --- các bit trạng thái (theo RD1139)}}{12}{table.caption.7}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Tóm lược \texttt {i\_mode\_reg} (theo RD1139)}}{12}{table.caption.8}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Bus Control FSM --- ý nghĩa trạng thái (tóm lược theo slide)}}{18}{table.caption.15}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Master Control FSM --- chuỗi trạng thái (tóm lược theo slide)}}{20}{table.caption.18}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Tóm tắt QoR (theo \texttt {metrics.csv})}}{26}{table.caption.26}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Tóm tắt STA multi-corner (theo \texttt {summary.rpt})}}{27}{table.caption.27}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Tóm tắt kết quả log sign-off (trích)}}{27}{table.caption.28}%

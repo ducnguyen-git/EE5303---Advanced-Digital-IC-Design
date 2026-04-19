@@ -1,0 +1,14 @@
+{
+    "json_h": "/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/05-yosys-jsonheader/i2c_master_controller_top.h.json",
+    "nl": "/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/06-yosys-synthesis/i2c_master_controller_top.nl.v",
+    "metrics": {
+        "design__lint_error__count": 0,
+        "design__lint_timing_construct__count": 0,
+        "design__lint_warning__count": 475,
+        "design__inferred_latch__count": 0,
+        "design__instance__count": 758,
+        "design__instance__area": 10248.5792,
+        "design__instance_unmapped__count": 0,
+        "synthesis__check_error__count": 0
+    }
+}

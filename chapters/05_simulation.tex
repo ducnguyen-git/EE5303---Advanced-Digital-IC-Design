@@ -3,7 +3,17 @@
 \subsection{Môi trường mô phỏng}
 Testbench Verilog có sẵn trong RD1139: gồm model bus, slave/BFM và các task gọi giao dịch.
 
-\textit{\small Nguồn testbench/waveform: Lattice Semiconductor, RD1139 (I2C Master Controller Reference Design).}
+\footnote{Nguồn testbench/waveform: Lattice Semiconductor (2015), \emph{I2C Master Controller, Reference Design RD1139}.}
+
+\subsection{Kịch bản mô phỏng (theo RD1139)}
+Các kịch bản dưới đây là checklist để đối chiếu ``đúng protocol'' (bus-level) và ``đúng handshake/status'' (CPU-level), bám sát các slide TB chi tiết:
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Master Transmit (TX)}: START $\rightarrow$ addr+W $\rightarrow$ ACK $\rightarrow$ data bytes + ACK $\rightarrow$ STOP; \texttt{o\_transmit\_data\_request} bật trước mỗi byte; \texttt{TX\_DONE} set sau byte cuối; \texttt{I2C\_BUSY} chỉ clear khi STOP xong.
+    \item \textbf{Master Receive (RX)}: START $\rightarrow$ addr+R $\rightarrow$ ACK $\rightarrow$ data bytes; master phát ACK/NACK ở bit 9; thường NACK byte cuối trước STOP; \texttt{o\_received\_data\_valid} báo byte hợp lệ; \texttt{RX\_DONE} set sau đủ \texttt{i\_byte\_cnt\_reg}.
+    \item \textbf{Repeated START (Sr)}: có START lần 2 mà \emph{không có STOP} giữa 2 phase; nếu xuất hiện STOP xen giữa thì kịch bản sai hoặc FSM lỗi điều kiện chuyển.
+    \item \textbf{Write with ABORT / Transmit Error}: khi user set ABORT, kỳ vọng \texttt{ABORT\_ACK} trong \texttt{o\_cmd\_status\_reg} và giao dịch dừng an toàn; sau đó CPU clear status/FIFO theo đúng trình tự.
+    \item \textbf{Late START deasserted}: nếu clear START trễ, có thể phát sinh thêm một giao dịch ngoài ý muốn (read/write lặp lại); đây là testcase để bắt lỗi firmware/handshake và yêu cầu firmware phải clear bit START đúng thời điểm.
+\end{itemize}
 
 \subsection{Waveform}
 \begin{figure}[H]

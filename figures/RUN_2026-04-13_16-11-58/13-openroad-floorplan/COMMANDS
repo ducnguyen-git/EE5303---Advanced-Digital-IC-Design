@@ -1,0 +1,1 @@
+openroad -exit -no_splash -metrics /home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/13-openroad-floorplan/or_metrics_out.json /nix/store/52f187sx88gs2f8m4a7gbqnavjg7xh1b-python3-3.13.9-env/lib/python3.13/site-packages/librelane/scripts/openroad/floorplan.tcl

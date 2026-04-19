@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v"

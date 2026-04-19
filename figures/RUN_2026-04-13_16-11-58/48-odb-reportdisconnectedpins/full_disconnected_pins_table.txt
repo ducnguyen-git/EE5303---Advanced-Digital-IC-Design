@@ -1,0 +1,70 @@
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┓
+┃ Macro/Instance            ┃ Power Pins ┃ Disconnected ┃ Signal Pins             ┃ Disconnected     ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━┩
+│ i2c_master_controller_top │ VPWR       │              │ i_byte_cnt_reg[0]       │ i_clk_div_lsb[0] │
+│                           │ VGND       │              │ i_byte_cnt_reg[1]       │ i_mode_reg[2]    │
+│                           │            │              │ i_byte_cnt_reg[2]       │ i_mode_reg[4]    │
+│                           │            │              │ i_byte_cnt_reg[3]       │                  │
+│                           │            │              │ i_byte_cnt_reg[4]       │                  │
+│                           │            │              │ i_byte_cnt_reg[5]       │                  │
+│                           │            │              │ i_byte_cnt_reg[6]       │                  │
+│                           │            │              │ i_byte_cnt_reg[7]       │                  │
+│                           │            │              │ i_clk                   │                  │
+│                           │            │              │ i_clk_div_lsb[1]        │                  │
+│                           │            │              │ i_clk_div_lsb[2]        │                  │
+│                           │            │              │ i_clk_div_lsb[3]        │                  │
+│                           │            │              │ i_clk_div_lsb[4]        │                  │
+│                           │            │              │ i_clk_div_lsb[5]        │                  │
+│                           │            │              │ i_clk_div_lsb[6]        │                  │
+│                           │            │              │ i_clk_div_lsb[7]        │                  │
+│                           │            │              │ i_config_reg[0]         │                  │
+│                           │            │              │ i_config_reg[1]         │                  │
+│                           │            │              │ i_config_reg[2]         │                  │
+│                           │            │              │ i_config_reg[3]         │                  │
+│                           │            │              │ i_config_reg[4]         │                  │
+│                           │            │              │ i_config_reg[5]         │                  │
+│                           │            │              │ i_mode_reg[0]           │                  │
+│                           │            │              │ i_mode_reg[1]           │                  │
+│                           │            │              │ i_mode_reg[3]           │                  │
+│                           │            │              │ i_mode_reg[5]           │                  │
+│                           │            │              │ i_mode_reg[6]           │                  │
+│                           │            │              │ i_mode_reg[7]           │                  │
+│                           │            │              │ i_rst_n                 │                  │
+│                           │            │              │ i_slave_addr_reg[0]     │                  │
+│                           │            │              │ i_slave_addr_reg[1]     │                  │
+│                           │            │              │ i_slave_addr_reg[2]     │                  │
+│                           │            │              │ i_slave_addr_reg[3]     │                  │
+│                           │            │              │ i_slave_addr_reg[4]     │                  │
+│                           │            │              │ i_slave_addr_reg[5]     │                  │
+│                           │            │              │ i_slave_addr_reg[6]     │                  │
+│                           │            │              │ i_transmit_data[0]      │                  │
+│                           │            │              │ i_transmit_data[1]      │                  │
+│                           │            │              │ i_transmit_data[2]      │                  │
+│                           │            │              │ i_transmit_data[3]      │                  │
+│                           │            │              │ i_transmit_data[4]      │                  │
+│                           │            │              │ i_transmit_data[5]      │                  │
+│                           │            │              │ i_transmit_data[6]      │                  │
+│                           │            │              │ i_transmit_data[7]      │                  │
+│                           │            │              │ io_scl                  │                  │
+│                           │            │              │ io_sda                  │                  │
+│                           │            │              │ o_cmd_status_reg[0]     │                  │
+│                           │            │              │ o_cmd_status_reg[1]     │                  │
+│                           │            │              │ o_cmd_status_reg[2]     │                  │
+│                           │            │              │ o_cmd_status_reg[3]     │                  │
+│                           │            │              │ o_cmd_status_reg[4]     │                  │
+│                           │            │              │ o_cmd_status_reg[5]     │                  │
+│                           │            │              │ o_cmd_status_reg[6]     │                  │
+│                           │            │              │ o_cmd_status_reg[7]     │                  │
+│                           │            │              │ o_int_n                 │                  │
+│                           │            │              │ o_receive_data[0]       │                  │
+│                           │            │              │ o_receive_data[1]       │                  │
+│                           │            │              │ o_receive_data[2]       │                  │
+│                           │            │              │ o_receive_data[3]       │                  │
+│                           │            │              │ o_receive_data[4]       │                  │
+│                           │            │              │ o_receive_data[5]       │                  │
+│                           │            │              │ o_receive_data[6]       │                  │
+│                           │            │              │ o_receive_data[7]       │                  │
+│                           │            │              │ o_received_data_valid   │                  │
+│                           │            │              │ o_start_ack             │                  │
+│                           │            │              │ o_transmit_data_request │                  │
+└───────────────────────────┴────────────┴──────────────┴─────────────────────────┴──────────────────┘

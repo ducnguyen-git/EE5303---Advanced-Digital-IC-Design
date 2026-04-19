@@ -1,0 +1,9 @@
+- cell: i2c_master_controller_top
+  inout: []
+  input:
+  - i_clk_div_lsb[0]
+  - i_mode_reg[2]
+  - i_mode_reg[4]
+  output:
+  - o_cmd_status_reg[0]
+  - o_cmd_status_reg[1]

@@ -1,0 +1,8 @@
+
+29. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\i2c_master_cntrl_fsm.\state_next' from process `\i2c_master_cntrl_fsm.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm.v:126$218'.
+No latch inferred for signal `\i2c_master_byte_tx_fsm.\state_next' from process `\i2c_master_byte_tx_fsm.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_tx_fsm.v:83$204'.
+No latch inferred for signal `\i2c_master_byte_rx_fsm.\state_next' from process `\i2c_master_byte_rx_fsm.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_rx_fsm.v:83$170'.
+No latch inferred for signal `\i2c_master_scl_gen.\state_next' from process `\i2c_master_scl_gen.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v:87$137'.
+No latch inferred for signal `\i2c_master_start_detect.\state_next' from process `\i2c_master_start_detect.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_start_detect.v:66$128'.
+No latch inferred for signal `\i2c_master_start_gen.\state_next' from process `\i2c_master_start_gen.$proc$/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_start_gen.v:94$107'.

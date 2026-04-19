@@ -1,0 +1,25 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Sơ đồ khối I2C Master Controller (top module)}}{8}{figure.caption.2}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Bảng mô tả chân (pin) của top module (trích từ RD1139)}}{9}{figure.caption.3}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sơ đồ khối chức năng RTL (Clock Gen, START/STOP, ACK, Tx/Rx FSM, SCL/SDA)}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Clock Generator and Synchronizer Block Diagram (trích từ RD1139)}}{15}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Start Condition Generate/Detect Logic (trích từ RD1139)}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Stop Condition Generate/Detect Logic (trích từ RD1139)}}{16}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces I2C Bus Control FSM}}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Đồ thị trạng thái Bus Control FSM (bit-level)}}{17}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces I2C Master Control FSM}}{18}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Đồ thị trạng thái Master Control FSM (byte-level)}}{19}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Master Transmit — handshake TX}}{21}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Master Receive — data valid và RX\_DONE}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Repeated START (Sr)}}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Minh họa file cấu hình (ví dụ \texttt {config.json}) cho luồng LibreLane}}{24}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces KLayout GUI: xem GDS}}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces OpenROAD GUI: routing map}}{25}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Danh sách run steps của LibreLane (ví dụ một run với nhiều bước)}}{26}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces DRC Flow}}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces LVS Flow}}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces STA Flow}}{29}{figure.caption.31}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Ví dụ STA summary (phần 1)}}{29}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Ví dụ STA summary (phần 2)}}{30}{figure.caption.33}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Ý nghĩa các Corner IPVT}}{30}{figure.caption.34}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Pass sign-off}}{31}{figure.caption.35}%

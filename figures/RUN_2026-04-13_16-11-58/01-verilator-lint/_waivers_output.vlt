@@ -1,0 +1,959 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule TIMESCALEMOD -file "*/home/duckiee/i2c/i2c_master/runs/RUN_2026-04-13_16-11-58/tmp/0b8f53b0803f43c2a2dcd0241ed1e2a3.bb.v" -match "Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)*"
+
+// lint_off -rule WIDTHEXPAND -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm.v" -match "Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '7'h0' generates 7 bits.*"
+
+// lint_off -rule WIDTHEXPAND -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm.v" -match "Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's CONST '7'h0' generates 7 bits.*"
+
+// lint_off -rule UNUSEDPARAM -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller_top.v" -match "Parameter is not used: 'io_config'*"
+
+// lint_off -rule UNUSEDPARAM -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller.v" -match "Parameter is not used: 'VERSION'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller.v" -match "Signal is not driven, nor used: 'force_i2c'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller.v" -match "Signal is not driven, nor used: 'gpio_reg0'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller.v" -match "Signal is not driven, nor used: 'gpio_reg1'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_controller.v" -match "Signal is not used: 'i2c_master_stop_ack'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm_top.v" -match "Bits of signal are not used: 'i_config_reg'[5]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm_top.v" -match "Signal is not driven, nor used: 'config_reg'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm_top.v" -match "Signal is not driven, nor used: 'start_bit'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm_top.v" -match "Signal is not driven, nor used: 'start_rst'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_cntrl_fsm_top.v" -match "Signal is not driven, nor used: 'config_start_reg'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2cbus_cntrl_fsm_top.v" -match "Signal is not used: 'i_i2c_bus_sda_en'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2cbus_cntrl_fsm_top.v" -match "Signal is not used: 'i_i2c_master_sda'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_rx_fsm.v" -match "Signal is not used: 'i_ack_mode'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_rx_fsm.v" -match "Signal is not used: 'i_last_byte'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_tx_fsm.v" -match "Signal is not used: 'i_ack_mode'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_byte_tx_fsm.v" -match "Signal is not used: 'i_transaction_complete'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Bits of signal are not used: 'i_clk_div_factor'[0]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Signal is not used: 'i_bps_mode'*"
+
+// lint_off -rule UNUSEDPARAM -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Parameter is not used: 'DIV_400K'*"
+
+// lint_off -rule UNUSEDPARAM -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Parameter is not used: 'DIV_100K'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Signal is not used: 'test_mode'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Bits of signal are not used: 'modulus'[9]*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Signal is not driven, nor used: 'timer1'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Signal is not driven, nor used: 'timer2'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_scl_gen.v" -match "Signal is not driven, nor used: 'cnt_en'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/duckiee/i2c/i2c_master/source/verilog/i2c_master_stop_gen.v" -match "Signal is not used: 'i_i2c_bus_sda'*"
+
