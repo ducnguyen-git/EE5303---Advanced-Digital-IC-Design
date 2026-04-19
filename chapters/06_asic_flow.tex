@@ -44,9 +44,18 @@ Hình \ref{fig:run_steps} minh họa pipeline LibreLane với hơn 75 bước: t
 \subsection{Kết quả tổng hợp \& ký duyệt (trích số liệu từ run)}
 \footnote{Nguồn số liệu kết quả: file \texttt{figures/metrics.csv} và \texttt{figures/summary.rpt} do LibreLane/OpenROAD flow sinh ra trong quá trình chạy.}
 
+\subsubsection{Synthesis (Yosys) --- area và cell breakdown}
+Từ báo cáo \texttt{stat.rpt} của bước tổng hợp, diện tích logic cho module \texttt{i2c\_master\_controller\_top} là \textbf{10248.5792\,\(\mu m^2\)}, trong đó phần tử tuần tự chiếm \textbf{5504.0288\,\(\mu m^2\)} (53.71\%).
+
+\textbf{Trích log (area summary):}
+\begin{verbatim}
+Chip area for module 'i2c_master_controller_top': 10248.579200
+  of which used for sequential elements: 5504.028800 (53.71%)
+\end{verbatim}
+
 \begin{table}[H]
     \centering
-    \caption{Tóm tắt QoR (theo \texttt{metrics.csv})}
+    \caption{Tóm tắt QoR sau place\&route (theo \texttt{metrics.csv})}
     \label{tab:qor_metrics}
     \begin{tabularx}{\textwidth}{|l|X|}
         \hline
@@ -66,6 +75,33 @@ Hình \ref{fig:run_steps} minh họa pipeline LibreLane với hơn 75 bước: t
         \hline
     \end{tabularx}
 \end{table}
+
+\subsubsection{Layout (Floorplan/CTS/Routing/IR drop) --- các mốc cần chấm}
+\begin{itemize}[leftmargin=1.2cm]
+    \item \textbf{Floorplan}: die bbox 154.21\(\times\)164.93\,\(\mu m\), core bbox (5.52,10.88)--(148.58,152.32)\,\(\mu m\); effective utilization \(\approx\) 0.506 (log floorplan).
+    \item \textbf{CTS}: 1 clock root, 26 buffers inserted, 211 sinks (trích từ \texttt{cts.rpt}).
+    \item \textbf{IR Drop}: worstcase IR drop VPWR \(3.44\times 10^{-4}\,V\) (0.02\%) ở corner nom\_tt\_025C\_1v80; VGND worstcase \(3.77\times 10^{-4}\,V\) (0.02\%) (trích từ \texttt{irdrop.rpt}).
+\end{itemize}
+
+\textbf{Trích log (floorplan bbox):}
+\begin{verbatim}
+Die BBox:  (  0.000  0.000 ) ( 154.210 164.930 ) um
+Core BBox: (  5.520 10.880 ) ( 148.580 152.320 ) um
+Effective utilization: 0.506
+\end{verbatim}
+
+\textbf{Trích log (CTS summary):}
+\begin{verbatim}
+Total number of Clock Roots: 1.
+Total number of Buffers Inserted: 26.
+Total number of Sinks: 211.
+\end{verbatim}
+
+\textbf{Trích log (IR drop):}
+\begin{verbatim}
+Worstcase IR drop: 3.44e-04 V
+Percentage drop  : 0.02 %
+\end{verbatim}
 
 \begin{table}[H]
     \centering
@@ -117,6 +153,13 @@ Từ Bảng \ref{tab:sta_summary_rpt} có thể kết luận: \textbf{không có
 \end{table}
 
 Như vậy, báo cáo tách bạch hai ý: \textbf{timing setup/hold đạt} (không violation), nhưng \textbf{slew vẫn có vi phạm} ở corner SS; đây là phần cần xử lý nếu nâng tiêu chí từ ``minh họa flow'' lên ``sign-off nghiêm ngặt''.
+
+\textbf{Trích log (kết thúc flow):}
+\begin{verbatim}
+No setup violations found
+No hold violations found
+Flow complete.
+\end{verbatim}
 
 \subsection{Sign-off (DRC/LVS/STA/IPVT)}
 \begin{figure}[H]
