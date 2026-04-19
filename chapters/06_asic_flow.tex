@@ -99,15 +99,17 @@ Từ Bảng \ref{tab:sta_summary_rpt} có thể kết luận: \textbf{không có
         \hline
         \textbf{Hạng mục} & \textbf{Kết quả log (trích)} \\
         \hline
+        Flow (kết thúc) & ``Flow complete.'' \\
+        \hline
         STA checker & ``No setup violations found''; ``No hold violations found''. \\
         \hline
         STA summary & Setup/Hold violation count = 0; TNS = 0 ở các corner báo cáo (xem Bảng \ref{tab:sta_summary_rpt}). \\
         \hline
-        DRC (Magic) & COUNT = 0. \\
+        DRC (Magic) & ``[INFO] COUNT: 0'' \\
         \hline
         LVS (Netgen) & ``Final result: Circuits match uniquely.'' \\
         \hline
-        Antenna & Bảng tóm tắt không có net/pin vi phạm (không liệt kê dòng nào trong summary). \\
+        Antenna & (summary không liệt kê net/pin vi phạm). \\
         \hline
         Max slew checker & Có ghi nhận max slew violation ở các corner SS (slow/\(T\) cao): nom\_ss, min\_ss, max\_ss; cần tối ưu thêm nếu yêu cầu sign-off strict. \\
         \hline
