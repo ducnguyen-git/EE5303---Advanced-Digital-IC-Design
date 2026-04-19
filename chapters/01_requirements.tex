@@ -43,6 +43,8 @@ Khi bus rảnh, SCL và SDA đều cao nhờ pull-up. Master phát \textbf{START
 
 \textbf{Quy tắc timing cốt lõi:} dữ liệu trên SDA chỉ được phép thay đổi khi SCL = LOW; trong pha SCL = HIGH, SDA phải ổn định để phía thu lấy mẫu. Điều kiện START/STOP là ngoại lệ duy nhất được phép thay đổi SDA khi SCL = HIGH.
 
+\textit{\small Tham chiếu chuẩn bus: NXP Semiconductors, \emph{UM10204 I\textsuperscript{2}C-bus specification and user manual}.}
+
 \textbf{Open-drain và mức logic:} SDA/SCL là dây open-drain nên ``mức 1'' đến từ điện trở pull-up; master/slave chỉ có quyền kéo xuống 0 hoặc nhả high-Z. Vì vậy, một số cơ chế như \emph{clock stretching} (slave giữ SCL thấp) và \emph{arbitration} (đa master) dựa trên việc so sánh mức bus thực tế với mức master muốn phát.
 
 \textbf{Các ngoại lệ cần xử lý trong thiết kế:}

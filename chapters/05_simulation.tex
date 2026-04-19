@@ -3,6 +3,8 @@
 \subsection{Môi trường mô phỏng}
 Testbench Verilog có sẵn trong RD1139: gồm model bus, slave/BFM và các task gọi giao dịch.
 
+\textit{\small Nguồn testbench/waveform: Lattice Semiconductor, RD1139 (I2C Master Controller Reference Design).}
+
 \subsection{Waveform}
 \begin{figure}[H]
     \centering
@@ -26,6 +28,15 @@ Trong Hình \ref{fig:w_tx}, các tín hiệu điều khiển chính cần đối
     \item Khi \texttt{o\_transmit\_data\_request} lên mức 1, byte mới phải sẵn sàng tại \texttt{i\_transmit\_data} trước khi 8 xung dữ liệu của byte kế tiếp bắt đầu.
 \end{itemize}
 
+\textbf{Checklist đúng theo kịch bản TB (Transmit):}
+\begin{itemize}[leftmargin=1.2cm]
+    \item START xuất hiện rõ sau idle.
+    \item Byte địa chỉ + ACK từ slave (bit 9 của cụm 9 xung).
+    \item Chuỗi byte dữ liệu, mỗi byte có ACK (trừ kịch bản NACK).
+    \item STOP sau byte cuối và có khoảng idle phía sau.
+    \item Phía RTL/CPU: \texttt{o\_transmit\_data\_request} bật trước mỗi byte cần nạp; sau byte cuối \texttt{TX\_DONE}=1; \texttt{I2C\_BUSY} giữ đến khi STOP hoàn tất.
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/waveform_read.png}
@@ -41,6 +52,14 @@ Trong Hình \ref{fig:w_rx}, dữ liệu nhận xuất hiện trên \texttt{o\_re
     \item Byte cuối thường đi kèm NACK (master nhả SDA ở bit thứ 9) trước khi phát STOP để kết thúc đọc.
 \end{itemize}
 
+\textbf{Checklist đúng theo kịch bản TB (Receive):}
+\begin{itemize}[leftmargin=1.2cm]
+    \item START $\rightarrow$ byte địa chỉ với R/W=1.
+    \item Slave phát byte dữ liệu; master phát ACK/NACK theo byte (thường NACK ở byte cuối trước STOP).
+    \item STOP kết thúc.
+    \item Phía RTL/CPU: \texttt{o\_received\_data\_valid}=1 ứng với byte hợp lệ; \texttt{RX\_DONE} set sau byte cuối theo \texttt{i\_byte\_cnt\_reg}.
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/waveform_repeat_start.png}
@@ -51,4 +70,13 @@ Trong Hình \ref{fig:w_rx}, dữ liệu nhận xuất hiện trên \texttt{o\_re
 Hình \ref{fig:w_rs} thể hiện hai pha giao dịch nối tiếp nhau với \textbf{Repeated START} ở giữa: đường bus không có STOP xen kẽ; sau Sr, địa chỉ/slave phase tiếp theo bắt đầu ngay. Đây là điểm cần kiểm để phân biệt Sr với STOP+START.
 
 \textbf{Điểm phân biệt Sr vs STOP+START:} với Sr, SDA tạo điều kiện START mới khi SCL HIGH \emph{mà không có đoạn bus idle dài} và \texttt{I2C\_BUSY} không clear; còn STOP+START sẽ có pha STOP (SDA lên khi SCL HIGH) và bus trở về idle (SCL=SDA=1) trước START kế tiếp.
+
+\textbf{Checklist đúng theo kịch bản TB (Repeated START):}
+\begin{itemize}[leftmargin=1.2cm]
+    \item Có START lần 1, gửi địa chỉ và nhận ACK.
+    \item Không có STOP giữa các phase.
+    \item Có START lần 2 (Sr) với đúng địa chỉ slave theo đặc tả.
+    \item Tiếp tục phase read/write, kết thúc bằng STOP.
+    \item Nếu waveform có STOP xen giữa hai phase định dùng Sr $\Rightarrow$ kịch bản sai hoặc FSM lỗi đếm byte/điều kiện chuyển.
+\end{itemize}
 

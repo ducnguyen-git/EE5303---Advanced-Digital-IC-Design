@@ -23,6 +23,13 @@ Theo Hình \ref{fig:rtl}, lõi I\textsuperscript{2}C được phân rã thành:
     \label{fig:bus_fsm}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth,keepaspectratio]{figures/i2c_from_docx/fsm_bus_control.png}
+    \caption{Đồ thị trạng thái Bus Control FSM (bit-level)}
+    \label{fig:bus_fsm_graph}
+\end{figure}
+
 Hình \ref{fig:bus_fsm} cho thấy Bus FSM nhận các tín hiệu bus (\texttt{i\_i2c\_bus\_scl}, \texttt{i\_i2c\_bus\_sda}) và điều khiển các tín hiệu tạo START/STOP (\texttt{i\_i2c\_master\_start\_en}, \texttt{i\_i2c\_master\_stop\_en}) cùng enable kéo SDA (\texttt{i\_i2c\_bus\_sda\_en}, \texttt{i\_tx\_en}). Khối này xuất:
 \begin{itemize}[leftmargin=1.2cm]
     \item SCL điều khiển bởi master (\texttt{o\_i2c\_master\_scl}) và các cờ timing như \texttt{o\_i2c\_master\_falling\_scl\_detect}.
@@ -31,12 +38,51 @@ Hình \ref{fig:bus_fsm} cho thấy Bus FSM nhận các tín hiệu bus (\texttt{
     \item Điều khiển SDA mức bus: \texttt{o\_i2cbus\_cntrl\_sda}.
 \end{itemize}
 
+\textit{\small Nguồn hình/FSM tham chiếu: Lattice Semiconductor, RD1139 (I2C Master Controller Reference Design).}
+
+\subsubsection{Chuỗi trạng thái Bus FSM (mức bit)}
+Bus FSM là FSM ``điều khiển thời gian'' trên hai dây SDA/SCL. Bảng \ref{tab:bus_fsm_states} diễn giải theo chuỗi trạng thái thường gặp trong slide (bit-level): từ idle, phát hiện START, tạo các pha SCL LOW/HIGH cho dữ liệu, xử lý ACK, rồi STOP và DONE.
+
+\begin{table}[H]
+    \centering
+    \caption{Bus Control FSM --- ý nghĩa trạng thái (tóm lược theo slide)}
+    \label{tab:bus_fsm_states}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Trạng thái} & \textbf{Ý nghĩa vận hành trên bus} \\
+        \hline
+        \texttt{BUS IDLE} & Chờ lệnh/điều kiện; bus có thể ở idle (SCL=SDA=1) hoặc đang được master khác điều khiển. \\
+        \hline
+        \texttt{START DETECT} & Phát hiện hoặc chuẩn bị tạo điều kiện START/Sr; xác nhận SDA xuống khi SCL high. \\
+        \hline
+        \texttt{SCL LOW} & Giữ/ép SCL thấp để đảm bảo SDA có thể đổi giá trị an toàn (quy tắc SDA đổi khi SCL=0). \\
+        \hline
+        \texttt{SCL HIGH} & Nâng SCL lên high để phía thu lấy mẫu SDA; phải chờ clock stretching nếu SCL bị giữ thấp. \\
+        \hline
+        \texttt{ACK DETECT/GENERATE} & Ở xung thứ 9 của mỗi byte: nhả SDA để đọc ACK từ slave (detect) hoặc kéo SDA để tạo ACK/NACK (generate) tùy hướng TX/RX. \\
+        \hline
+        \texttt{STOP DETECT} & Theo dõi điều kiện STOP trên bus (SDA lên khi SCL high) để cập nhật trạng thái kết thúc. \\
+        \hline
+        \texttt{STOP GENERATE} & Chủ động tạo STOP khi đủ byte hoặc khi lỗi/abort để nhả bus về idle. \\
+        \hline
+        \texttt{DONE} & Hoàn tất giao dịch mức bit; phát ack cho Master FSM (để set \texttt{TX\_DONE/RX\_DONE} hoặc cờ lỗi). \\
+        \hline
+    \end{tabularx}
+\end{table}
+
 \subsection{I2C Master Control FSM}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.88\textwidth,keepaspectratio]{figures/i2c_from_docx/i2c_master_control_fsm.png}
     \caption{I2C Master Control FSM}
     \label{fig:master_fsm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth,keepaspectratio]{figures/i2c_from_docx/fsm_master_control.png}
+    \caption{Đồ thị trạng thái Master Control FSM (byte-level)}
+    \label{fig:master_fsm_graph}
 \end{figure}
 
 Hình \ref{fig:master_fsm} mô tả các interface của Master FSM. Phía vào gồm \texttt{i\_slave\_addr\_reg[6:0]}, \texttt{i\_byte\_cnt\_reg[7:0]}, \texttt{i\_clk\_div\_lsb[7:0]}, \texttt{i\_config\_reg[5:0]}, \texttt{i\_mode\_reg[7:0]} và các cờ phản hồi từ Bus FSM như \texttt{i\_i2c\_master\_start\_detect}, \texttt{i\_i2c\_master\_stop\_detect}, \texttt{i\_i2c\_master\_falling\_scl\_detect}, \texttt{i\_arbtr\_lost}, \texttt{i\_scl\_timeout}.
@@ -49,4 +95,36 @@ Phía ra gồm:
     \item Giao tiếp FIFO/CPU: \texttt{o\_rx\_fifo\_wren}, \texttt{o\_rx\_fifo\_wrdata}, \texttt{o\_tx\_fifo\_rden}, \texttt{o\_tx\_fifo\_rddata}, và trạng thái \texttt{o\_cmd\_status\_reg[7:0]}.
     \item Ngắt/ack: \texttt{o\_int\_out}, \texttt{o\_start\_ack}.
 \end{itemize}
+
+\textit{\small Nguồn hình/FSM tham chiếu: Lattice Semiconductor, RD1139 (I2C Master Controller Reference Design).}
+
+\subsubsection{Chuỗi trạng thái Master FSM (mức byte)}
+Khác với Bus FSM (bit-level), Master FSM điều phối giao dịch ở mức byte theo lệnh phần mềm: phát START, gửi địa chỉ, kiểm ACK địa chỉ, rẽ nhánh WRITE/READ, lặp theo \texttt{i\_byte\_cnt\_reg}, rồi STOP hoặc REPEAT (repeated START).
+
+\begin{table}[H]
+    \centering
+    \caption{Master Control FSM --- chuỗi trạng thái (tóm lược theo slide)}
+    \label{tab:master_fsm_states}
+    \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \textbf{Trạng thái} & \textbf{Ý nghĩa vận hành} \\
+        \hline
+        \texttt{IDLE} & Chờ bit START trong \texttt{i\_config\_reg}; reset/abort cũng đưa về đây. \\
+        \hline
+        \texttt{START} & Ra lệnh Bus FSM tạo START; đồng thời chuẩn bị byte địa chỉ (7 bit + R/W). \\
+        \hline
+        \texttt{SEND\_ADDR} & Đẩy byte địa chỉ qua shifter (8 bit) và chờ Bus FSM hoàn thành 8 xung dữ liệu. \\
+        \hline
+        \texttt{ADDR\_ACK} & Lấy mẫu ACK/NACK của slave ở bit thứ 9; NACK thường set \texttt{TX\_ERR} và kết thúc an toàn. \\
+        \hline
+        \texttt{WRITE\_DATA}/\texttt{READ\_DATA} & Lặp truyền/nhận theo số byte; TX dùng handshake \texttt{o\_transmit\_data\_request}, RX đẩy \texttt{o\_receive\_data} và \texttt{o\_received\_data\_valid}. \\
+        \hline
+        \texttt{DATA\_ACK} & Xử lý ACK sau mỗi byte dữ liệu (slave ACK khi write; master ACK/NACK khi read). \\
+        \hline
+        \texttt{STOP}/\texttt{REPEAT} & Khi đủ byte hoặc lỗi/abort: STOP. Nếu kịch bản cần Sr: chuyển sang REPEAT để tạo repeated START và tiếp tục transaction. \\
+        \hline
+        \texttt{DONE} & Set cờ \texttt{TX\_DONE/RX\_DONE}, phát ngắt nếu enable, và trả về IDLE khi bus rảnh. \\
+        \hline
+    \end{tabularx}
+\end{table}
 

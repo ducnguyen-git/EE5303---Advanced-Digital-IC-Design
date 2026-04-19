@@ -31,6 +31,16 @@ Từ Hình \ref{fig:config_json} có thể đọc trực tiếp các tham số c
     \label{fig:openroad}
 \end{figure}
 
+\subsection{Các bước chạy (run steps) và dấu mốc kiểm chứng}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/run_steps.png}
+    \caption{Danh sách run steps của LibreLane (ví dụ một run với nhiều bước)}
+    \label{fig:run_steps}
+\end{figure}
+
+Hình \ref{fig:run_steps} minh họa pipeline LibreLane với hơn 75 bước: từ tổng hợp/placement/CTS/routing cho đến các bước hậu PnR và sign-off (antenna, DRC, LVS, STA). Điểm quan trọng khi viết báo cáo là chỉ ra được \textbf{các checkpoint có thể kiểm tra được} thay vì chỉ nói ``đã chạy''.
+
 \subsection{Sign-off (DRC/LVS/STA/IPVT)}
 \begin{figure}[H]
     \centering
@@ -61,6 +71,22 @@ Hình \ref{fig:sta_flow} mô tả STA: từ layout DEF và PDK, OpenRCX trích x
 
 \begin{figure}[H]
     \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/sta_summary_1.png}
+    \caption{Ví dụ STA summary (phần 1)}
+    \label{fig:sta_summary_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/sta_summary_2.png}
+    \caption{Ví dụ STA summary (phần 2)}
+    \label{fig:sta_summary_2}
+\end{figure}
+
+Hai hình \ref{fig:sta_summary_1}--\ref{fig:sta_summary_2} là kiểu báo cáo mà thầy thường muốn thấy: có \textbf{WNS/TNS} (worst/total negative slack) cho setup/hold, cùng các thống kê vi phạm để kết luận ``đạt timing'' ở corner đang xét.
+
+\begin{figure}[H]
+    \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{figures/i2c_from_docx/IPVT_corner_explain.png}
     \caption{Ý nghĩa các Corner IPVT}
     \label{fig:ipvt}
@@ -76,4 +102,6 @@ Hình \ref{fig:ipvt} liệt kê nhóm báo cáo STA thường gặp (ví dụ \t
 \end{figure}
 
 Từ log trong Hình \ref{fig:pass_signoff} có thể thấy trạng thái \textbf{Antenna/LVS/DRC đều Passed} và flow kết thúc với thư mục \texttt{.../runs/.../final}.
+
+\textit{\small Tham chiếu flow/tool: Efabless LibreLane documentation (OpenROAD/OpenSTA/OpenRCX, KLayout/Magic/Netgen) --- xem phần References của báo cáo.}
 
