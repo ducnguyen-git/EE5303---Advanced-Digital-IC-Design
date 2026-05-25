@@ -1,0 +1,918 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage[T5]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  language=Verilog,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{olive},
+  stringstyle=\color{red},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=8pt,
+  backgroundcolor=\color{gray!5},
+  showspaces=false,
+  showstringspaces=false,
+  frame=single,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=false
+}
+
+\title{\textbf{ĐÁP ÁN CHI TIẾT ĐỀ THI CUỐI KỲ \\ MÔN: THIẾT KẾ ASIC VÀ LÕI IP (EE5303)}}
+\author{\textbf{Lớp Cao học K2012 -- ĐHQG TP.HCM} \\ Giảng viên: Dr. Hoàng Trang -- Dr. Trương Quang Vinh}
+\date{Ngày thi: 22/12/2012}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Bài 1: Coding Guideline cho thiết kế IP (1.5 điểm)}
+
+\subsection{a) Áp dụng Coding Guideline viết lại đoạn code Verilog}
+Dưới đây là mã nguồn Verilog của module \texttt{LCD\_Controller} sau khi áp dụng các nguyên tắc chuẩn hóa thiết kế Lõi IP (IP Core Design Guidelines) theo chuẩn ANSI Verilog-2001:
+
+\begin{lstlisting}[caption={LCD\_Controller.v đã áp dụng Coding Guidelines}]
+module LCD_Controller #(
+    parameter CLK_DIV = 16  // Parametrization of clock division limit
+)(
+    // Host Side Interface
+    input wire [7:0] i_data,      // 8-bit input data from Host
+    input wire       i_rs,        // Register Select input
+    input wire       i_start,     // Operation Start trigger
+    output reg       o_done,      // Operation Done flag
+    input wire       clk,         // System Clock
+    input wire       rst_n,       // Asynchronous Active-Low Reset
+    
+    // LCD Interface
+    output wire [7:0] o_lcd_data,  // 8-bit Data to LCD
+    output wire       o_lcd_rw,    // Read/Write select (Always Write = 0)
+    output reg        o_lcd_en,    // LCD Enable control signal
+    output wire       o_lcd_rs     // LCD Register Select
+);
+
+    // Finite State Machine (FSM) State Parameters
+    localparam [1:0] ST_IDLE    = 2'b00,
+                     ST_SETUP   = 2'b01,
+                     ST_EN_HIGH = 2'b10,
+                     ST_EN_LOW  = 2'b11;
+
+    // Internal Registers
+    reg [4:0] r_cont;        // Clock divider counter
+    reg [1:0] r_st;          // Current state register
+    reg       r_pre_start;   // Register for start edge detection
+    reg       r_m_start;     // Internal transaction in-progress flag
+
+    // Combinational Assignments (Only write to LCD, bypass i_rs to o_lcd_rs)
+    assign o_lcd_data = i_data;
+    assign o_lcd_rw   = 1'b0;
+    assign o_lcd_rs   = i_rs;
+
+    // Sequential Logic Block
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            o_done       <= 1'b0;
+            o_lcd_en     <= 1'b0;
+            r_pre_start  <= 1'b0;
+            r_m_start    <= 1'b0;
+            r_cont       <= 5'd0;
+            r_st         <= ST_IDLE;
+        end else begin
+            // Input Edge Detection (Detect posedge of i_start)
+            r_pre_start <= i_start;
+            if ({r_pre_start, i_start} == 2'b01) begin
+                r_m_start <= 1'b1;
+                o_done    <= 1'b0;
+            end
+
+            // FSM Processing Block
+            if (r_m_start) begin
+                case (r_st)
+                    ST_IDLE: begin
+                        r_st <= ST_SETUP;
+                    end
+                    
+                    ST_SETUP: begin
+                        o_lcd_en <= 1'b1;
+                        r_st     <= ST_EN_HIGH;
+                    end
+                    
+                    ST_EN_HIGH: begin
+                        if (r_cont < CLK_DIV) begin
+                            r_cont <= r_cont + 1'b1;
+                        end else begin
+                            r_st   <= ST_EN_LOW;
+                        end
+                    end
+                    
+                    ST_EN_LOW: begin
+                        o_lcd_en  <= 1'b0;
+                        r_m_start <= 1'b0;
+                        o_done    <= 1'b1;
+                        r_cont    <= 5'd0;
+                        r_st      <= ST_IDLE;
+                    end
+                    
+                    default: begin
+                        r_st      <= ST_IDLE;
+                    end
+                endcase
+            end
+        end
+    end
+
+endmodule
+\end{lstlisting}
+
+\subsection{b) Liệt kê các Guideline đã áp dụng được}
+Các quy chuẩn thiết kế Lõi IP đã được áp dụng triệt để bao gồm:
+\begin{enumerate}
+    \item \textbf{ANSI C/Verilog-2001 Port Syntax}: Tích hợp trực tiếp hướng (\texttt{input/output}) và kiểu dữ liệu (\texttt{wire/reg}) trong ngoặc khai báo module, giúp loại bỏ việc khai báo lặp lại, nâng cao tính trực quan và giảm thiểu sai sót.
+    \item \textbf{Quy tắc đặt tên biến có hệ thống (Naming Conventions)}:
+    \begin{itemize}
+        \item Các tín hiệu ngõ vào sử dụng tiền tố \texttt{i\_} (ví dụ: \texttt{i\_data}, \texttt{i\_rs}, \texttt{i\_start}).
+        \item Các tín hiệu ngõ ra sử dụng tiền tố \texttt{o\_} hoặc \texttt{o\_lcd\_} (ví dụ: \texttt{o\_done}, \texttt{o\_lcd\_data}, \texttt{o\_lcd\_en}, \texttt{o\_lcd\_rs}).
+        \item Tín hiệu xung nhịp hệ thống viết thường thống nhất là \texttt{clk}.
+        \item Tín hiệu khởi động reset hệ thống tích cực thấp dị bộ là \texttt{rst\_n}.
+        \item Các thanh ghi nội bộ (Internal Registers) sử dụng tiền tố \texttt{r\_} để phân biệt rõ với net (\texttt{r\_st}, \texttt{r\_cont}, \texttt{r\_pre\_start}, \texttt{r\_m\_start}).
+    \end{itemize}
+    \item \textbf{Parameterization (Tham số hóa hằng số)}: Chuyển đổi hằng số cứng \texttt{16} (giới hạn đếm chia tần số) thành một \texttt{parameter CLK\_DIV = 16}, giúp cấu hình lại dễ dàng tùy theo môi trường tần số hoạt động của chip mà không cần sửa đổi logic cốt lõi.
+    \item \textbf{FSM State Definition}: Sử dụng \texttt{localparam} thay thế các số nguyên thô (\texttt{0, 1, 2, 3}) bằng các trạng thái có nghĩa thực tế (\texttt{ST\_IDLE}, \texttt{ST\_SETUP}, \texttt{ST\_EN\_HIGH}, \texttt{ST\_EN\_LOW}).
+    \item \textbf{Latching Prevention}: Bổ sung nhánh \texttt{default} vào cuối câu lệnh \texttt{case} để đảm bảo tính an toàn hệ thống, tránh tổng hợp sinh ra chốt trạng thái (latch) ngoài ý muốn khi có nhiễu trạng thái.
+    \item \textbf{Compile Bug Fixing}: Sửa lỗi cú pháp nghiêm trọng của mã nguồn gốc. Ở khối reset ban đầu, biến \texttt{prestart} (chữ \texttt{s} thường) bị gán mặc dù khai báo là \texttt{preStart} (chữ \texttt{S} hoa). Điều này khiến trình biên dịch báo lỗi biến chưa được định nghĩa. Đã chuẩn hóa lại thành \texttt{r\_pre\_start}.
+    \item \textbf{Thụt lề và Bố cục chuẩn (Indentation \& Readability)}: Toàn bộ cấu trúc khối \texttt{always}, \texttt{if-else}, \texttt{case-endcase} được định dạng nhất quán bằng khoảng trắng (spaces) giúp mã nguồn đạt tính thẩm mỹ công nghiệp.
+\end{enumerate}
+
+\newpage
+
+\section{Bài 2: Stick Diagram cho các cổng logic CMOS (2.0 điểm)}
+
+Stick Diagram là công cụ trực quan hóa cấu trúc vật lý của cell trước khi tiến hành vẽ layout. Dưới đây là mô tả chi tiết và sơ đồ của các cổng:
+
+\subsection{a) Cổng 4-input NAND}
+\begin{itemize}
+    \item \textbf{Pull-Up Network (PUN)}: Gồm 4 PMOS song song đấu giữa đường nguồn $V_{DD}$ và ngõ ra $Y$. Các ngõ vào $A, B, C, D$ nối vào cực cổng tương ứng.
+    \item \textbf{Pull-Down Network (PDN)}: Gồm 4 NMOS nối tiếp nhau đấu từ ngõ ra $Y$ xuống đất ($GND$).
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Power rails (Metal 1)
+    \draw[blue, ultra thick] (-1, 5) -- (9, 5) node[right] {$V_{DD}$ (Metal 1)};
+    \draw[blue, ultra thick] (-1, 0) -- (9, 0) node[right] {$GND$ (Metal 1)};
+    
+    % Diffusion rails
+    \draw[red, line width=6pt, opacity=0.4] (0, 3.5) -- (8, 3.5); % P-diff
+    \node at (8.5, 3.5) {P-active};
+    \draw[green!60!black, line width=6pt, opacity=0.4] (0, 1.5) -- (8, 1.5); % N-diff
+    \node at (8.5, 1.5) {N-active};
+    
+    % Polysilicon Gates
+    \foreach \x/\lbl in {1/A, 3/B, 5/C, 7/D} {
+        \draw[orange, ultra thick] (\x, -0.5) -- (\x, 4.5);
+        \node[above] at (\x, 4.5) {\lbl};
+        \node[below] at (\x, -0.5) {Poly};
+    }
+    
+    % Contacts and connections
+    % PMOS Parallel Connections
+    \foreach \x in {0, 2, 4, 6, 8} {
+        \fill[black] (\x, 3.5) circle (3pt);
+    }
+    % Source connections to VDD
+    \foreach \x in {0, 4, 8} {
+        \draw[blue, thick] (\x, 3.5) -- (\x, 5);
+        \fill[black] (\x, 5) circle (3pt);
+    }
+    % Drain connections to Output Y
+    \draw[blue, thick] (2, 3.5) -- (2, 2.5) -- (6, 2.5) -- (6, 3.5);
+    \draw[blue, thick] (2, 2.5) -- (4.5, 2.5) -- (4.5, 2.0);
+    \fill[black] (2, 3.5) circle (3pt);
+    \fill[black] (6, 3.5) circle (3pt);
+    
+    % NMOS Series Connections
+    \fill[black] (0, 1.5) circle (3pt); % Drain connected to Y
+    \fill[black] (8, 1.5) circle (3pt); % Source connected to GND
+    
+    \draw[blue, thick] (0, 1.5) -- (0, 2.0) -- (4.5, 2.0) node[above] {$Y$};
+    \fill[black] (4.5, 2.0) circle (3pt);
+    \draw[blue, thick] (8, 1.5) -- (8, 0);
+    \fill[black] (8, 0) circle (3pt);
+    
+\end{tikzpicture}
+\caption{Stick Diagram cổng 4-input NAND}
+\end{figure}
+
+\subsection{b) Cổng 4-input NOR}
+\begin{itemize}
+    \item \textbf{Pull-Up Network (PUN)}: Gồm 4 PMOS mắc nối tiếp nhau từ đường nguồn $V_{DD}$ đến ngõ ra $Y$.
+    \item \textbf{Pull-Down Network (PDN)}: Gồm 4 NMOS mắc song song đấu giữa ngõ ra $Y$ và đất ($GND$).
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Power rails (Metal 1)
+    \draw[blue, ultra thick] (-1, 5) -- (9, 5) node[right] {$V_{DD}$ (Metal 1)};
+    \draw[blue, ultra thick] (-1, 0) -- (9, 0) node[right] {$GND$ (Metal 1)};
+    
+    % Diffusion rails
+    \draw[red, line width=6pt, opacity=0.4] (0, 3.5) -- (8, 3.5); % P-diff
+    \draw[green!60!black, line width=6pt, opacity=0.4] (0, 1.5) -- (8, 1.5); % N-diff
+    
+    % Polysilicon Gates
+    \foreach \x/\lbl in {1/A, 3/B, 5/C, 7/D} {
+        \draw[orange, ultra thick] (\x, -0.5) -- (\x, 4.5);
+        \node[above] at (\x, 4.5) {\lbl};
+    }
+    
+    % PMOS Series Connections
+    \fill[black] (0, 3.5) circle (3pt); % Connected to VDD
+    \fill[black] (8, 3.5) circle (3pt); % Output to Y
+    \draw[blue, thick] (0, 3.5) -- (0, 5);
+    \fill[black] (0, 5) circle (3pt);
+    \draw[blue, thick] (8, 3.5) -- (8, 2.5) -- (4.5, 2.5) -- (4.5, 2.0) node[right] {$Y$};
+    
+    % NMOS Parallel Connections
+    \foreach \x in {0, 2, 4, 6, 8} {
+        \fill[black] (\x, 1.5) circle (3pt);
+    }
+    % Sources connected to GND
+    \foreach \x in {0, 4, 8} {
+        \draw[blue, thick] (\x, 1.5) -- (\x, 0);
+        \fill[black] (\x, 0) circle (3pt);
+    }
+    % Drains connected to Output Y
+    \draw[blue, thick] (2, 1.5) -- (2, 2.0) -- (6, 2.0) -- (6, 1.5);
+    \draw[blue, thick] (4, 2.0) -- (4.5, 2.0);
+    \fill[black] (2, 1.5) circle (3pt);
+    \fill[black] (6, 1.5) circle (3pt);
+    \fill[black] (4.5, 2.0) circle (3pt);
+    
+\end{tikzpicture}
+\caption{Stick Diagram cổng 4-input NOR}
+\end{figure}
+
+\subsection{c) Cổng 3-input AND}
+Cổng AND3 được hình thành bằng cách mắc một cổng \textbf{NAND3} nối tiếp với một bộ đảo (\textbf{INVERTER}).
+\begin{itemize}
+    \item \textbf{Cụm NAND3}: 3 PMOS song song hoạt động ở $V_{DD}$, 3 NMOS nối tiếp hoạt động ở $GND$, ra nút đệm $Y_{bar}$.
+    \item \textbf{Cụm Inverter}: 1 PMOS hoạt động ở $V_{DD}$, 1 NMOS hoạt động ở $GND$ với đầu vào là nút $Y_{bar}$ và đầu ra là $Y$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Power rails (Metal 1)
+    \draw[blue, ultra thick] (-1, 5) -- (9, 5) node[right] {$V_{DD}$};
+    \draw[blue, ultra thick] (-1, 0) -- (9, 0) node[right] {$GND$};
+    
+    % Diffusion rails
+    \draw[red, line width=6pt, opacity=0.4] (0, 3.5) -- (8, 3.5); % P-diff
+    \draw[green!60!black, line width=6pt, opacity=0.4] (0, 1.5) -- (8, 1.5); % N-diff
+    
+    % Polysilicon Gates
+    \foreach \x/\lbl in {1/A, 3/B, 5/C} {
+        \draw[orange, ultra thick] (\x, -0.5) -- (\x, 4.5);
+        \node[above] at (\x, 4.5) {\lbl};
+    }
+    % Inverter gate
+    \draw[orange, ultra thick] (7, -0.5) -- (7, 4.5) node[above] {$Y_{bar}$};
+    
+    % NAND3 Connections
+    % PMOS Parallel
+    \foreach \x in {0, 2, 4, 6} { \fill[black] (\x, 3.5) circle (3pt); }
+    \foreach \x in {0, 4} { \draw[blue, thick] (\x, 3.5) -- (\x, 5); \fill[black] (\x, 5) circle (3pt); }
+    \draw[blue, thick] (2, 3.5) -- (2, 2.5) -- (6, 2.5) -- (6, 3.5);
+    
+    % NMOS Series
+    \fill[black] (0, 1.5) circle (3pt);
+    \fill[black] (6, 1.5) circle (3pt);
+    \draw[blue, thick] (6, 1.5) -- (6, 0); \fill[black] (6, 0) circle (3pt);
+    
+    % Intermediate connection Y_bar
+    \draw[blue, thick] (2, 2.5) -- (4, 2.5) -- (4, 1.5) -- (0, 1.5);
+    \fill[black] (4, 2.5) circle (3pt);
+    \fill[black] (0, 1.5) circle (3pt);
+    
+    % Connecting Y_bar to Inverter gate
+    \draw[blue, thick] (4, 2.5) -- (7, 2.5);
+    \fill[black] (7, 2.5) circle (3pt);
+    
+    % Inverter PMOS / NMOS
+    \fill[black] (8, 3.5) circle (3pt); \draw[blue, thick] (8, 3.5) -- (8, 5); \fill[black] (8, 5) circle (3pt);
+    \fill[black] (8, 1.5) circle (3pt); \draw[blue, thick] (8, 1.5) -- (8, 0); \fill[black] (8, 0) circle (3pt);
+    
+    \fill[black] (7.5, 3.5) circle (3pt); \fill[black] (7.5, 1.5) circle (3pt);
+    \draw[blue, thick] (7.5, 3.5) -- (7.5, 1.5) node[midway, right] {$Y$};
+    
+\end{tikzpicture}
+\caption{Stick Diagram cổng 3-input AND}
+\end{figure}
+
+\subsection{d) Cổng 3-input OR}
+Cổng OR3 được hình thành bằng cách mắc một cổng \textbf{NOR3} nối tiếp với một bộ đảo (\textbf{INVERTER}).
+\begin{itemize}
+    \item \textbf{Cụm NOR3}: 3 PMOS nối tiếp hoạt động ở $V_{DD}$, 3 NMOS song song hoạt động ở $GND$, ra nút đệm $Y_{bar}$.
+    \item \textbf{Cụm Inverter}: 1 PMOS và 1 NMOS mắc thành mạch nghịch đảo để đưa $Y_{bar}$ ra ngõ ra $Y$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    % Power rails (Metal 1)
+    \draw[blue, ultra thick] (-1, 5) -- (9, 5) node[right] {$V_{DD}$};
+    \draw[blue, ultra thick] (-1, 0) -- (9, 0) node[right] {$GND$};
+    
+    % Diffusion rails
+    \draw[red, line width=6pt, opacity=0.4] (0, 3.5) -- (8, 3.5); % P-diff
+    \draw[green!60!black, line width=6pt, opacity=0.4] (0, 1.5) -- (8, 1.5); % N-diff
+    
+    % Polysilicon Gates
+    \foreach \x/\lbl in {1/A, 3/B, 5/C} {
+        \draw[orange, ultra thick] (\x, -0.5) -- (\x, 4.5);
+        \node[above] at (\x, 4.5) {\lbl};
+    }
+    % Inverter gate
+    \draw[orange, ultra thick] (7, -0.5) -- (7, 4.5) node[above] {$Y_{bar}$};
+    
+    % NOR3 Connections
+    % PMOS Series
+    \fill[black] (0, 3.5) circle (3pt); \draw[blue, thick] (0, 3.5) -- (0, 5); \fill[black] (0, 5) circle (3pt);
+    \fill[black] (6, 3.5) circle (3pt); \draw[blue, thick] (6, 3.5) -- (6, 2.5) -- (7, 2.5);
+    
+    % NMOS Parallel
+    \foreach \x in {0, 2, 4, 6} { \fill[black] (\x, 1.5) circle (3pt); }
+    \foreach \x in {0, 4} { \draw[blue, thick] (\x, 1.5) -- (\x, 0); \fill[black] (\x, 0) circle (3pt); }
+    \draw[blue, thick] (2, 1.5) -- (2, 2.0) -- (6, 2.0) -- (6, 1.5);
+    \draw[blue, thick] (4, 2.0) -- (6, 2.5);
+    
+    % Inverter PMOS / NMOS
+    \fill[black] (8, 3.5) circle (3pt); \draw[blue, thick] (8, 3.5) -- (8, 5); \fill[black] (8, 5) circle (3pt);
+    \fill[black] (8, 1.5) circle (3pt); \draw[blue, thick] (8, 1.5) -- (8, 0); \fill[black] (8, 0) circle (3pt);
+    
+    \fill[black] (7.5, 3.5) circle (3pt); \fill[black] (7.5, 1.5) circle (3pt);
+    \draw[blue, thick] (7.5, 3.5) -- (7.5, 1.5) node[midway, right] {$Y$};
+    
+\end{tikzpicture}
+\caption{Stick Diagram cổng 3-input OR}
+\end{figure}
+
+\newpage
+
+\section{Bài 3: Layout cổng NOR 3 ngõ vào \& Diện tích (1.0 điểm)}
+
+\subsection{a) Bản vẽ Layout cổng NOR 3 ngõ vào theo nguyên tắc Lambda}
+Để thiết kế layout có tính cân bằng và hiệu năng cao, ta áp dụng công nghệ Lambda-based ($\lambda$) với các quy chuẩn kích thước tối thiểu sau:
+\begin{itemize}
+    \item Độ rộng đường ray nguồn $V_{DD}$ và $GND$ (Metal 1): $4\lambda$.
+    \item Chiều rộng vùng khuếch tán P-diffusion ($W_p$): $6\lambda$ (để tăng kích cỡ PMOS mắc nối tiếp nhằm bù lại độ cơ động hạt dẫn $\mu_p \approx \frac{1}{2} \mu_n$).
+    \item Chiều rộng vùng khuếch tán N-diffusion ($W_n$): $3\lambda$ (NMOS mắc song song có dòng tốt nên giữ kích thước tối thiểu).
+    \item Độ rộng cổng Polysilicon ($L$): $2\lambda$.
+    \item Khoảng cách tối thiểu Poly-to-Poly: $3\lambda$.
+    \item Kích thước tiếp điểm Contact (Metal-to-Active / Metal-to-Poly): $2\lambda \times 2\lambda$, bao bọc bởi Active/Poly tối thiểu $1\lambda \rightarrow$ kích thước vùng tiếp xúc là $4\lambda \times 4\lambda$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.55]
+    % Grid lines (1 lambda)
+    \draw[gray!20, thin, step=1] (-1,-1) grid (21,17);
+    
+    % VDD Rail (Metal 1)
+    \draw[blue!40, fill=blue!10] (-1, 14) rectangle (21, 17);
+    \node[right] at (21, 15.5) {$V_{DD}$ ($4\lambda$)};
+    
+    % GND Rail (Metal 1)
+    \draw[blue!40, fill=blue!10] (-1, -1) rectangle (21, 2);
+    \node[right] at (21, 0.5) {$GND$ ($4\lambda$)};
+    
+    % N-Well Gieng N
+    \draw[dashed, orange, thick] (-0.5, 8.5) rectangle (20.5, 17.5);
+    \node[below right, orange] at (-0.5, 17.5) {N-Well};
+    
+    % P-Active (for PMOS)
+    \draw[red!60, fill=red!20] (1, 9.5) rectangle (19, 13.5);
+    \node[right, red] at (19, 11.5) {P-Active ($W_p = 6\lambda$)};
+    
+    % N-Active (for NMOS)
+    \draw[green!60!black, fill=green!10] (1, 3.5) rectangle (19, 6.5);
+    \node[right, green!60!black] at (19, 5) {N-Active ($W_n = 3\lambda$)};
+    
+    % Polysilicon gates (A, B, C)
+    \foreach \x/\lbl in {4/A, 10/B, 16/C} {
+        \draw[orange!80!black, fill=orange!30] (\x-0.5, 2.5) rectangle (\x+1.5, 14.5);
+        \node[above] at (\x+0.5, 14.5) {\lbl};
+    }
+    
+    % Contacts (2x2 lambda)
+    % VDD contact to PMOS Source
+    \draw[black, fill=black!70] (2, 10.5) rectangle (3, 11.5);
+    \draw[blue!70, ultra thick] (2.5, 11) -- (2.5, 15.5);
+    \fill[black] (2.5, 15.5) circle (4pt) node[above right] {Contact};
+    
+    % PMOS Drain to NMOS Drain (Output Y)
+    \draw[black, fill=black!70] (17, 10.5) rectangle (18, 11.5); % PMOS Out
+    \draw[black, fill=black!70] (7, 4.5) rectangle (8, 5.5);   % NMOS Out 1
+    \draw[black, fill=black!70] (13, 4.5) rectangle (14, 5.5); % NMOS Out 2
+    
+    % Metal 1 Routing for Y
+    \draw[blue!70, fill=blue!10, opacity=0.8] (6.5, 4) rectangle (18.5, 6);
+    \draw[blue!70, fill=blue!10, opacity=0.8] (16.5, 5.5) rectangle (18.5, 12);
+    \node[above, blue] at (12, 6) {Output Y (Metal 1, width $3\lambda$)};
+    
+    % NMOS Source contacts to GND
+    \draw[black, fill=black!70] (2, 4.5) rectangle (3, 5.5);
+    \draw[black, fill=black!70] (18, 4.5) rectangle (19, 5.5);
+    \draw[blue!70, ultra thick] (2.5, 5) -- (2.5, 0.5);
+    \draw[blue!70, ultra thick] (18.5, 5) -- (18.5, 0.5);
+    
+\end{tikzpicture}
+\caption{Bản vẽ Layout cổng NOR 3 ngõ vào chuẩn Cell}
+\end{figure}
+
+\subsection{b) Tính toán diện tích cổng NOR 3 ngõ vào}
+Chúng ta tính toán kích thước chiều rộng ($W$) và chiều cao ($H$) tối thiểu của cell dựa trên luật thiết kế khoảng cách:
+
+\subsubsection{1. Tính chiều rộng của cell ($W$):}
+\begin{itemize}
+    \item \textbf{Cổng Poly}: $3 \times 2\lambda = 6\lambda$.
+    \item \textbf{Khoảng cách giữa các cổng (Poly-to-Poly)}: $2 \times 3\lambda = 6\lambda$ (đủ diện tích đặt Contact và đảm bảo cách ly).
+    \item \textbf{Overlap từ Poly ngoài cùng đến mép Diffusion}: $2 \times 2\lambda = 4\lambda$.
+    \item \textbf{Khoảng đệm an toàn đến đường biên cell}: $2 \times 2\lambda = 4\lambda$.
+    \item $\Rightarrow$ \textbf{Tổng chiều rộng $W$} = $6\lambda + 6\lambda + 4\lambda + 4\lambda = 20\lambda$.
+\end{itemize}
+
+\subsubsection{2. Tính chiều cao của cell ($H$):}
+\begin{itemize}
+    \item \textbf{Đường ray nguồn VDD (Metal 1)}: $4\lambda$.
+    \item \textbf{Độ cách ly VDD đến P-Active}: $3\lambda$.
+    \item \textbf{Độ rộng vùng P-Active ($W_p$)}: $6\lambda$.
+    \item \textbf{Độ cách ly P-Active to N-Active}: $6\lambda$ (khoảng cách tối thiểu giữa giếng N-well và Substrate để chống hiện tượng Latch-up).
+    \item \textbf{Độ rộng vùng N-Active ($W_n$)}: $3\lambda$.
+    \item \textbf{Độ cách ly N-Active đến GND}: $3\lambda$.
+    \item \textbf{Đường ray đất GND (Metal 1)}: $4\lambda$.
+    \item $\Rightarrow$ \textbf{Tổng chiều cao $H$} = $4\lambda + 3\lambda + 6\lambda + 6\lambda + 3\lambda + 3\lambda + 4\lambda = 29\lambda \approx 30\lambda$ (Chuẩn hóa cell thường lấy số chẵn là $30\lambda$).
+\end{itemize}
+
+$$\text{Diện tích cell tối thiểu } S = W \times H = 20\lambda \times 30\lambda = 600\lambda^2$$
+
+\newpage
+
+\section{Bài 4: Sơ đồ Transistor-Level dùng cổng logic CMOS (1.0 điểm)}
+
+Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với nguồn $V_{DD}$ và mạng kéo xuống PDN (NMOS) nối với đất $GND$.
+
+\subsection{a) Hàm logic $Y = \overline{(A + B) \cdot (C + D)}$ (Cổng logic phức tạp OAI22)}
+\begin{itemize}
+    \item \textbf{Mạng NMOS (PDN)}: Phép cộng $(A+B)$ và $(C+D)$ chuyển thành các cặp song song: $(A \parallel B)$ và $(C \parallel D)$. Phép nhân $\cdot$ chuyển thành mắc nối tiếp $\rightarrow$ Cặp $(A \parallel B)$ nối tiếp với cặp $(C \parallel D)$.
+    \item \textbf{Mạng PMOS (PUN)}: Thiết lập đối ngẫu hoàn toàn $\rightarrow$ Cặp $(A \text{ nối tiếp } B)$ song song với cặp $(C \text{ nối tiếp } D)$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{circuitikz}[scale=0.8]
+    % VDD and GND
+    \draw (0, 6) node[vcc] {$V_{DD}$};
+    \draw (0, 0) node[ground] {};
+    
+    % PMOS Network (PUN)
+    % Branch 1: A and B in series
+    \draw (-2, 5) to[pmos, l_=$A$] (-2, 3.5)
+                  to[pmos, l_=$B$] (-2, 2.0);
+    % Branch 2: C and D in series
+    \draw (2, 5) to[pmos, l=$C$] (2, 3.5)
+                 to[pmos, l=$D$] (2, 2.0);
+    
+    % Connections for parallel branches
+    \draw (-2, 5) -- (2, 5);
+    \draw (-2, 2) -- (2, 2);
+    \draw (0, 5) -- (0, 6);
+    
+    % Output node Y
+    \draw (0, 2) -- (0, 2) to[short, *-*] (3.5, 2) node[right] {$Y = \overline{(A+B)(C+D)}$};
+    
+    % NMOS Network (PDN)
+    % Stage 1: A parallel B
+    \draw (-1.5, 1.5) to[nmos, l_=$A$] (-1.5, 0.2);
+    \draw (1.5, 1.5) to[nmos, l=$B$] (1.5, 0.2);
+    \draw (-1.5, 1.5) -- (1.5, 1.5);
+    \draw (-1.5, 0.2) -- (1.5, 0.2);
+    
+    % Connection between stages
+    \draw (0, 2) -- (0, 1.5);
+    
+    % Stage 2: C parallel D
+    \draw (-1.5, -0.2) to[nmos, l_=$C$] (-1.5, -1.5);
+    \draw (1.5, -0.2) to[nmos, l=$D$] (1.5, -1.5);
+    \draw (-1.5, -0.2) -- (1.5, -0.2);
+    \draw (-1.5, -1.5) -- (1.5, -1.5);
+    
+    \draw (0, 0.2) -- (0, -0.2);
+    \draw (0, -1.5) -- (0, 0);
+
+\end{circuitikz}
+\caption{Sơ đồ nguyên lý transistor cho hàm $Y = \overline{(A + B)(C + D)}$}
+\end{figure}
+
+\subsection{b) Hàm logic $Y = \overline{A \cdot (B \cdot C + D)}$ (Cổng logic phức tạp AOI211)}
+\begin{itemize}
+    \item \textbf{Mạng NMOS (PDN)}: NMOS $B$ và $C$ nối tiếp nhau, sau đó song song với NMOS $D$. Cụm song song này nối tiếp với NMOS $A$ trước khi nối đất.
+    \item \textbf{Mạng PMOS (PUN)}: PMOS $B$ và $C$ song song nhau, nối tiếp với PMOS $D$. Cụm này song song với PMOS $A$ trước khi nối lên nguồn $V_{DD}$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{circuitikz}[scale=0.8]
+    % VDD and GND
+    \draw (0, 6) node[vcc] {$V_{DD}$};
+    \draw (0, 0) node[ground] {};
+    
+    % PMOS Network (PUN)
+    % Left Branch: PMOS A
+    \draw (-2.5, 4.5) to[pmos, l_=$A$] (-2.5, 2.5);
+    
+    % Right Branch: (B parallel C) in series with D
+    \draw (0, 5) to[pmos, l_=$B$] (0, 3.8);
+    \draw (2, 5) to[pmos, l=$C$] (2, 3.8);
+    \draw (0, 5) -- (2, 5);
+    \draw (0, 3.8) -- (2, 3.8);
+    \draw (1, 5) -- (1, 5.5);
+    
+    \draw (1, 3.8) to[pmos, l=$D$] (1, 2.5);
+    
+    % VDD connection
+    \draw (-2.5, 5.5) -- (1, 5.5) -- (1, 6);
+    % Output node Y connection
+    \draw (-2.5, 2.5) -- (1, 2.5);
+    \draw (-0.5, 2.5) to[short, *-*] (-0.5, 2.0) to[short, -*] (3.0, 2.0) node[right] {$Y = \overline{A(BC+D)}$};
+    
+    % NMOS Network (PDN)
+    % Stage 1: A in series with the rest
+    \draw (-0.5, 2.0) -- (-0.5, 1.6);
+    \draw (-0.5, 1.6) to[nmos, l_=$A$] (-0.5, 0.4);
+    
+    % Stage 2: (B series C) parallel D
+    \draw (-2, -0.2) to[nmos, l_=$B$] (-2, -1.4)
+                     to[nmos, l_=$C$] (-2, -2.6);
+    \draw (1, -0.2) to[nmos, l=$D$] (1, -2.6);
+    
+    \draw (-2, -0.2) -- (1, -0.2);
+    \draw (-2, -2.6) -- (1, -2.6);
+    
+    \draw (-0.5, 0.4) -- (-0.5, -0.2);
+    \draw (-0.5, -2.6) -- (-0.5, 0);
+
+\end{circuitikz}
+\caption{Sơ đồ nguyên lý transistor cho hàm $Y = \overline{A(BC+D)}$}
+\end{figure}
+
+\newpage
+
+\section{Bài 5: Script cho Synopsys Design Compiler (1.5 điểm)}
+
+\subsection{a) Viết script đặt ràng buộc ``my\_constraints.tcl''}
+Với tần số hoạt động yêu cầu $f = 150\text{ MHz}$, chu kỳ xung nhịp hệ thống sẽ là:
+$$T = \frac{1}{150 \times 10^6} = 6.67\text{ ns}$$
+
+Mã kịch bản TCL cấu hình ràng buộc thời gian (Timing Constraints) cho Synopsys DC như sau:
+
+\begin{lstlisting}[language=tcl, caption={my\_constraints.tcl}]
+# =====================================================================
+# SYNOPYS DESIGN COMPILER CONSTRAINT SCRIPT: my_constraints.tcl
+# =====================================================================
+
+# 1. Define Clock Period (150 MHz corresponds to 6.67ns)
+create_clock -name "sys_clk" -period 6.67 [get_ports CLK]
+
+# 2. Clock Latency
+set_clock_latency 1.0 [get_clocks sys_clk]
+
+# 3. Input Delays for control signals (CLK_EN, Reset)
+set_input_delay -clock sys_clk 1.0 [get_ports CLK_EN]
+set_input_delay -clock sys_clk 1.0 [get_ports Reset]
+
+# 4. Input Delay for general data port (Data_in)
+set_input_delay -clock sys_clk 5.0 [get_ports Data_in]
+
+# 5. Output Delay for output port (Data_out)
+set_output_delay -clock sys_clk 5.0 [get_ports Data_out]
+
+# 6. Fanout Constraints (Max fanout of 5 for all outputs)
+set_max_fanout 5 [get_ports Data_out]
+
+# 7. Output Load Constraint (Capacitive Load of 0.1 pF)
+set_load 0.1 [get_ports Data_out]
+
+# 8. Maximum Transition Limit for high performance
+set_max_transition 1.0 [current_design]
+
+# =====================================================================
+# END OF SCRIPT
+# =====================================================================
+\end{lstlisting}
+
+\subsection{b) Script biên dịch thiết kế theo Top-Down Strategy}
+Chiến lược tổng hợp Top-Down cho phép tối ưu hóa toàn bộ hệ thống bằng cách phân bổ lại tài nguyên thời gian giữa các khối con. Kịch bản tổng hợp hoàn chỉnh dưới đây đáp ứng đúng yêu cầu giải phóng các phân cấp (ungroup) và biên dịch chất lượng cao (high-effort):
+
+\begin{lstlisting}[language=tcl, caption={top\_down\_compile.tcl}]
+# =====================================================================
+# TOP-DOWN COMPILATION STRATEGY SCRIPT
+# =====================================================================
+
+# 1. Read Design Files (Top-level and sub-modules)
+analyze -format verilog {Top_system.v FFT.v Filter_bank1.v Filter_bank2.v Alpha.v Beta.v Rate.v}
+elaborate Top_system
+current_design Top_system
+
+# 2. Source Environmental and Timing Constraints
+source my_constraints.tcl
+
+# 3. Apply Ungrouping to Filter_bank1 and Filter_bank2
+# This flattens their boundaries to allow cross-boundary optimization
+set_ungroup [get_cells -hierarchical *Filter_bank1*] true
+set_ungroup [get_cells -hierarchical *Filter_bank2*] true
+
+# 4. Verification before compilation
+link
+check_design
+
+# 5. Compile with High Effort Strategy
+# -map_effort high optimizes timing intensely
+# -area_effort high aggressively minimizes silicon area
+compile -map_effort high -area_effort high
+
+# 6. Report generation
+report_timing > timing_report.rpt
+report_area > area_report.rpt
+report_constraint -all_violators > constraint_violators.rpt
+
+# 7. Save Optimized Netlist
+write -format ddc -hierarchy -output Top_system_optimized.ddc
+write -format verilog -hierarchy -output Top_system_netlist.v
+\end{lstlisting}
+
+\newpage
+
+\section{Bài 6: Testbench cho bộ trừ không dấu 8-bit (1.0 điểm)}
+
+Testbench tự động sinh các ngẫu nhiên ngõ vào, so sánh đáp ứng của khối thiết kế (DUT - Device Under Test) với mô hình chuẩn đoán toán học (Golden Model) và xuất kết quả ra file log để giám sát chất lượng.
+
+\subsection{a) Khối trừ 8-bit thiết kế (DUT)}
+\begin{lstlisting}[caption={subtractor\_8bit.v}]
+module subtractor_8bit (
+    input  wire [7:0] i_a,
+    input  wire [7:0] i_b,
+    output wire [7:0] o_sub
+);
+    // Unsigned 8-bit Subtraction with rollover handling
+    assign o_sub = i_a - i_b;
+endmodule
+\end{lstlisting}
+
+\subsection{b) Khối kiểm thử tự động (Testbench)}
+\begin{lstlisting}[caption={subtractor\_8bit\_tb.v}]
+`timescale 1ns/1ps
+
+module subtractor_8bit_tb;
+
+    // Testbench registers and wires
+    reg  [7:0] r_a;
+    reg  [7:0] r_b;
+    wire [7:0] w_sub;
+    
+    // Golden reference register
+    reg  [7:0] r_golden_sub;
+    
+    // Test utilities
+    integer f_report;
+    integer i;
+    
+    // Device Under Test (DUT) Instantiation
+    subtractor_8bit dut (
+        .i_a(r_a),
+        .i_b(r_b),
+        .o_sub(w_sub)
+    );
+    
+    initial begin
+        // 1. Open the reporting log file
+        f_report = $fopen("sim_report.log", "w");
+        if (f_report == 0) begin
+            $display("[ERROR] Could not create or open sim_report.log");
+            $finish;
+        end
+        
+        // 2. Simulation Start Header
+        $display("Start Simulation");
+        $fdisplay(f_report, "==================================================");
+        $fdisplay(f_report, "   EE5303 ASIC DESIGN: 8-BIT SUBTRACTOR TEST REPORT");
+        $fdisplay(f_report, "==================================================");
+        
+        // Seed initialization
+        r_a = 0;
+        r_b = 0;
+        
+        // 3. Generate 10 Random Stimuli Cases
+        for (i = 1; i <= 10; i = i + 1) begin
+            // Generate random 8-bit unsigned integers
+            r_a = $urandom_range(0, 255);
+            r_b = $urandom_range(0, 255);
+            
+            // Mathematically define the golden output response
+            r_golden_sub = r_a - r_b;
+            
+            // Wait for combinational logic propagation delay
+            #10;
+            
+            // 4. Response Evaluation and Logging
+            if (w_sub === r_golden_sub) begin
+                $display("CASE %0d PASS", i);
+                $fdisplay(f_report, "CASE %0d PASS | A = %3d, B = %3d | DUT_Out = %3d, Golden = %3d", 
+                          i, r_a, r_b, w_sub, r_golden_sub);
+            end else begin
+                $display("CASE %0d FAIL", i);
+                $fdisplay(f_report, "CASE %0d FAIL | A = %3d, B = %3d | DUT_Out = %3d, Golden = %3d", 
+                          i, r_a, r_b, w_sub, r_golden_sub);
+            end
+        end
+        
+        // 5. Simulation Cleanup
+        $display("End Simulation");
+        $fdisplay(f_report, "==================================================");
+        $fdisplay(f_report, "               END OF SIMULATION REPORT           ");
+        $fdisplay(f_report, "==================================================");
+        
+        $fclose(f_report);
+        $finish;
+    end
+
+endmodule
+\end{lstlisting}
+
+\newpage
+
+\section{Bài 7: Binary Decision Diagram (BDD) (1.0 điểm)}
+
+Cho hàm logic:
+$$f = a'bcd' + abc'd'$$
+
+\subsection{a) Rút gọn biểu thức}
+Ta thực hiện rút gọn đại số Bool trước khi vẽ BDD:
+$$f = b \cdot d' \cdot (a' \cdot c + a \cdot c')$$
+
+Nhận xét thấy $(a' \cdot c + a \cdot c')$ chính là phép toán XOR giữa $a$ và $c$ ($a \oplus c$). Do đó:
+$$f = b \cdot d' \cdot (a \oplus c)$$
+
+Để tối ưu kích thước của Binary Decision Diagram và biến đổi nó thành \textbf{ROBDD} (Reduced Ordered BDD), ta phân tích theo hai thứ tự biến quyết định:
+
+\subsection{b) Bản vẽ ROBDD tối ưu theo thứ tự biến ($b \rightarrow d \rightarrow a \rightarrow c$)}
+Với thứ tự này, ta có thể nhanh chóng cắt tỉa (pruning) các nhánh có $b=0$ hoặc $d=1$ để đưa về nút lá $0$ mà không cần kiểm tra các biến khác, giúp tối ưu diện tích lưu trữ và tốc độ xử lý của thuật toán tổng hợp logic.
+
+Quy ước vẽ:
+\begin{itemize}
+    \item \textbf{Đường nét đứt (- - -)}: Nhánh quyết định nhận giá trị $0$.
+    \item \textbf{Đường nét liền (---)}: Nhánh quyết định nhận giá trị $1$.
+\end{itemize}
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[
+    scale=0.9,
+    node/.style={circle, draw, minimum size=8mm, thick},
+    leaf/.style={rectangle, draw, minimum size=6mm, thick, fill=gray!15}
+]
+    % Nodes setup
+    \node[node] (b) at (0, 6) {$b$};
+    \node[node] (d) at (2, 4) {$d$};
+    \node[node] (a) at (2, 2) {$a$};
+    \node[node] (c) at (2, 0) {$c$};
+    
+    \node[leaf] (L0) at (-3, 1) {$0$};
+    \node[leaf] (L1) at (5, 1) {$1$};
+    
+    % Edges from 'b'
+    \draw[dashed, ->, thick] (b) .. controls (-2.5, 4.5) .. (L0);
+    \draw[->, thick] (b) -- (d);
+    
+    % Edges from 'd'
+    \draw[->, thick] (d) -- (a);
+    \draw[dashed, ->, thick] (d) -- (L0);
+    
+    % Edges from 'a'
+    \draw[dashed, ->, thick] (a) -- (c); % a = 0 -> go to c to check
+    % If a = 1, we check c but the condition is inverted (c=0 -> 1, c=1 -> 0)
+    \node[node] (c_inv) at (4.5, 0) {$c'$};
+    \draw[->, thick] (a) -- (c_inv);
+    
+    % Edges from 'c' (Non-inverted path: Y = a^c)
+    \draw[dashed, ->, thick] (c) -- (L0);
+    \draw[->, thick] (c) -- (L1);
+    
+    % Edges from 'c_inv' (Inverted path: Y = a^c')
+    \draw[dashed, ->, thick] (c_inv) -- (L1);
+    \draw[->, thick] (c_inv) -- (L0);
+
+\end{tikzpicture}
+\caption{Reduced Ordered BDD tối ưu hóa cho hàm $f = b \cdot d' \cdot (a \oplus c)$}
+\end{figure}
+
+\newpage
+
+\section{Bài 8: Tối ưu hóa thiết kế phần cứng Datapath (1.0 điểm)}
+
+\subsection{a) Tối ưu hóa sơ đồ tính toán số học Datapath}
+
+\subsubsection{1. Common Subexpression Elimination (CSE - Loại bỏ biểu thức chung):}
+*   \textbf{Ban đầu}: Ta có 2 phương trình logic song song:
+    $$F1 = (X0 \times X1) + (X2 \times X3)$$
+    $$F2 = (X2 \times X3) - (X4 \times X5)$$
+    Thiết kế ban đầu cần \textbf{3 bộ nhân (Mul)}, \textbf{1 bộ cộng (Add)} và \textbf{1 bộ trừ (Sub)}.
+*   \textbf{Tối ưu hóa}: 
+    Ta nhận diện biểu thức chung $T = X2 \times X3$. Chúng ta thực hiện tính toán giá trị trung gian $T$ trước bằng một bộ nhân duy nhất, sau đó định tuyến kết quả của bộ nhân này đến cả bộ cộng và bộ trừ:
+    $$F1 = (X0 \times X1) + T$$
+    $$F2 = T - (X4 \times X5)$$
+    $\rightarrow$ Thiết kế lúc này chỉ cần \textbf{2 bộ nhân (Mul)}, tiết kiệm được nguyên 1 bộ nhân lớn (giảm tới 33.3% tài nguyên nhân).
+
+\subsubsection{2. Resource Sharing (Chia sẻ tài nguyên phần cứng):}
+Nếu hệ thống hoạt động đa chu kỳ (multi-cycle scheduling), ta có thể tối ưu hơn nữa bằng cách chia sẻ bộ nhân và bộ ALU thông qua các bộ chọn kênh Multiplexer (MUX):
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.85]
+    % Draw Multiplexers
+    \draw[thick] (-2,2) -- (-1.5,2) -- (-1.5, 0.5) -- (-2, 0.5) -- cycle;
+    \node at (-1.75, 1.25) [rotate=90] {MUX 2:1};
+    \node[left] at (-2, 1.7) {X0};
+    \node[left] at (-2, 0.8) {X4};
+    
+    \draw[thick] (2,2) -- (2.5,2) -- (2.5, 0.5) -- (2, 0.5) -- cycle;
+    \node at (2.25, 1.25) [rotate=90] {MUX 2:1};
+    \node[left] at (2, 1.7) {X1};
+    \node[left] at (2, 0.8) {X5};
+    
+    % Draw Multipliers
+    \draw[thick, fill=gray!10] (-0.25, 1.5) rectangle (1.25, 0.5);
+    \node at (0.5, 1) {Multiplier 1};
+    
+    \draw[thick, fill=gray!10] (-0.25, -1) rectangle (1.25, -2);
+    \node at (0.5, -1.5) {Multiplier 2};
+    \node[left] at (-0.25, -1.25) {X2};
+    \node[left] at (-0.25, -1.75) {X3};
+    
+    % Output Connections to registers and ALU
+    \draw[->, thick] (-1.5, 1.25) -- (-0.25, 1.2);
+    \draw[->, thick] (2, 1.25) -- (1.25, 1.2);
+    
+\end{tikzpicture}
+\caption{Sơ đồ chia sẻ tài nguyên phần cứng tối ưu sử dụng MUX}
+\end{figure}
+
+\subsection{b) Tối ưu hóa sơ đồ cổng logic tổ hợp (Combinational Logic Optimization)}
+*   \textbf{Ban đầu}: Sơ đồ logic nguyên bản có cấu trúc:
+    $$F1 = \overline{A \cdot B} + \overline{C + D}$$
+    $$F2 = \overline{A + B} + \overline{C \cdot D}$$
+    Thiết kế nguyên bản sử dụng: 2 cổng NAND2, 2 cổng NOR2, 2 cổng OR2.
+    Tính toán số lượng transistor ở cấp độ vật lý:
+    \begin{itemize}
+        \item 2 cổng NAND2: $2 \times 4 = 8$ transistors.
+        \item 2 cổng NOR2: $2 \times 4 = 8$ transistors.
+        \item 2 cổng OR2 (gồm NOR2 + INVERTER): $2 \times (4 + 2) = 12$ transistors.
+        \item $\Rightarrow$ \textbf{Tổng cộng} = $8 + 8 + 12 = 28$ transistors.
+    \end{itemize}
+*   \textbf{Tối ưu hóa logic sâu (Deep Logic Optimization)}:
+    Áp dụng định lý De Morgan:
+    $$F1 = \overline{A \cdot B} + \overline{C + D} = \overline{ (A \cdot B) \cdot (C + D) }$$
+    $$F2 = \overline{A + B} + \overline{C \cdot D} = \overline{ (A + B) \cdot (C \cdot D) }$$
+    
+    Thay vì sử dụng các cổng logic riêng lẻ rời rạc như thiết kế cũ, ta sử dụng các \textbf{cổng logic phức tạp (Complex Gates / Standard Cells)} tích hợp sẵn của thư viện ASIC:
+    \begin{itemize}
+        \item $F1$ tương đương hoàn toàn với 1 cổng logic phức tạp \textbf{AOI22} (AND-OR-INVERT). Mạng NMOS (PDN) gồm (A nối tiếp B) song song với (C nối tiếp D) $\rightarrow$ tốn 8 transistors.
+        \item $F2$ tương đương hoàn toàn với 1 cổng logic phức tạp \textbf{OAI22} (OR-AND-INVERT). Mạng PMOS và NMOS đấu đối ngẫu tương đương $\rightarrow$ tốn 8 transistors.
+    \end{itemize}
+    
+    $$\text{Tổng số transistor của thiết kế tối ưu } = 8 \text{ (F1)} + 8 \text{ (F2)} = 16 \text{ transistors}$$
+    
+    \textbf{Đánh giá kết quả tối ưu}:
+    \begin{enumerate}
+        \item \textbf{Diện tích Silic}: Tiết kiệm tới $\frac{28 - 16}{28} \times 100\% = \mathbf{42.8\%}$ diện tích cell.
+        \item \textbf{Hiệu năng (Delay)}: Giảm độ trễ đường truyền từ 2 tầng cổng logic thô xuống chỉ còn 1 tầng cổng logic phức tạp duy nhất, giảm điện dung ký sinh tại các nút trung gian, nâng cao đáng kể tần số hoạt động cực đại của ASIC.
+    \end{enumerate}
+
+\end{document}

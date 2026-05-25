@@ -20,23 +20,37 @@ jobs:
           echo "Triggered on $GITHUB_REF@${GITHUB_SHA}"
           ls -la || true
 
-      - name: Compile LaTeX (XeLaTeX)
+      - name: Compile I2C Report LaTeX (XeLaTeX)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
 
-      - name: Publish PDF
+      - name: Compile Exam Solution LaTeX (XeLaTeX)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: _final_exam_2012_solution.tex
+          latexmk_use_xelatex: true
+          latexmk_shell_escape: true
+
+      - name: Publish PDFs
         run: |
           cp main.pdf EE5303_I2C_BaoCao.pdf
-          ls -la main.pdf EE5303_I2C_BaoCao.pdf
+          cp _final_exam_2012_solution.pdf EE5303_DapAn_FinalExam2012.pdf
+          ls -la main.pdf EE5303_I2C_BaoCao.pdf _final_exam_2012_solution.pdf EE5303_DapAn_FinalExam2012.pdf
 
-      - name: Upload artifact (PDF)
+      - name: Upload I2C Report artifact (PDF)
         uses: actions/upload-artifact@v4
         with:
           name: ee5303-i2c-baocao-pdf
           path: EE5303_I2C_BaoCao.pdf
+
+      - name: Upload Exam Solution artifact (PDF)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ee5303-final-exam-2012-solution-pdf
+          path: EE5303_DapAn_FinalExam2012.pdf
 
       - name: Upload logs (always)
         if: always()
@@ -47,6 +61,9 @@ jobs:
             main.log
             main.aux
             main.toc
+            _final_exam_2012_solution.log
+            _final_exam_2012_solution.aux
+            _final_exam_2012_solution.toc
 
   release:
     if: github.event_name == 'push'
@@ -107,16 +124,24 @@ jobs:
           echo "=== Total lines in changelog ==="
           wc -l release_notes.md || echo "0"
 
-      - name: Download artifact
+      - name: Download I2C Report artifact
         uses: actions/download-artifact@v4
         with:
           name: ee5303-i2c-baocao-pdf
+          path: dist
+
+      - name: Download Exam Solution artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ee5303-final-exam-2012-solution-pdf
           path: dist
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
-          name: EE5303 I2C Master Controller — Báo cáo (Build ${{ github.run_number }})
+          name: EE5303 ASIC & IP Core Design — Documents (Build ${{ github.run_number }})
           body_path: release_notes.md
-          files: dist/EE5303_I2C_BaoCao.pdf
+          files: |
+            dist/EE5303_I2C_BaoCao.pdf
+            dist/EE5303_DapAn_FinalExam2012.pdf
