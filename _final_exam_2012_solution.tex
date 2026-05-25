@@ -493,11 +493,11 @@ Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với ngu
     
     % PMOS Network (PUN)
     % Branch 1: A and B in series
-    \draw (-2, 5) to[pmos, l=$A$] (-2, 3.5)
-                  to[pmos, l=$B$] (-2, 2.0);
+    \draw (-2, 5) to[pmos] (-2, 3.5) node[left] at (-2, 4.25) {$A$}
+                  to[pmos] (-2, 2.0) node[left] at (-2, 2.75) {$B$};
     % Branch 2: C and D in series
-    \draw (2, 5) to[pmos, l=$C$] (2, 3.5)
-                 to[pmos, l=$D$] (2, 2.0);
+    \draw (2, 5) to[pmos] (2, 3.5) node[right] at (2, 4.25) {$C$}
+                 to[pmos] (2, 2.0) node[right] at (2, 2.75) {$D$};
     
     % Connections for parallel branches
     \draw (-2, 5) -- (2, 5);
@@ -509,8 +509,8 @@ Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với ngu
     
     % NMOS Network (PDN)
     % Stage 1: A parallel B
-    \draw (-1.5, 1.5) to[nmos, l=$A$] (-1.5, 0.2);
-    \draw (1.5, 1.5) to[nmos, l=$B$] (1.5, 0.2);
+    \draw (-1.5, 1.5) to[nmos] (-1.5, 0.2) node[left] at (-1.5, 0.85) {$A$};
+    \draw (1.5, 1.5) to[nmos] (1.5, 0.2) node[right] at (1.5, 0.85) {$B$};
     \draw (-1.5, 1.5) -- (1.5, 1.5);
     \draw (-1.5, 0.2) -- (1.5, 0.2);
     
@@ -518,8 +518,8 @@ Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với ngu
     \draw (0, 2) -- (0, 1.5);
     
     % Stage 2: C parallel D
-    \draw (-1.5, -0.2) to[nmos, l=$C$] (-1.5, -1.5);
-    \draw (1.5, -0.2) to[nmos, l=$D$] (1.5, -1.5);
+    \draw (-1.5, -0.2) to[nmos] (-1.5, -1.5) node[left] at (-1.5, -0.85) {$C$};
+    \draw (1.5, -0.2) to[nmos] (1.5, -1.5) node[right] at (1.5, -0.85) {$D$};
     \draw (-1.5, -0.2) -- (1.5, -0.2);
     \draw (-1.5, -1.5) -- (1.5, -1.5);
     
@@ -545,11 +545,11 @@ Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với ngu
     
     % PMOS Network (PUN)
     % Left Branch: PMOS A
-    \draw (-2.5, 4.5) to[pmos, l=$A$] (-2.5, 2.5);
+    \draw (-2.5, 4.5) to[pmos] (-2.5, 2.5) node[left] at (-2.5, 3.5) {$A$};
     
     % Right Branch: (B parallel C) in series with D
-    \draw (0, 5) to[pmos, l=$B$] (0, 3.8);
-    \draw (2, 5) to[pmos, l=$C$] (2, 3.8);
+    \draw (0, 5) to[pmos] (0, 3.8) node[left] at (0, 4.4) {$B$};
+    \draw (2, 5) to[pmos] (2, 3.8) node[right] at (2, 4.4) {$C$};
     \draw (0, 5) -- (2, 5);
     \draw (0, 3.8) -- (2, 3.8);
     \draw (1, 5) -- (1, 5.5);
@@ -565,12 +565,12 @@ Mạch CMOS luôn bao gồm mạng kéo lên PUN (PMOS) hoạt động với ngu
     % NMOS Network (PDN)
     % Stage 1: A in series with the rest
     \draw (-0.5, 2.0) -- (-0.5, 1.6);
-    \draw (-0.5, 1.6) to[nmos, l=$A$] (-0.5, 0.4);
+    \draw (-0.5, 1.6) to[nmos] (-0.5, 0.4) node[left] at (-0.5, 1.0) {$A$};
     
     % Stage 2: (B series C) parallel D
-    \draw (-2, -0.2) to[nmos, l=$B$] (-2, -1.4)
-                     to[nmos, l=$C$] (-2, -2.6);
-    \draw (1, -0.2) to[nmos, l=$D$] (1, -2.6);
+    \draw (-2, -0.2) to[nmos] (-2, -1.4) node[left] at (-2, -0.8) {$B$}
+                     to[nmos] (-2, -2.6) node[left] at (-2, -2.0) {$C$};
+    \draw (1, -0.2) to[nmos] (1, -2.6) node[right] at (1, -1.4) {$D$};
     
     \draw (-2, -0.2) -- (1, -0.2);
     \draw (-2, -2.6) -- (1, -2.6);
