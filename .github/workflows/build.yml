@@ -27,11 +27,11 @@ jobs:
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
 
-      - name: Compile Exam Solution LaTeX (XeLaTeX)
+      - name: Compile Exam Solution LaTeX (PdfLaTeX)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: _final_exam_2012_solution.tex
-          latexmk_use_xelatex: true
+          latexmk_use_pdf: true
           latexmk_shell_escape: true
 
       - name: Publish PDFs
