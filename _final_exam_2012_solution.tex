@@ -318,21 +318,21 @@ set_max_transition 1.0 [current_design]
 \textbf{b) Script biên dịch (Top-down strategy)}
 
 \begin{lstlisting}[style=tclstyle]
-# Đọc thiết kế Top
+# Doc thiet ke Top
 analyze -format verilog {Top_system.v FFT.v Filter_bank1.v Filter_bank2.v Alpha.v Beta.v Rate.v}
 elaborate Top_system
 current_design Top_system
 
-# Áp dụng constraints
+# Ap dung constraints
 source my_constraints.tcl
 
-# Thực hiện Ungroup cho hai khối chỉ định
+# Thuc hien Ungroup cho hai khoi chi dinh
 set_ungroup [get_cells filter_bank1_inst] true
 set_ungroup [get_cells filter_bank2_inst] true
 
 # Compile high effort
 compile_ultra
-# Hoặc lệnh compile truyền thống:
+# Hoac lenh compile truyen thong:
 # compile -map_effort high -area_effort high
 \end{lstlisting}
 
@@ -353,14 +353,14 @@ Viết testbench cho unsigned 8-bit Subtractor. Yêu cầu:\\
 `timescale 1ns / 1ps
 
 module tb_subtractor_8bit;
-    // Tín hiệu kích thích
+    // Tin hieu kich thich
     reg  [7:0] A;
     reg  [7:0] B;
     wire [7:0] Diff;
-    wire       Borrow; // Giả sử subtractor có cờ mượn (A < B)
+    wire       Borrow; // Gia su subtractor co co muon (A < B)
 
-    // Khởi tạo module cần test
-    // Giả sử: module subtractor_8bit(input [7:0] A, B, output [7:0] Diff, output Borrow);
+    // Khoi tao module can test
+    // Gia su: module subtractor_8bit(input [7:0] A, B, output [7:0] Diff, output Borrow);
     subtractor_8bit UUT (
         .A(A),
         .B(B),
@@ -368,33 +368,33 @@ module tb_subtractor_8bit;
         .Borrow(Borrow)
     );
 
-    // Biến cho vòng lặp và kết quả mẫu (golden response)
+    // Bien cho vong lap va ket qua mau (golden response)
     integer i;
-    reg [8:0] expected_val; // Chứa cả diff (8 bit) và borrow (bit 8)
+    reg [8:0] expected_val; // Chua ca diff (8 bit) va borrow (bit 8)
     integer file_id;        // File handler
 
     initial begin
-        // Mở file để ghi báo cáo
+        // Mo file de ghi bao cao
         file_id = $fopen("sim_report.log", "w");
         
         $display("Start Simulation");
         $fdisplay(file_id, "Start Simulation");
 
         for (i = 1; i <= 10; i = i + 1) begin
-            // Tạo giá trị ngẫu nhiên cho A và B
+            // Tao gia tri ngau nhien cho A va B
             A = $random % 256;
             B = $random % 256;
             
-            #10; // Đợi mạch phân giải giá trị
+            #10; // Doi mach phan giai gia tri
             
-            // Tính toán Golden Response
+            // Tinh toan Golden Response
             if (A >= B) begin
                 expected_val = {1'b0, A - B};
             end else begin
-                expected_val = {1'b1, (8'hFF - B + 1'b1) + A}; // Tính bù 2
+                expected_val = {1'b1, (8'hFF - B + 1'b1) + A}; // Tinh bu 2
             end
             
-            // So sánh và xuất kết quả
+            // So sanh va xuat ket qua
             if ({Borrow, Diff} == expected_val) begin
                 $display("CASE %0d PASS: A=%d, B=%d, Diff=%d, Borrow=%b", i, A, B, Diff, Borrow);
                 $fdisplay(file_id, "CASE %0d PASS: A=%d, B=%d, Diff=%d, Borrow=%b", i, A, B, Diff, Borrow);
