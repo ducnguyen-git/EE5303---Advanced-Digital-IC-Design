@@ -4,4 +4,4 @@ Báo cáo môn **Advanced Digital IC Design (EE5303)**: thiết kế **I2C Maste
 <img src="figures/i2c_from_docx/top_module_block_diagram.png" alt="Logo">
 
 ## I2C Functional Block Diagram
-<img src="figures/i2c_from_docx/functional_block_diagram.png" alt="Logo">
+<img src="figures/i2c_from_docx/functional_block_diagram.png" alt="Logo" align="center">
