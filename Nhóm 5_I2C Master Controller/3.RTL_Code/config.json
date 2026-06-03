@@ -1,0 +1,6 @@
+{
+  "DESIGN_NAME": "i2c_master_controller_top",
+  "VERILOG_FILES": ["dir::source/verilog/*.v"],
+  "CLOCK_PERIOD": 32,
+  "CLOCK_PORT": "i_clk"
+}
